@@ -1,0 +1,13 @@
+[alias]
+	l = log --oneline
+	s = status
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = ~/.gitignore.global
+[commit]
+	gpgsign = true
+[user]
+	name = Kirill Vakalov
+	email = 102545999+kirillvakalov@users.noreply.github.com
+	signingkey = 7E0165C9FD2578F3
