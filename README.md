@@ -13,7 +13,7 @@
       1. `gpg --list-secret-keys --keyid-format=long`
       2. `gpg --list-keys --keyid-format=long`
 
-2. Install [Homebrew](https://brew.sh/)
+2. Install Homebrew `./install-homebrew.sh`
 3. Setup **GitHub CLI**
    1. `brew install gh`
    2. `gh auth login`
