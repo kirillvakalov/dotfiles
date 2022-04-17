@@ -1,3 +1,7 @@
+[user]
+	name = Kirill Vakalov
+	email = 102545999+kirillvakalov@users.noreply.github.com
+	signingkey = 7E0165C9FD2578F3
 [alias]
 	l = log --oneline
 	s = status
@@ -7,7 +11,7 @@
 	excludesfile = ~/.gitignore.global
 [commit]
 	gpgsign = true
-[user]
-	name = Kirill Vakalov
-	email = 102545999+kirillvakalov@users.noreply.github.com
-	signingkey = 7E0165C9FD2578F3
+[credential "https://github.com"]
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/local/bin/gh auth git-credential
