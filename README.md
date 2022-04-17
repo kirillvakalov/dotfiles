@@ -1,6 +1,6 @@
-# My dotfiles 🎛
+# My dotfiles 🎛🙈
 
-## Setup on fresh macOS install
+## Setup
 
 1. Import GPG private key
 
@@ -25,3 +25,17 @@
 9. `stow fish`
 10. `stow terminal`
 11. `stow starship`
+
+## Appearance 💅
+
+### Fonts
+
+[Cascadia Code](https://github.com/microsoft/cascadia-code/releases)
+
+### Terminal
+
+[Dracula theme](https://draculatheme.com/terminal)
+
+### Fish
+
+[Dracula theme](https://draculatheme.com/fish). Install with `fish_config theme choose dracula`
