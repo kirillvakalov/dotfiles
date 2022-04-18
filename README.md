@@ -2,7 +2,9 @@
 
 ## Setup
 
-1. Import GPG private key
+1. Install [Homebrew](https://brew.sh)
+2. Install **GnuPG** `brew install gnupg`
+3. Import GPG private key
 
    1. `gpg --import secret.gpg`
    2. `gpg --edit-key 7E0165C9FD2578F3`
@@ -13,18 +15,17 @@
       1. `gpg --list-secret-keys --keyid-format=long`
       2. `gpg --list-keys --keyid-format=long`
 
-2. Install Homebrew `./install-homebrew.sh`
-3. Setup **GitHub CLI**
+4. Setup **GitHub CLI**
    1. `brew install gh`
    2. `gh auth login`
-4. Clone this repo
-5. `brew bundle`
-6. `./set-fish-as-default-shell.sh`
-7. `./install-volta.sh`
-8. `stow git`
-9. `stow fish`
-10. `stow terminal`
-11. `stow starship`
+5. `gh repo clone kirillvakalov/dotfiles`
+6. `brew bundle`
+7. `./set-fish-as-default-shell.sh`
+8. `./install-volta.sh`
+9. `stow git`
+10. `stow fish`
+11. `stow terminal`
+12. `stow starship`
 
 ## Appearance 💅
 
