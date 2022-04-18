@@ -5,6 +5,7 @@ brew "starship"
 brew "bat"
 brew "exa"
 
+cask "rectangle"
 cask "google-chrome"
 cask "visual-studio-code"
 
