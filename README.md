@@ -31,7 +31,7 @@
 
 ### Fonts
 
-[Cascadia Code](https://github.com/microsoft/cascadia-code/releases)
+[Download Cascadia Code](https://github.com/microsoft/cascadia-code/releases)
 
 ### Terminal
 
