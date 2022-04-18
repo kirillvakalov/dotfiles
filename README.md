@@ -35,8 +35,8 @@
 
 ### Terminal
 
-[Dracula theme](https://draculatheme.com/terminal)
+[Download Dracula theme](https://draculatheme.com/terminal)
 
 ### Fish
 
-[Dracula theme](https://draculatheme.com/fish). Install with `fish_config theme choose dracula`
+Run `fish_config` and choose **Dracula** as color scheme.
