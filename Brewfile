@@ -8,5 +8,6 @@ brew "exa"
 cask "rectangle"
 cask "google-chrome"
 cask "visual-studio-code"
+cask "vlc"
 
 mas "Amphetamine", id: 937984704
