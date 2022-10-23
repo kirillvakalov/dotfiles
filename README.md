@@ -21,7 +21,7 @@
 5. `gh repo clone kirillvakalov/dotfiles`
 6. `brew bundle`
 7. `./set-fish-as-default-shell.sh`
-8. `./install-volta.sh`
+8. `./pnpm.sh`
 9. `stow git`
 10. `stow fish`
 11. `stow terminal`
