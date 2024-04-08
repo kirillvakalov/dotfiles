@@ -1,19 +1,21 @@
 [user]
-	name = Kirill Vakalov
-	email = 102545999+kirillvakalov@users.noreply.github.com
-	signingkey = 7E0165C9FD2578F3
-[alias]
-	l = log --oneline
-	s = status
-[init]
-	defaultBranch = main
+        name = Kirill Vakalov
+        email = 102545999+kirillvakalov@users.noreply.github.com
+        signingkey = B1C28846BBAF8146
 [core]
 	excludesfile = ~/.gitignore.global
+[init]
+        defaultBranch = main
 [commit]
-	gpgsign = true
-[credential "https://github.com"]
-	helper = !/usr/local/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !/usr/local/bin/gh auth git-credential
+        gpgsign = true
 [push]
-	autoSetupRemote = true
+        autoSetupRemote = true
+[alias]
+        l = log --oneline
+        s = status
+[credential "https://github.com"]
+        helper =
+        helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+        helper =
+        helper = !/opt/homebrew/bin/gh auth git-credential
