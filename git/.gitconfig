@@ -3,7 +3,7 @@
         email = 102545999+kirillvakalov@users.noreply.github.com
         signingkey = B1C28846BBAF8146
 [core]
-	excludesfile = ~/.gitignore.global
+        excludesfile = ~/.gitignore.global
 [init]
         defaultBranch = main
 [commit]
@@ -13,9 +13,11 @@
 [alias]
         l = log --oneline
         s = status
+[url "git@github.com:"]
+        insteadOf = https://github.com/
 [credential "https://github.com"]
-        helper =
+        helper = 
         helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-        helper =
+        helper = 
         helper = !/opt/homebrew/bin/gh auth git-credential
