@@ -1,13 +1,4 @@
 brew "git"
-brew "fish"
-brew "stow"
-brew "starship"
-brew "bat"
-brew "exa"
+brew "gh"
 
-cask "rectangle"
-cask "google-chrome"
-cask "visual-studio-code"
-cask "vlc"
-
-mas "Amphetamine", id: 937984704
+cask "iterm2"
