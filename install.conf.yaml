@@ -1,0 +1,14 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig:
+    ~/.gitignore.global:
+    ~/.hushlogin:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
