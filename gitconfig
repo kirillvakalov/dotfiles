@@ -10,6 +10,8 @@
         gpgsign = true
 [push]
         autoSetupRemote = true
+[pull]
+        rebase = true
 [alias]
         l = log --oneline
         s = status
