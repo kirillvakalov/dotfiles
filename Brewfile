@@ -4,5 +4,6 @@ brew "gnupg"
 brew "starship"
 brew "lazygit"
 brew "helix"
+brew "jq"
 
 cask "iterm2"
