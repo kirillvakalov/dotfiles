@@ -11,6 +11,7 @@
     ~/.hushlogin:
     ~/.zprofile:
       force: true
+    ~/.zshrc:
     ~/.config/starship.toml: starship.toml
 
 - shell:
