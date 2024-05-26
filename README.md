@@ -17,7 +17,7 @@ EOF
 ssh-add ~/.ssh/id_ed25519
 ```
 
-2. Copy .gitconfig and .gitignore.global to home directory
+2. Copy gitconfig and gitignore.global to home directory as .gitconfig and .gitignore.global
 3. Install [Homebrew](https://brew.sh)
 4. Install **GnuPG** and import GPG keys
 
@@ -32,4 +32,6 @@ ssh-add ~/.ssh/id_ed25519
 5. `brew install git gh`
 6. `gh auth login` (select SSH for 'What is your preferred protocol for Git operations on this host?')
 7. `gh repo clone kirillvakalov/dotfiles`
-8. `cd dotfiles && brew bundle`
+8. `cd dotfiles`
+9. `brew bundle`
+10. `./install`
