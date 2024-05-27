@@ -13,6 +13,9 @@
       force: true
     ~/.zshrc:
     ~/.config/starship.toml: starship.toml
+    ~/.config/atuin/config.toml:
+      force: true
+      path: atuin.toml
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
