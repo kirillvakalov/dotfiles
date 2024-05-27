@@ -1,3 +1,6 @@
+# fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
+source <(fzf --zsh)
+
 # Starship prompt (https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship)
 eval "$(starship init zsh)"
 

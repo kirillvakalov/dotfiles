@@ -1,11 +1,13 @@
 brew "git"
 brew "gh"
 brew "gnupg"
+brew "fzf"
 brew "jq"
 brew "starship"
 brew "atuin"
 brew "lazygit"
 brew "helix"
+brew "kubectl"
 
 cask "iterm2"
 cask "postico"
