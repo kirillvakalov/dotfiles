@@ -7,3 +7,4 @@ brew "helix"
 brew "jq"
 
 cask "iterm2"
+cask "postico"
