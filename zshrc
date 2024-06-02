@@ -48,7 +48,5 @@ source <(fzf --zsh)
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
 
-# Allow local customizations in the ~/.zshrc_local file
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
+# PATH
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
