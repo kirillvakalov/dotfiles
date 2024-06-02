@@ -1,3 +1,6 @@
+# Turn off autocomplete beep (to turn off all beeps use: unsetopt beep)
+unsetopt list_beep
+
 # fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
 source <(fzf --zsh)
 
