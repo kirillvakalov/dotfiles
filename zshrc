@@ -1,6 +1,15 @@
 # Turn off autocomplete beep (to turn off all beeps use: unsetopt beep)
 unsetopt list_beep
 
+# brew shell completion (https://docs.brew.sh/Shell-Completion)
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
 source <(fzf --zsh)
 
