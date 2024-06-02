@@ -49,7 +49,7 @@ source <(fzf --zsh)
 eval "$(atuin init zsh)"
 
 # Node.js version manager (https://github.com/Schniz/fnm?tab=readme-ov-file#zsh)
-eval "$(fnm env --corepack-enabled)"
+eval "$(fnm env --use-on-cd --log-level=quiet --corepack-enabled)"
 
 # PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
