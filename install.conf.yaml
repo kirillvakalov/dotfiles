@@ -19,6 +19,6 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - [./krew.sh, Installing Krew]
-  - [./cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
+  - [./scripts/krew.sh, Installing Krew]
+  - [./scripts/cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
   - [corepack enable, Enable corepack]
