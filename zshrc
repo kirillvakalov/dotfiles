@@ -50,4 +50,5 @@ eval "$(atuin init zsh)"
 
 # PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

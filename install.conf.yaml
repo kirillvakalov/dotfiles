@@ -19,3 +19,4 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [./krew.sh, Installing Krew]
+  - [corepack enable, Enable corepack]

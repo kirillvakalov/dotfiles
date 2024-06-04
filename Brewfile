@@ -7,6 +7,7 @@ brew "atuin"
 brew "lazygit"
 brew "helix"
 brew "kubernetes-cli"
+brew "node@20"
 
 cask "iterm2"
 cask "postico"
