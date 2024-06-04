@@ -6,7 +6,7 @@ brew "jq"
 brew "atuin"
 brew "lazygit"
 brew "helix"
-brew "kubectl"
+brew "kubernetes-cli"
 
 cask "iterm2"
 cask "postico"
