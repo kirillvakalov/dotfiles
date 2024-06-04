@@ -48,8 +48,5 @@ source <(fzf --zsh)
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
 
-# Node.js version manager (https://github.com/Schniz/fnm?tab=readme-ov-file#zsh)
-eval "$(fnm env --use-on-cd --log-level=quiet --corepack-enabled)"
-
 # PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
