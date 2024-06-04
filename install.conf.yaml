@@ -12,9 +12,10 @@
     ~/.zprofile:
       force: true
     ~/.zshrc:
-    ~/.config/atuin/config.toml:
+    ~/.config/:
+      glob: true
       force: true
-      path: atuin.toml
+      path: config/**
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
