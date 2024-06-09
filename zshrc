@@ -38,6 +38,8 @@ export FZF_DEFAULT_OPTS="--ansi"
 # fzf-tab needs to be loaded before autosuggestions (ref: https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#install)
 source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
 
 # Syntax highlighting plugin must be loaded before autosuggestions
 # (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
