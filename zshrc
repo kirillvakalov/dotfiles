@@ -44,6 +44,9 @@ prompt pure
 
 # fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
 source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
 
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
