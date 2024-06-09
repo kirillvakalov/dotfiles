@@ -48,6 +48,9 @@ source <(fzf --zsh)
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
 
+# zoxide (https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
+eval "$(zoxide init zsh)"
+
 # PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
