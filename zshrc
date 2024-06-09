@@ -11,13 +11,16 @@ then
 fi
 
 # Plugins
-if [[ ! -e ~/.zsh/zsh-syntax-highlighting ]]; then
+if [[ ! -d ~/.zsh/fzf-tab ]]; then
+  git clone --depth 1 https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
+fi
+if [[ ! -d ~/.zsh/zsh-syntax-highlighting ]]; then
   git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 fi
-if [[ ! -e ~/.zsh/zsh-autosuggestions ]]; then
+if [[ ! -d ~/.zsh/zsh-autosuggestions ]]; then
   git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 fi
-if [[ ! -e ~/.zsh/pure ]]; then
+if [[ ! -d ~/.zsh/pure ]]; then
   git clone --depth 1 https://github.com/sindresorhus/pure ~/.zsh/pure
 fi
 
@@ -25,8 +28,19 @@ function zsh-update-plugins() {
   rm -rf ~/.zsh && exec zsh
 }
 
+# fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
+source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
+
+# Use fzf for zsh completion selection menu
+# fzf-tab needs to be loaded before autosuggestions (ref: https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#install)
+source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':completion:*' menu no
+
 # Syntax highlighting plugin must be loaded before autosuggestions
-# Reference: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme
+# (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
 # Syntax highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -41,12 +55,6 @@ fpath+=(~/.zsh/pure)
 autoload -U promptinit; promptinit
 zstyle :prompt:pure:git:stash show yes
 prompt pure
-
-# fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
-source <(fzf --zsh)
-export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi"
 
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
