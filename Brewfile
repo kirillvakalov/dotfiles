@@ -11,6 +11,7 @@ brew "atuin"
 brew "lazygit"
 brew "helix"
 brew "kubernetes-cli"
+brew "btop"
 brew "libpq"
 brew "node@20"
 
