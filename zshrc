@@ -23,8 +23,8 @@ fi
 if [[ ! -d ~/.zsh/zsh-autosuggestions ]]; then
   git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 fi
-if [[ ! -d ~/.zsh/pure ]]; then
-  git clone --depth 1 https://github.com/sindresorhus/pure ~/.zsh/pure
+if [[ ! -d ~/.zsh/powerlevel10k ]]; then
+  git clone --depth 1 https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
 fi
 
 function zsh-update-plugins() {
@@ -55,11 +55,10 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Shift+Tab - Accepts the current suggestion
 bindkey '^[[Z' autosuggest-accept
 
-# Prompt (https://github.com/sindresorhus/pure?tab=readme-ov-file#example)
-fpath+=(~/.zsh/pure)
-autoload -U promptinit; promptinit
-zstyle :prompt:pure:git:stash show yes
-prompt pure
+# Powerlevel 10k
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
