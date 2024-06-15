@@ -1,6 +1,7 @@
 brew "git"
 brew "gh"
 brew "gnupg"
+brew "tmux"
 brew "fzf"
 brew "fd"
 brew "ripgrep"

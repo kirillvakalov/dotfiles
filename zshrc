@@ -1,6 +1,9 @@
 # Turn off autocomplete beep (to turn off all beeps use: unsetopt beep)
 unsetopt list_beep
 
+# Standard style used by default for 'list-colors' (https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L47)
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
+
 # brew shell completion (https://docs.brew.sh/Shell-Completion)
 if type brew &>/dev/null
 then
@@ -37,9 +40,9 @@ export FZF_DEFAULT_OPTS="--ansi"
 # Use fzf for zsh completion selection menu
 # fzf-tab needs to be loaded before autosuggestions (ref: https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#install)
 source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # Syntax highlighting plugin must be loaded before autosuggestions
 # (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
