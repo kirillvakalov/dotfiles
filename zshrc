@@ -52,8 +52,10 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# Shift+Tab - Accepts the current suggestion
-bindkey '^[[Z' autosuggest-accept
+# Quickly press Tab+Tab to accept the current suggestion
+# https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+export KEYTIMEOUT=20
+bindkey '\t\t' autosuggest-accept
 
 # Powerlevel 10k
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
