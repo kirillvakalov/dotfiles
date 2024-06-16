@@ -37,12 +37,23 @@ export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --co
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
 
+#
+# Completions
+#
+
 # Use fzf for zsh completion selection menu
 # fzf-tab needs to be loaded before autosuggestions (ref: https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#install)
 source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+# Case-insensitive (all), partial-word, and then substring completion (https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L87-L88)
+zstyle ':completion:' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:upper:]}={[:lower:]}' 'r:|[._-]= r:|=' 'l:|= r:|=*'
+unsetopt CASE_GLOB
+
+# Show hidden files and folders on completion (https://unix.stackexchange.com/a/308322)
+_comp_options+=(globdots)
 
 # Syntax highlighting plugin must be loaded before autosuggestions
 # (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
