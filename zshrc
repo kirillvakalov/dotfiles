@@ -17,8 +17,9 @@ function zsh-update-plugins() {
 }
 
 
-# Turn off autocomplete beep (to turn off all beeps use: unsetopt beep)
-unsetopt list_beep
+# Turn off all beeps (https://blog.vghaisas.com/zsh-beep-sound/),
+# also (https://github.com/junegunn/fzf/issues/3864#issuecomment-2168457090)
+unsetopt BEEP
 
 # Quote pasted URLs automatically (https://github.com/zsh-users/zsh/blob/master/Functions/Zle/bracketed-paste-url-magic)
 autoload -Uz bracketed-paste-url-magic
