@@ -1,6 +1,10 @@
 # Turn off autocomplete beep (to turn off all beeps use: unsetopt beep)
 unsetopt list_beep
 
+# Quote pasted URLs automatically (https://github.com/zsh-users/zsh/blob/master/Functions/Zle/bracketed-paste-url-magic)
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
 # Standard style used by default for 'list-colors' (https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L47)
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
 
