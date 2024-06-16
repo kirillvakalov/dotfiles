@@ -90,6 +90,11 @@ eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 
 
+# Bat (https://github.com/sharkdp/bat)
+export BAT_THEME="Dracula"
+alias cat="bat --plain"
+
+
 # PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
