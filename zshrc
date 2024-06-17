@@ -66,6 +66,8 @@ _comp_options+=(globdots)
 # Syntax highlighting plugin must be loaded before autosuggestions
 # (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md#highlighter-independent-settings
+ZSH_HIGHLIGHT_MAXLENGTH=512
 
 
 # Autosuggestions
