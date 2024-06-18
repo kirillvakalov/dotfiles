@@ -12,6 +12,7 @@
     ~/.zprofile:
       force: true
     ~/.zshrc:
+    ~/.tmux.conf:
     ~/.config/:
       glob: true
       force: true
