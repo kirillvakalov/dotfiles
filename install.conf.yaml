@@ -19,7 +19,12 @@
       path: config/**
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [./scripts/krew.sh, Installing Krew]
-  - [./scripts/cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
-  - [corepack enable, Enable corepack]
+    - [git submodule update --init --recursive, Installing submodules]
+    - [./scripts/krew.sh, Installing Krew]
+    - [./scripts/cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
+    - [corepack enable, Enable corepack]
+    # Language servers and formatters for Helix
+    - [npm i -g typescript-language-server]
+    - [npm i -g vscode-langservers-extracted]
+    - [npm i -g @biomejs/biome]
+    - [npm i -g prettier]

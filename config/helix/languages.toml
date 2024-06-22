@@ -1,0 +1,48 @@
+[language-server]
+biome = { command = "biome", args = [ "lsp-proxy" ] }
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = [ "check", "--write", "--linter-enabled", "false", "--stdin-file-path", "file.js" ] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = [ "check", "--write", "--linter-enabled", "false", "--stdin-file-path", "file.ts" ] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = [ "check", "--write", "--linter-enabled", "false", "--stdin-file-path", "file.jsx" ] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = [ "check", "--write", "--linter-enabled", "false", "--stdin-file-path", "file.tsx" ] }
+auto-format = true
+
+[[language]]
+name = "json"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = [ "check", "--write", "--linter-enabled", "false", "--stdin-file-path", "file.json" ] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = [ "check", "--write", "--linter-enabled", "false", "--stdin-file-path", "file.jsonc" ] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = "prettier", args = [ "--single-quote", "--parser", "markdown" ] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier", args = [ "--single-quote", "--parser", "yaml" ] }
+auto-format = true
