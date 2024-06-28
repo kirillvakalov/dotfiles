@@ -117,3 +117,15 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/cloud-sql-proxy:$PATH"
+
+
+# Vi Mode
+bindkey -v
+
+# 10ms delay for key sequences
+export KEYTIMEOUT=1
+
+# Bind 'v' in Vi NORMAL mode to edit command in $EDITOR
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
