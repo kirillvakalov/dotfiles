@@ -109,14 +109,11 @@ eval "$(zoxide init zsh)"
 
 # Bat (https://github.com/sharkdp/bat)
 export BAT_THEME="Dracula"
+
+
+# Aliases
 alias cat="bat --plain"
-
-
-# PATH
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="$HOME/cloud-sql-proxy:$PATH"
+alias ls="eza"
 
 
 # Vi Mode
@@ -129,3 +126,10 @@ export KEYTIMEOUT=1
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+
+# PATH
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/cloud-sql-proxy:$PATH"
