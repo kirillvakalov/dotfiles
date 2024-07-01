@@ -4,6 +4,7 @@ if [ ! -v TMUX ]; then
   exec tmux new-session -A -s workspace
 fi
 
+export TERM="screen-256color"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -109,6 +110,10 @@ eval "$(zoxide init zsh)"
 
 # Bat (https://github.com/sharkdp/bat)
 export BAT_THEME="Dracula"
+
+
+# Lazygit
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 
 
 # Aliases
