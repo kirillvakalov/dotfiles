@@ -8,6 +8,7 @@ Selection -> Applications in terminal may access clipboard
 ## Appearance
 
 General -> Theme -> Minimal
+Windows -> Uncheck 'Show window number in title bar'
 
 ## Profiles (Default)
 
