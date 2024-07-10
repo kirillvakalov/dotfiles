@@ -13,7 +13,7 @@ Windows -> Uncheck 'Show window number in title bar'
 ## Profiles (Default)
 
 - General -> Working Directory -> Reuse previous session's directory
-- Colors -> Color Presets -> Dracula
+- Colors -> Color Presets -> Dracula (Download it here https://draculatheme.com/iterm)
 - Text -> Font -> Cartograph CF / 13
 - Window -> Settings for New Windows -> Columns: 200 / Rows: 50
 - Keys -> General -> Left Option key -> Esc+
