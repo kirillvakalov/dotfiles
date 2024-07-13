@@ -10,6 +10,8 @@
         gpgsign = true
 [push]
         autoSetupRemote = true
+        # https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-if-includes
+        useForceIfIncludes = true
 [pull]
         rebase = true
 [rebase]
