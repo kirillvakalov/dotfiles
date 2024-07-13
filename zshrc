@@ -140,6 +140,7 @@ lfcd () {
 alias cat="bat --plain"
 alias ls="eza"
 alias lf="lfcd"
+alias lz="lazygit"
 
 
 # PATH
