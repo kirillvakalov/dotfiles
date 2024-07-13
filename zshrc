@@ -116,11 +116,6 @@ export BAT_THEME="Dracula"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 
 
-# Aliases
-alias cat="bat --plain"
-alias ls="eza"
-
-
 # Vi Mode
 bindkey -v
 
@@ -131,6 +126,20 @@ export KEYTIMEOUT=1
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+
+# Change working dir in shell to last dir in lf on exit
+# https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
+lfcd () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
+
+# Aliases
+alias cat="bat --plain"
+alias ls="eza"
+alias lf="lfcd"
 
 
 # PATH
