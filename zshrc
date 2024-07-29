@@ -59,7 +59,7 @@ fi
 source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi"
+export FZF_DEFAULT_OPTS="--ansi --tmux"
 
 
 # Completions
@@ -127,6 +127,8 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Bind 'ESC' to enter NORMAL mode
+bindkey -M viins '^[' vi-cmd-mode
 
 # Change working dir in shell to last dir in lf on exit
 # https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
