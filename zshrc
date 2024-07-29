@@ -6,6 +6,19 @@ fi
 
 export TERM="xterm-256color"
 
+
+# Vi Mode
+bindkey -v
+
+# 10ms delay for key sequences
+export KEYTIMEOUT=1
+
+# Bind 'v' in Vi NORMAL mode to edit command in $EDITOR
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -115,20 +128,6 @@ export BAT_THEME="Dracula"
 # Lazygit
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 
-
-# Vi Mode
-bindkey -v
-
-# 10ms delay for key sequences
-export KEYTIMEOUT=1
-
-# Bind 'v' in Vi NORMAL mode to edit command in $EDITOR
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-
-# Bind 'ESC' to enter NORMAL mode
-bindkey -M viins '^[' vi-cmd-mode
 
 # Change working dir in shell to last dir in lf on exit
 # https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
