@@ -19,5 +19,5 @@ brew "btop"
 brew "libpq"
 brew "node@20"
 
-cask "iterm2"
+cask "wezterm"
 cask "postico"
