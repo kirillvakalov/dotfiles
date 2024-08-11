@@ -1,3 +1,5 @@
+theme = "flatwhite"
+
 [editor.file-picker]
 hidden = false
 
