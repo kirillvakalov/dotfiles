@@ -122,11 +122,11 @@ eval "$(zoxide init zsh)"
 
 
 # Bat (https://github.com/sharkdp/bat)
-export BAT_THEME="Dracula"
+export BAT_THEME="Catppuccin Mocha"
 
 
 # Lazygit
-export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/catppuccin-mocha-blue.yml"
 
 
 # Change working dir in shell to last dir in lf on exit
