@@ -14,7 +14,7 @@ config.font = wezterm.font_with_fallback {
   { family = 'SF Mono', weight = 'Medium' },
   'Apple Color Emoji'
 }
-config.font_size = 12
+config.font_size = 13
 config.line_height = 1.16
 
 config.color_scheme = 'Catppuccin Mocha'
