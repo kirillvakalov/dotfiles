@@ -2,7 +2,7 @@
 
 # Bat
 mkdir -p "$(bat --config-dir)/themes"
-wget -nc -O "$(bat --config-dir)/themes/catppuccin-latte.tmTheme" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
+wget -nc -O "$(bat --config-dir)/themes/Catppuccin Latte.tmTheme" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
 bat cache --build
 
 # Git Delta
