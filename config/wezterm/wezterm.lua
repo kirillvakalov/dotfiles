@@ -16,9 +16,10 @@ config.font = wezterm.font_with_fallback {
 }
 config.font_size = 13
 config.line_height = 1.16
+config.underline_thickness = 2
 
 config.color_scheme = 'Catppuccin Latte'
-config.hide_tab_bar_if_only_one_tab = true
+config.enable_tab_bar = false
 config.window_close_confirmation = 'NeverPrompt'
 config.window_padding = {
   left = '7px',
