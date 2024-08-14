@@ -21,3 +21,4 @@ brew "node@20"
 
 cask "wezterm"
 cask "postico"
+cask "google-cloud-sdk"
