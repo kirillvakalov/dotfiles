@@ -129,6 +129,10 @@ export BAT_THEME="Catppuccin Latte"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/catppuccin-latte-blue.yml"
 
 
+# Ripgrep
+export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
+
+
 # Change working dir in shell to last dir in lf on exit
 # https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
 lfcd () {
