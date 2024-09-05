@@ -4,10 +4,10 @@ local config = {}
 
 wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():set_position(40, 0)
+  window:gui_window():set_position(80, 0)
 end)
 
-config.initial_cols = 210
+config.initial_cols = 205
 config.initial_rows = 60
 
 config.font = wezterm.font_with_fallback {
