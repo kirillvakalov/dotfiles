@@ -13,6 +13,7 @@
       force: true
     ~/.zshrc:
     ~/.tmux.conf:
+    ~/.tmux-show-popup.sh: scripts/tmux-show-popup.sh
     ~/.config/:
       glob: true
       force: true
