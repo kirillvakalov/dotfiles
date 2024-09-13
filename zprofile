@@ -1,5 +1,5 @@
-export EDITOR="hx"
-export VISUAL="hx"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Add Homebrew to PATH (https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh)
 eval "$(/opt/homebrew/bin/brew shellenv)"
