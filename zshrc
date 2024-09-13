@@ -4,8 +4,6 @@ if [ ! -v TMUX ]; then
   exec tmux new-session -A -s workspace
 fi
 
-export TERM="xterm-256color"
-
 
 # Vi Mode
 bindkey -v
