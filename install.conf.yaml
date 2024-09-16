@@ -21,7 +21,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [./scripts/catppuccin.sh, Installing Catppuccin themes]
+    - [./scripts/rose-pine.sh, Installing rose-pine themes]
     - [./scripts/krew.sh, Installing Krew]
     - [./scripts/cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
     - [corepack enable, Enable corepack]

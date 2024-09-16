@@ -1,0 +1,25 @@
+# reference implementation https://github.com/catppuccin/lazygit/blob/main/lazygit.tera
+gui:
+  theme:
+    activeBorderColor:
+      - '#31748f'
+      - bold
+    inactiveBorderColor:
+      - '#524f67'
+    optionsTextColor:
+      - '#9ccfd8'
+    selectedLineBgColor:
+      - '#403d52'
+    cherryPickedCommitBgColor:
+      - '#1f1d2e'
+    cherryPickedCommitFgColor:
+      - '#31748f'
+    unstagedChangesColor:
+      - '#ebbcba'
+    defaultFgColor:
+      - '#e0def4'
+    searchingActiveBorderColor:
+      - '#f6c177'
+
+  authorColors:
+    '*': '#c4a7e7'

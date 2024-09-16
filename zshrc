@@ -120,11 +120,11 @@ eval "$(zoxide init zsh)"
 
 
 # Bat (https://github.com/sharkdp/bat)
-export BAT_THEME="Catppuccin Latte"
+export BAT_THEME="rose-pine"
 
 
 # Lazygit
-export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/catppuccin-latte-blue.yml"
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/rose-pine.yml"
 
 
 # Ripgrep

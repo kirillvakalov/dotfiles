@@ -18,7 +18,7 @@ config.font_size = 13
 config.line_height = 1.16
 config.underline_thickness = 2
 
-config.color_scheme = 'Catppuccin Latte'
+config.color_scheme = "rose-pine"
 config.enable_tab_bar = false
 config.window_close_confirmation = 'NeverPrompt'
 config.window_padding = {

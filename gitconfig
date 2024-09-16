@@ -27,8 +27,3 @@
 [credential "https://gist.github.com"]
         helper = 
         helper = !/opt/homebrew/bin/gh auth git-credential
-# Catppuccin theme for Delta
-[include]
-        path = ~/.config/delta/themes/catppuccin.gitconfig
-[delta]
-        features = catppuccin-latte
