@@ -20,6 +20,7 @@ vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.swapfile = false
 vim.opt.undofile = true
 
 -- https://lazy.folke.io/installation
