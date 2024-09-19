@@ -4,11 +4,11 @@ local config = {}
 
 wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():set_position(120, 85)
+  window:gui_window():set_position(120, 0)
 end)
 
 config.initial_cols = 200
-config.initial_rows = 59
+config.initial_rows = 60
 
 config.font = wezterm.font_with_fallback({
   { family = 'SF Mono', weight = 'Medium' },
@@ -21,11 +21,11 @@ config.underline_thickness = 2
 config.color_scheme = 'rose-pine'
 config.enable_tab_bar = false
 config.window_close_confirmation = 'NeverPrompt'
-config.window_decorations = 'RESIZE'
+config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 config.window_padding = {
   left = '8px',
   right = '8px',
-  top = '8px',
+  top = '56px',
   bottom = '8px',
 }
 
