@@ -8,6 +8,7 @@ vim.opt.list = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
+vim.opt.scrolloff = 4
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -20,8 +21,13 @@ vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.updatetime = 250
+
 vim.opt.swapfile = false
 vim.opt.undofile = true
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- https://lazy.folke.io/installation
 -- Bootstrap lazy.nvim
