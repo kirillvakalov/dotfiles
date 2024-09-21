@@ -54,6 +54,8 @@ require('lazy').setup({
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/nvim-cmp',
+    'nvim-lua/plenary.nvim',
+    'nvimtools/none-ls.nvim',
   },
   rocks = { enabled = false },
 })
@@ -66,6 +68,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
   end,
 })
 
@@ -116,3 +119,22 @@ cmp.setup({
   },
 })
 
+-- https://github.com/williamboman/mason-lspconfig.nvim/issues/113#issuecomment-1471346816
+for _, pkg_name in ipairs({ 'stylua', 'prettier', 'biome' }) do
+  local ok, pkg = pcall(require('mason-registry').get_package, pkg_name)
+  if ok then
+    if not pkg:is_installed() then
+      pkg:install()
+    end
+  end
+end
+
+local null_ls = require('null-ls')
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.biome,
+  },
+})
