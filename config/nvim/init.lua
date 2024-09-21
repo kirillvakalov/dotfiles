@@ -52,6 +52,8 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/nvim-cmp"
   },
   rocks = { enabled = false }
 })
@@ -84,4 +86,32 @@ require("mason-lspconfig").setup({
       })
     end,
   }
+})
+
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.snippet.expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v4.x/lua/lsp-zero/cmp-mapping.lua#L28-L41
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      local col = vim.fn.col('.') - 1
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        fallback()
+      else
+        cmp.complete()
+      end
+    end, {'i', 's'}),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+  }),
+  sources = {
+    {name = 'nvim_lsp'},
+    {name = 'buffer'},
+  },
 })
