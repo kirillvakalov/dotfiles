@@ -56,6 +56,7 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     'nvim-lua/plenary.nvim',
     'nvimtools/none-ls.nvim',
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   },
   rocks = { enabled = false },
 })
@@ -63,8 +64,13 @@ require('lazy').setup({
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
-    local opts = { buffer = event.buf }
+    -- https://neovim.io/doc/user/lsp.html#_lua-module:-vim.lsp.semantic_tokens
+    -- https://github.com/NvChad/NvChad/blob/8d2bb359e47d816e67ff86b5ce2d8f5abfe2b631/lua/nvchad/configs/lspconfig.lua#L31-L36
+    -- https://www.reddit.com/r/neovim/comments/zjqquc/comment/izwahv7/
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
 
+    local opts = { buffer = event.buf }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
@@ -137,4 +143,15 @@ null_ls.setup({
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.biome,
   },
+})
+
+require('nvim-treesitter.configs').setup({
+  ensure_installed = {
+    'javascript',
+    'typescript',
+    'markdown',
+  },
+  auto_install = true,
+  highlight = { enable = true },
+  indent = { enable = true },
 })
