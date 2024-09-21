@@ -30,15 +30,15 @@ vim.opt.undofile = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- https://lazy.folke.io/installation
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out, 'WarningMsg' },
+      { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
     os.exit(1)
@@ -46,16 +46,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require('lazy').setup({
   spec = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/nvim-cmp"
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/nvim-cmp',
   },
-  rocks = { enabled = false }
+  rocks = { enabled = false },
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -70,22 +70,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local capabilities = vim.tbl_deep_extend(
-  "force",
+  'force',
   {},
   vim.lsp.protocol.make_client_capabilities(),
   require('cmp_nvim_lsp').default_capabilities()
 )
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls" },
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = { 'ts_ls' },
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
     end,
-  }
+  },
 })
 
 local cmp = require('cmp')
@@ -107,11 +107,12 @@ cmp.setup({
       else
         cmp.complete()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
   }),
   sources = {
-    {name = 'nvim_lsp'},
-    {name = 'buffer'},
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
   },
 })
+
