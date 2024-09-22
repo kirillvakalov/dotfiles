@@ -58,6 +58,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
+    { 'rose-pine/neovim', name = 'rose-pine' },
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
@@ -70,6 +71,14 @@ require('lazy').setup({
   },
   rocks = { enabled = false },
 })
+
+require('rose-pine').setup({
+  styles = {
+    italic = false,
+  },
+})
+
+vim.cmd('colorscheme rose-pine')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
