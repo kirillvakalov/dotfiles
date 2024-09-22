@@ -27,7 +27,7 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 
 vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
@@ -77,9 +77,7 @@ require('lazy').setup({
 })
 
 require('rose-pine').setup({
-  styles = {
-    italic = false,
-  },
+  styles = { italic = false },
 })
 
 vim.cmd('colorscheme rose-pine')
@@ -97,7 +95,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
+    vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<cr>', opts)
   end,
 })
 
@@ -109,6 +107,19 @@ local capabilities = vim.tbl_deep_extend(
 )
 
 require('mason').setup()
+
+-- https://github.com/LazyVim/LazyVim/blob/a1c3ec4cd43fe61e3b614237a46ac92771191c81/lua/lazyvim/plugins/lsp/init.lua#L289-L296
+local masonRegistry = require('mason-registry')
+
+masonRegistry.refresh(function()
+  for _, tool in ipairs({ 'stylua', 'prettier', 'biome' }) do
+    local pkg = masonRegistry.get_package(tool)
+    if not pkg:is_installed() then
+      pkg:install()
+    end
+  end
+end)
+
 require('mason-lspconfig').setup({
   ensure_installed = { 'ts_ls' },
   handlers = {
@@ -147,16 +158,6 @@ cmp.setup({
     { name = 'buffer' },
   },
 })
-
--- https://github.com/williamboman/mason-lspconfig.nvim/issues/113#issuecomment-1471346816
-for _, pkg_name in ipairs({ 'stylua', 'prettier', 'biome' }) do
-  local ok, pkg = pcall(require('mason-registry').get_package, pkg_name)
-  if ok then
-    if not pkg:is_installed() then
-      pkg:install()
-    end
-  end
-end
 
 local null_ls = require('null-ls')
 
