@@ -68,6 +68,8 @@ require('lazy').setup({
     'nvim-lua/plenary.nvim',
     'nvimtools/none-ls.nvim',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    { 'nvim-telescope/telescope.nvim', branch = '0.1.x' },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     -- Build good vim habits
     { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
   },
@@ -171,3 +173,11 @@ require('nvim-treesitter.configs').setup({
   highlight = { enable = true },
   indent = { enable = true },
 })
+
+require('telescope').setup()
+require('telescope').load_extension('fzf')
+
+local telescopeBuiltin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files)
+vim.keymap.set('n', '<leader>fg', telescopeBuiltin.live_grep)
+vim.keymap.set('n', '<leader>fb', telescopeBuiltin.buffers)
