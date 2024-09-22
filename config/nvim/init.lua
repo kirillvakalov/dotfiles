@@ -68,6 +68,8 @@ require('lazy').setup({
     'nvim-lua/plenary.nvim',
     'nvimtools/none-ls.nvim',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    -- Build good vim habits
+    { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
   },
   rocks = { enabled = false },
 })
@@ -165,11 +167,6 @@ null_ls.setup({
 })
 
 require('nvim-treesitter.configs').setup({
-  ensure_installed = {
-    'javascript',
-    'typescript',
-    'markdown',
-  },
   auto_install = true,
   highlight = { enable = true },
   indent = { enable = true },
