@@ -29,6 +29,16 @@ vim.opt.undofile = true
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
+
+vim.diagnostic.config({
+  float = {
+    source = 'always',
+  },
+})
+
 -- https://lazy.folke.io/installation
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
