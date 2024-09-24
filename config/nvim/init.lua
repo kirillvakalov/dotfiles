@@ -26,6 +26,10 @@ vim.opt.updatetime = 250
 vim.opt.swapfile = false
 vim.opt.undofile = true
 
+-- Center cursor on half-page up/down
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 
