@@ -78,6 +78,7 @@ require('lazy').setup({
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     { 'nvim-telescope/telescope.nvim', branch = '0.1.x' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'echasnovski/mini.nvim', version = false },
     -- Build good vim habits
     { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
   },
@@ -190,3 +191,9 @@ local telescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files)
 vim.keymap.set('n', '<leader>fg', telescopeBuiltin.live_grep)
 vim.keymap.set('n', '<leader>fb', telescopeBuiltin.buffers)
+
+require('mini.files').setup()
+-- https://github.com/LazyVim/LazyVim/blob/a1c3ec4cd43fe61e3b614237a46ac92771191c81/lua/lazyvim/plugins/extras/editor/mini-files.lua#L16-L22
+vim.keymap.set('n', '<leader>fm', function()
+  require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
+end)
