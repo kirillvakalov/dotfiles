@@ -33,7 +33,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 
-vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
 
