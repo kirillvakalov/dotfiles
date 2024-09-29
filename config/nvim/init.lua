@@ -4,6 +4,7 @@ vim.g.mapleader = ' '
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.list = true
+vim.opt.listchars:append({ trail = '⋅' })
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -85,6 +86,7 @@ require('lazy').setup({
     { 'echasnovski/mini.nvim', version = false },
     -- Build good vim habits
     { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
+    'ThePrimeagen/vim-be-good',
   },
   rocks = { enabled = false },
 })
