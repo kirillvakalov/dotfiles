@@ -155,6 +155,7 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v4.x/lua/lsp-zero/cmp-mapping.lua#L28-L41
     ['<Tab>'] = cmp.mapping(function(fallback)
       local col = vim.fn.col('.') - 1
