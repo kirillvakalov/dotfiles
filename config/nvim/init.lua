@@ -202,7 +202,15 @@ require('nvim-treesitter.configs').setup({
   },
 })
 
-require('telescope').setup()
+require('telescope').setup({
+  pickers = {
+    live_grep = {
+      mappings = {
+        i = { ['<C-f>'] = require('telescope.actions').to_fuzzy_refine },
+      },
+    },
+  },
+})
 require('telescope').load_extension('fzf')
 
 local telescopeBuiltin = require('telescope.builtin')
