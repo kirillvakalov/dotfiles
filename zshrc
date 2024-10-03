@@ -139,6 +139,10 @@ lfcd () {
 }
 
 
+# n Node.js version manager
+export N_PREFIX="$HOME/.n"
+
+
 # Aliases
 alias cat="bat --plain"
 alias ls="eza"
@@ -149,7 +153,7 @@ alias lz="lazygit"
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+export PATH="$N_PREFIX/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/cloud-sql-proxy:$PATH"

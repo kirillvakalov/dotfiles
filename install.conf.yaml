@@ -24,4 +24,6 @@
     - [./scripts/rose-pine.sh, Installing rose-pine themes]
     - [./scripts/krew.sh, Installing Krew]
     - [./scripts/cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
+    - [npm install -g n, Instaling n Node.js version manager]
+    - [n i 22, Installing Node.js 22]
     - [corepack enable, Enable corepack]
