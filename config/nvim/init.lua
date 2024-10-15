@@ -86,8 +86,9 @@ require('lazy').setup({
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'echasnovski/mini.nvim', version = false },
     -- Build good vim habits
-    { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
+    { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = { disable_mouse = false } },
     'ThePrimeagen/vim-be-good',
+    'github/copilot.vim',
   },
   rocks = { enabled = false },
 })
