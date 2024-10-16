@@ -121,6 +121,7 @@ eval "$(zoxide init zsh)"
 
 # Bat (https://github.com/sharkdp/bat)
 export BAT_THEME="rose-pine"
+export BAT_PAGER=""
 
 
 # Lazygit
