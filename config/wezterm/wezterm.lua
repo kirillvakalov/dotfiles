@@ -20,10 +20,11 @@ config.underline_thickness = 2
 
 config.color_scheme = 'rose-pine'
 config.enable_tab_bar = false
+
 config.window_close_confirmation = 'NeverPrompt'
 config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
-config.window_background_opacity = 0.97
-config.macos_window_background_blur = 40
+config.window_background_opacity = 0.95
+config.macos_window_background_blur = 42
 config.window_padding = {
   left = '8px',
   right = '8px',
