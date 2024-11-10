@@ -3,6 +3,7 @@
 -- https://github.com/LazyVim/LazyVim
 -- https://github.com/AstroNvim/AstroNvim
 -- https://github.com/LunarVim/LunarVim
+-- https://github.com/jesseleite/dotfiles/tree/master/nvim
 
 vim.g.mapleader = ' '
 
@@ -13,6 +14,9 @@ vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
+
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = 'number'
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
@@ -37,6 +41,15 @@ vim.opt.updatetime = 250
 vim.opt.swapfile = false
 vim.opt.undofile = true
 
+vim.diagnostic.config({
+  float = {
+    source = 'always',
+    border = 'rounded',
+    header = '',
+    focusable = false,
+  },
+})
+
 -- Center cursor on half-page up/down
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -44,6 +57,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 
+vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
 
@@ -53,13 +67,6 @@ local toggle_diagnostics = function()
 end
 
 vim.keymap.set('n', '<leader>ud', toggle_diagnostics)
-
-vim.diagnostic.config({
-  float = {
-    source = 'always',
-    border = 'single',
-  },
-})
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -179,6 +186,10 @@ require('lazy').setup({
             expand = function(args)
               vim.snippet.expand(args.body)
             end,
+          },
+          window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
           },
           mapping = cmp.mapping.preset.insert({
             ['<CR>'] = cmp.mapping.confirm({ select = true }),
