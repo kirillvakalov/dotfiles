@@ -50,6 +50,14 @@ vim.diagnostic.config({
   },
 })
 
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 -- Center cursor on half-page up/down
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -67,14 +75,6 @@ local toggle_diagnostics = function()
 end
 
 vim.keymap.set('n', '<leader>ud', toggle_diagnostics)
-
--- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 -- https://lazy.folke.io/installation
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -270,7 +270,18 @@ require('lazy').setup({
         local actions = require('telescope.actions')
 
         require('telescope').setup({
+          defaults = {
+            mappings = {
+              n = { ['q'] = actions.close },
+            },
+          },
           pickers = {
+            buffers = {
+              initial_mode = 'normal',
+              mappings = {
+                n = { ['d'] = actions.delete_buffer },
+              },
+            },
             live_grep = {
               mappings = {
                 i = { ['<C-f>'] = actions.to_fuzzy_refine },
@@ -282,7 +293,9 @@ require('lazy').setup({
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>ff', builtin.find_files)
         vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-        vim.keymap.set('n', '<leader>fb', builtin.buffers)
+        vim.keymap.set('n', '<leader>fb', function()
+          builtin.buffers({ sort_mru = true })
+        end)
       end,
     },
     {
