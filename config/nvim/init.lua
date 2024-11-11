@@ -140,6 +140,10 @@ require('lazy').setup({
           vim.lsp.protocol.make_client_capabilities(),
           has_cmp and cmp_nvim_lsp.default_capabilities() or {}
         )
+        local handlers = {
+          ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
+          ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
+        }
 
         require('mason').setup()
 
@@ -149,6 +153,7 @@ require('lazy').setup({
             function(server_name)
               require('lspconfig')[server_name].setup({
                 capabilities = capabilities,
+                handlers = handlers,
               })
             end,
           },
