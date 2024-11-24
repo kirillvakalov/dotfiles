@@ -10,6 +10,7 @@ vim.g.mapleader = ' '
 -- https://neovim.io/doc/user/options.html
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = 'a'
+vim.opt.laststatus = 3
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -101,6 +102,7 @@ require('lazy').setup({
       name = 'rose-pine',
       config = function()
         require('rose-pine').setup({
+          dim_inactive_windows = true,
           styles = {
             italic = false,
             transparency = true,
