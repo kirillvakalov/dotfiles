@@ -132,6 +132,10 @@ export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/th
 export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
 
 
+# n Node.js version manager
+export N_PREFIX="$HOME/.n"
+
+
 # Change working dir in shell to last dir in lf on exit
 # https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
 lfcd () {
@@ -140,15 +144,12 @@ lfcd () {
 }
 
 
-# n Node.js version manager
-export N_PREFIX="$HOME/.n"
-
-
 # Aliases
 alias cat="bat --plain"
 alias ls="eza"
 alias lf="lfcd"
 alias lz="lazygit"
+alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 
 
 # PATH
