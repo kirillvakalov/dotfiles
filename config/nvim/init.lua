@@ -54,9 +54,7 @@ vim.diagnostic.config({
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  callback = function() vim.highlight.on_yank() end,
 })
 
 -- Center cursor on half-page up/down
@@ -172,9 +170,7 @@ require('lazy').setup({
         masonRegistry.refresh(function()
           for _, tool in ipairs({ 'stylua', 'prettier' }) do
             local pkg = masonRegistry.get_package(tool)
-            if not pkg:is_installed() then
-              pkg:install()
-            end
+            if not pkg:is_installed() then pkg:install() end
           end
         end)
       end,
@@ -190,9 +186,7 @@ require('lazy').setup({
 
         cmp.setup({
           snippet = {
-            expand = function(args)
-              vim.snippet.expand(args.body)
-            end,
+            expand = function(args) vim.snippet.expand(args.body) end,
           },
           window = {
             completion = cmp.config.window.bordered(),
@@ -295,9 +289,7 @@ require('lazy').setup({
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>ff', builtin.find_files)
         vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-        vim.keymap.set('n', '<leader>fb', function()
-          builtin.buffers({ sort_mru = true })
-        end)
+        vim.keymap.set('n', '<leader>fb', function() builtin.buffers({ sort_mru = true }) end)
       end,
     },
     {
@@ -306,9 +298,7 @@ require('lazy').setup({
       config = function()
         require('mini.files').setup()
         -- https://github.com/LazyVim/LazyVim/blob/a1c3ec4cd43fe61e3b614237a46ac92771191c81/lua/lazyvim/plugins/extras/editor/mini-files.lua#L16-L22
-        vim.keymap.set('n', '<leader>fm', function()
-          require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
-        end)
+        vim.keymap.set('n', '<leader>fm', function() require('mini.files').open(vim.api.nvim_buf_get_name(0), true) end)
       end,
     },
     {
@@ -316,18 +306,10 @@ require('lazy').setup({
       config = function()
         local smart_splits = require('smart-splits')
 
-        vim.keymap.set('n', '<A-h>', function()
-          smart_splits.resize_left(8)
-        end)
-        vim.keymap.set('n', '<A-j>', function()
-          smart_splits.resize_down(5)
-        end)
-        vim.keymap.set('n', '<A-k>', function()
-          smart_splits.resize_up(5)
-        end)
-        vim.keymap.set('n', '<A-l>', function()
-          smart_splits.resize_right(8)
-        end)
+        vim.keymap.set('n', '<A-h>', function() smart_splits.resize_left(8) end)
+        vim.keymap.set('n', '<A-j>', function() smart_splits.resize_down(5) end)
+        vim.keymap.set('n', '<A-k>', function() smart_splits.resize_up(5) end)
+        vim.keymap.set('n', '<A-l>', function() smart_splits.resize_right(8) end)
 
         vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left)
         vim.keymap.set('n', '<C-j>', smart_splits.move_cursor_down)
