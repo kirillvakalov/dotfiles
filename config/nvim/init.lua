@@ -100,7 +100,6 @@ require('lazy').setup({
       name = 'rose-pine',
       config = function()
         require('rose-pine').setup({
-          dim_inactive_windows = true,
           styles = {
             italic = false,
             transparency = true,
@@ -129,7 +128,7 @@ require('lazy').setup({
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-            vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<cr>', opts)
+            vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, opts)
           end,
         })
 
