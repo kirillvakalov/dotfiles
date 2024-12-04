@@ -133,7 +133,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
 
 
 # Node.js version manager
-eval "$(fnm env --use-on-cd --resolve-engines --corepack-enabled --log-level=quiet --shell zsh)"
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --corepack-enabled --log-level=quiet --shell zsh)"
 
 
 # Change working dir in shell to last dir in lf on exit
