@@ -166,7 +166,7 @@ require('lazy').setup({
         local masonRegistry = require('mason-registry')
 
         masonRegistry.refresh(function()
-          for _, tool in ipairs({ 'stylua', 'prettier' }) do
+          for _, tool in ipairs({ 'stylua', 'prettier', 'sqlfluff' }) do
             local pkg = masonRegistry.get_package(tool)
             if not pkg:is_installed() then pkg:install() end
           end
@@ -221,6 +221,9 @@ require('lazy').setup({
           sources = {
             null_ls.builtins.formatting.stylua,
             null_ls.builtins.formatting.prettier,
+            null_ls.builtins.formatting.sqlfluff.with({
+              extra_args = { '--dialect', 'postgres' },
+            }),
           },
         })
       end,
