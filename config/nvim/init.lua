@@ -316,6 +316,13 @@ require('lazy').setup({
         vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
       end,
     },
+    {
+      'rmagatti/auto-session',
+      lazy = false,
+      opts = {
+        suppressed_dirs = { '~/', '~/Downloads', '/' },
+      },
+    },
     -- Build good vim habits
     {
       'm4xshen/hardtime.nvim',
