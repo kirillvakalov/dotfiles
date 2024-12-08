@@ -68,12 +68,11 @@ vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
 
-local toggle_diagnostics = function()
+vim.keymap.set('n', '<leader>ud', function()
   local enabled = vim.diagnostic.is_enabled()
   vim.diagnostic.enable(not enabled)
-end
-
-vim.keymap.set('n', '<leader>ud', toggle_diagnostics)
+end)
+vim.keymap.set('n', '<leader>ur', function() vim.opt.relativenumber = not vim.opt.relativenumber:get() end)
 
 -- https://lazy.folke.io/installation
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -323,11 +322,16 @@ require('lazy').setup({
         suppressed_dirs = { '~/', '~/Downloads', '/' },
       },
     },
-    -- Build good vim habits
     {
       'm4xshen/hardtime.nvim',
       dependencies = { 'MunifTanjim/nui.nvim' },
-      opts = { disable_mouse = false },
+      opts = {
+        disable_mouse = false,
+        restricted_keys = {
+          ['j'] = {},
+          ['k'] = {},
+        },
+      },
     },
     'ThePrimeagen/vim-be-good',
     'github/copilot.vim',
