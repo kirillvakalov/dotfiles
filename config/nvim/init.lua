@@ -37,7 +37,7 @@ vim.opt.listchars:append({ trail = '⋅' })
 
 vim.opt.pumheight = 10 -- maximum number of items in a popup
 
-vim.opt.updatetime = 250
+vim.opt.updatetime = 250 -- 🤷
 
 vim.opt.swapfile = false
 vim.opt.undofile = true
@@ -47,7 +47,6 @@ vim.diagnostic.config({
     source = 'always',
     border = 'rounded',
     header = '',
-    focusable = false,
   },
 })
 
@@ -213,6 +212,26 @@ require('lazy').setup({
       end,
     },
     {
+      'zbirenbaum/copilot.lua',
+      cmd = 'Copilot',
+      build = ':Copilot auth',
+      event = 'InsertEnter',
+      config = function()
+        require('copilot').setup({
+          suggestion = {
+            enabled = true,
+            auto_trigger = false,
+            keymap = {
+              accept = '<M-l>',
+              next = '<M-]>',
+              prev = '<M-[>',
+              dismiss = '<C-]>',
+            },
+          },
+        })
+      end,
+    },
+    {
       'nvimtools/none-ls.nvim',
       dependencies = { 'williamboman/mason.nvim' },
       config = function()
@@ -231,24 +250,11 @@ require('lazy').setup({
     {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
-      dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
       config = function()
         require('nvim-treesitter.configs').setup({
           auto_install = true,
           highlight = { enable = true },
           indent = { enable = true },
-          textobjects = {
-            select = {
-              enable = true,
-              lookahead = true,
-              keymaps = {
-                ['af'] = '@function.outer',
-                ['if'] = '@function.inner',
-                ['ac'] = '@class.outer',
-                ['ic'] = '@class.inner',
-              },
-            },
-          },
         })
       end,
     },
@@ -277,11 +283,6 @@ require('lazy').setup({
               initial_mode = 'normal',
               mappings = {
                 n = { ['d'] = actions.delete_buffer },
-              },
-            },
-            live_grep = {
-              mappings = {
-                i = { ['<C-f>'] = actions.to_fuzzy_refine },
               },
             },
           },
@@ -322,7 +323,7 @@ require('lazy').setup({
       'rmagatti/auto-session',
       lazy = false,
       opts = {
-        suppressed_dirs = { '~/', '~/Downloads', '/' },
+        suppressed_dirs = { '~/Downloads' },
       },
     },
     {
@@ -337,7 +338,6 @@ require('lazy').setup({
       },
     },
     'ThePrimeagen/vim-be-good',
-    'github/copilot.vim',
   },
   rocks = { enabled = false },
 })
