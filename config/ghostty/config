@@ -1,0 +1,7 @@
+theme = rose-pine
+window-width = 200
+window-height = 60
+background-opacity = 0.92
+background-blur-radius = 20
+confirm-close-surface = false
+macos-option-as-alt = true
