@@ -124,10 +124,6 @@ export BAT_THEME="rose-pine"
 export BAT_PAGER=""
 
 
-# Lazygit
-export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/rose-pine.yml"
-
-
 # Ripgrep
 export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
 
