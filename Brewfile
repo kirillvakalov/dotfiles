@@ -21,6 +21,6 @@ brew "tlrc"
 brew "tmux"
 brew "zoxide"
 
+cask "ghostty"
 cask "google-cloud-sdk"
 cask "postico"
-cask "wezterm"
