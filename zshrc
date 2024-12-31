@@ -119,15 +119,6 @@ eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 
 
-# Bat (https://github.com/sharkdp/bat)
-export BAT_THEME="rose-pine"
-export BAT_PAGER=""
-
-
-# Ripgrep
-export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
-
-
 # Node.js version manager
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --corepack-enabled --log-level=quiet --shell zsh)"
 
@@ -151,7 +142,6 @@ alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-export PATH="$N_PREFIX/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/cloud-sql-proxy:$PATH"

@@ -22,6 +22,6 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [./scripts/rose-pine.sh, Installing rose-pine themes]
+    - [./scripts/bat-rose-pine.sh, Installing rose-pine themes for bat]
     - [./scripts/krew.sh, Installing Krew]
     - [./scripts/cloud-sql-proxy.sh, Installing Cloud SQL Auth Proxy]
