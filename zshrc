@@ -11,8 +11,16 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} 
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
+# Enable Powerlevel10k instant prompt.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
+
+# Powerlevel10k
+source ~/.p10k.zsh
 
 # Vi Mode
 bindkey -v
@@ -24,24 +32,6 @@ export KEYTIMEOUT=1
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
-
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
-# Plugins
-if [[ ! -d ~/.zsh/powerlevel10k ]]; then
-  git clone --depth 1 https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
-fi
-
-function zsh-update-plugins() {
-  rm -rf ~/.zsh && exec zsh
-}
 
 
 # Turn off all beeps (https://blog.vghaisas.com/zsh-beep-sound/),
@@ -86,12 +76,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # Press Shift+Tab to accept the current suggestion
 bindkey '^[[Z' autosuggest-accept
-
-
-# Powerlevel 10k
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
