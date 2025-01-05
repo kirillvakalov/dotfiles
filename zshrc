@@ -64,20 +64,6 @@ unsetopt CASE_GLOB
 _comp_options+=(globdots)
 
 
-# Syntax highlighting
-# Syntax highlighting plugin must be loaded before autosuggestions
-# (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
-# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md#highlighter-independent-settings
-ZSH_HIGHLIGHT_MAXLENGTH=512
-
-
-# Autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-# Press Shift+Tab to accept the current suggestion
-bindkey '^[[Z' autosuggest-accept
-
-
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
 
