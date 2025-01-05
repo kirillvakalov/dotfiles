@@ -16,6 +16,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Configure zsh-syntax-highlighting and zsh-autosuggestions
+ZSH_HIGHLIGHT_MAXLENGTH=512
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
