@@ -35,28 +35,6 @@ unsetopt BEEP
 autoload -Uz bracketed-paste-url-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 
-# Standard style used by default for 'list-colors' (https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L47)
-export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
-
-
-# Homebrew shell completion (https://docs.brew.sh/Shell-Completion)
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
-
-# Case-insensitive (all), partial-word, and then substring completion (https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L87-L88)
-zstyle ':completion:' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:upper:]}={[:lower:]}' 'r:|[._-]= r:|=' 'l:|= r:|=*'
-unsetopt CASE_GLOB
-
-# Show hidden files and folders on completion (https://unix.stackexchange.com/a/308322)
-_comp_options+=(globdots)
-
-
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
 
