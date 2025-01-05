@@ -1,9 +1,3 @@
-# Ensure running in tmux
-# https://github.com/romkatv/powerlevel10k/issues/1203#issuecomment-754805535
-if [ ! -v TMUX ]; then
-  exec tmux new-session -A -s workspace
-fi
-
 
 # Vi Mode
 bindkey -v
