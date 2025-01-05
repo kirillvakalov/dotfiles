@@ -1,3 +1,18 @@
+ZIM_HOME=~/.cache/zim
+
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
+
+# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
 
 # Vi Mode
 bindkey -v
@@ -22,12 +37,6 @@ fi
 # Plugins
 if [[ ! -d ~/.zsh/fzf-tab ]]; then
   git clone --depth 1 https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
-fi
-if [[ ! -d ~/.zsh/zsh-syntax-highlighting ]]; then
-  git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-fi
-if [[ ! -d ~/.zsh/zsh-autosuggestions ]]; then
-  git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 fi
 if [[ ! -d ~/.zsh/powerlevel10k ]]; then
   git clone --depth 1 https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
@@ -86,13 +95,11 @@ _comp_options+=(globdots)
 # Syntax highlighting
 # Syntax highlighting plugin must be loaded before autosuggestions
 # (ref: https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#readme)
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md#highlighter-independent-settings
 ZSH_HIGHLIGHT_MAXLENGTH=512
 
 
 # Autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # Press Shift+Tab to accept the current suggestion

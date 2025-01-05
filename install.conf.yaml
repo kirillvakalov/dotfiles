@@ -13,6 +13,7 @@
       force: true
     ~/.zshenv:
     ~/.zshrc:
+    ~/.zimrc:
     ~/.config/:
       glob: true
       force: true
