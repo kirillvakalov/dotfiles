@@ -1,3 +1,4 @@
+zmodule romkatv/powerlevel10k
+zmodule jeffreytse/zsh-vi-mode
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
-zmodule romkatv/powerlevel10k

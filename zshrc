@@ -27,18 +27,6 @@ source ${ZIM_HOME}/init.zsh
 # Powerlevel10k
 source ~/.p10k.zsh
 
-# Vi Mode
-bindkey -v
-
-# 10ms delay for key sequences
-export KEYTIMEOUT=1
-
-# Bind 'v' in Vi NORMAL mode to edit command in $EDITOR
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-
-
 # Turn off all beeps (https://blog.vghaisas.com/zsh-beep-sound/),
 # also (https://github.com/junegunn/fzf/issues/3864#issuecomment-2168457090)
 unsetopt BEEP
