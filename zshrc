@@ -27,10 +27,6 @@ source ${ZIM_HOME}/init.zsh
 # Powerlevel10k
 source ~/.p10k.zsh
 
-# Turn off all beeps (https://blog.vghaisas.com/zsh-beep-sound/),
-# also (https://github.com/junegunn/fzf/issues/3864#issuecomment-2168457090)
-unsetopt BEEP
-
 # Quote pasted URLs automatically (https://github.com/zsh-users/zsh/blob/master/Functions/Zle/bracketed-paste-url-magic)
 autoload -Uz bracketed-paste-url-magic
 zle -N bracketed-paste bracketed-paste-url-magic
@@ -38,14 +34,11 @@ zle -N bracketed-paste bracketed-paste-url-magic
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
 eval "$(atuin init zsh)"
 
-
 # zoxide (https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 eval "$(zoxide init zsh)"
 
-
 # Node.js version manager
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --corepack-enabled --log-level=quiet --shell zsh)"
-
 
 # Change working dir in shell to last dir in lf on exit
 # https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
@@ -54,14 +47,12 @@ lfcd () {
     cd "$(command lf -print-last-dir "$@")"
 }
 
-
 # Aliases
 alias cat="bat --plain"
 alias ls="eza"
 alias lf="lfcd"
 alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
-
 
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
