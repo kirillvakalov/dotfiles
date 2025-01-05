@@ -35,9 +35,6 @@ fi
 
 
 # Plugins
-if [[ ! -d ~/.zsh/fzf-tab ]]; then
-  git clone --depth 1 https://github.com/Aloxaf/fzf-tab ~/.zsh/fzf-tab
-fi
 if [[ ! -d ~/.zsh/powerlevel10k ]]; then
   git clone --depth 1 https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
 fi
@@ -68,21 +65,6 @@ then
   compinit
 fi
 
-
-# fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
-source <(fzf --zsh)
-export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi --tmux"
-
-
-# Completions
-# Use fzf for zsh completion selection menu
-# fzf-tab needs to be loaded before autosuggestions (ref: https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#install)
-source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # Case-insensitive (all), partial-word, and then substring completion (https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh#L87-L88)
 zstyle ':completion:' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:upper:]}={[:lower:]}' 'r:|[._-]= r:|=' 'l:|= r:|=*'
