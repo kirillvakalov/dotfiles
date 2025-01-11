@@ -262,39 +262,20 @@ require('lazy').setup({
       end,
     },
     {
-      'nvim-telescope/telescope.nvim',
-      dependencies = {
-        'nvim-treesitter/nvim-treesitter',
-        {
-          'nvim-telescope/telescope-fzf-native.nvim',
-          build = 'make',
-          enabled = vim.fn.executable('make') == 1,
-        },
-      },
+      'ibhagwan/fzf-lua',
       config = function()
-        pcall(require('telescope').load_extension, 'fzf')
-        local actions = require('telescope.actions')
-
-        require('telescope').setup({
+        require('fzf-lua').setup({
           defaults = {
-            mappings = {
-              n = { ['q'] = actions.close },
-            },
+            formatter = 'path.filename_first',
           },
-          pickers = {
-            buffers = {
-              initial_mode = 'normal',
-              mappings = {
-                n = { ['d'] = actions.delete_buffer },
-              },
-            },
+          grep = {
+            RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
           },
         })
 
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.find_files)
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-        vim.keymap.set('n', '<leader>fb', function() builtin.buffers({ sort_mru = true }) end)
+        vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
+        vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<cr>')
+        vim.keymap.set('n', '<C-g>', '<cmd>FzfLua live_grep_resume<cr>')
       end,
     },
     {
