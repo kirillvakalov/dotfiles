@@ -109,6 +109,7 @@ require('lazy').setup({
     {
       'neovim/nvim-lspconfig',
       dependencies = {
+        'saghen/blink.cmp',
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
       },
@@ -130,13 +131,13 @@ require('lazy').setup({
           end,
         })
 
-        local has_cmp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
         local capabilities = vim.tbl_deep_extend(
           'force',
           {},
           vim.lsp.protocol.make_client_capabilities(),
-          has_cmp and cmp_nvim_lsp.default_capabilities() or {}
+          require('blink.cmp').get_lsp_capabilities()
         )
+
         local handlers = {
           ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
           ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
@@ -173,43 +174,20 @@ require('lazy').setup({
       end,
     },
     {
-      'hrsh7th/nvim-cmp',
-      dependencies = {
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
+      'saghen/blink.cmp',
+      version = '*',
+      opts = {
+        keymap = { preset = 'default' },
+        sources = {
+          default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+        completion = {
+          menu = { border = 'rounded' },
+          documentation = { window = { border = 'rounded' } },
+        },
+        signature = { enabled = true },
       },
-      config = function()
-        local cmp = require('cmp')
-
-        cmp.setup({
-          snippet = {
-            expand = function(args) vim.snippet.expand(args.body) end,
-          },
-          window = {
-            completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered(),
-          },
-          mapping = cmp.mapping.preset.insert({
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v4.x/lua/lsp-zero/cmp-mapping.lua#L28-L41
-            ['<Tab>'] = cmp.mapping(function(fallback)
-              local col = vim.fn.col('.') - 1
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                fallback()
-              else
-                cmp.complete()
-              end
-            end, { 'i', 's' }),
-            ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-          }),
-          sources = {
-            { name = 'nvim_lsp' },
-            { name = 'buffer' },
-          },
-        })
-      end,
+    },
     },
     {
       'zbirenbaum/copilot.lua',
