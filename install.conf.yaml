@@ -15,6 +15,9 @@
     ~/.zshrc:
     ~/.zimrc:
     ~/.p10k.zsh:
+    ~/.docker/config.json:
+      force: true
+      path: docker/config.json
     ~/.config/:
       glob: true
       force: true
