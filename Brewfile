@@ -25,6 +25,7 @@ brew "zoxide"
 
 brew "colima", start_service: true
 brew "docker"
+brew "docker-buildx"
 brew "docker-compose"
 brew "qemu"
 
