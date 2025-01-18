@@ -16,6 +16,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#initialization-mode
+ZVM_INIT_MODE=sourcing
+
 # Configure zsh-syntax-highlighting and zsh-autosuggestions
 ZSH_HIGHLIGHT_MAXLENGTH=512
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
@@ -32,7 +35,7 @@ autoload -Uz bracketed-paste-url-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 
 # Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # zoxide (https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 eval "$(zoxide init zsh)"
