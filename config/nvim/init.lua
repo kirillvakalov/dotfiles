@@ -188,7 +188,6 @@ require('lazy').setup({
         signature = { enabled = true },
       },
     },
-    },
     {
       'zbirenbaum/copilot.lua',
       cmd = 'Copilot',
@@ -284,9 +283,7 @@ require('lazy').setup({
     {
       'rmagatti/auto-session',
       lazy = false,
-      opts = {
-        suppressed_dirs = { '~/Downloads' },
-      },
+      opts = {},
     },
     {
       'm4xshen/hardtime.nvim',
@@ -301,5 +298,4 @@ require('lazy').setup({
     },
     'ThePrimeagen/vim-be-good',
   },
-  rocks = { enabled = false },
 })
