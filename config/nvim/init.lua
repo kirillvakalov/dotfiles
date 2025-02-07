@@ -185,28 +185,8 @@ require('lazy').setup({
           menu = { border = 'rounded' },
           documentation = { window = { border = 'rounded' } },
         },
-        signature = { enabled = true },
+        signature = { enabled = false },
       },
-    },
-    {
-      'zbirenbaum/copilot.lua',
-      cmd = 'Copilot',
-      build = ':Copilot auth',
-      event = 'InsertEnter',
-      config = function()
-        require('copilot').setup({
-          suggestion = {
-            enabled = true,
-            auto_trigger = false,
-            keymap = {
-              accept = '<M-l>',
-              next = '<M-]>',
-              prev = '<M-[>',
-              dismiss = '<C-]>',
-            },
-          },
-        })
-      end,
     },
     {
       'nvimtools/none-ls.nvim',
