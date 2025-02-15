@@ -25,6 +25,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [./scripts/bat-rose-pine.sh, Installing Rose Pine themes for bat]
     - [./scripts/cloud-sql-proxy.sh, Installing GCP Cloud SQL Auth Proxy]
     - [./scripts/krew.sh, Installing Krew kubectl plugin manager]

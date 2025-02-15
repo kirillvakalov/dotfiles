@@ -4,7 +4,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Used by bat and git delta pager
-export BAT_THEME="rose-pine"
+export BAT_THEME="base16"
 export BAT_PAGER=""
 
 # Ripgrep
