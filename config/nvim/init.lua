@@ -45,7 +45,6 @@ vim.opt.undofile = true
 vim.diagnostic.config({
   float = {
     source = 'always',
-    border = 'rounded',
     header = '',
   },
 })
@@ -94,16 +93,11 @@ require('lazy').setup({
   spec = {
     'nvim-lua/plenary.nvim',
     {
-      'rose-pine/neovim',
-      name = 'rose-pine',
+      'zenbones-theme/zenbones.nvim',
+      dependencies = 'rktjmp/lush.nvim',
       config = function()
-        require('rose-pine').setup({
-          styles = {
-            italic = false,
-            transparency = true,
-          },
-        })
-        vim.cmd('colorscheme rose-pine')
+        vim.g.rosebones_transparent_background = true
+        vim.cmd.colorscheme('rosebones')
       end,
     },
     {
@@ -138,11 +132,6 @@ require('lazy').setup({
           require('blink.cmp').get_lsp_capabilities()
         )
 
-        local handlers = {
-          ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
-          ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
-        }
-
         require('mason').setup()
 
         require('mason-lspconfig').setup({
@@ -151,7 +140,6 @@ require('lazy').setup({
             function(server_name)
               require('lspconfig')[server_name].setup({
                 capabilities = capabilities,
-                handlers = handlers,
               })
             end,
           },
@@ -180,10 +168,6 @@ require('lazy').setup({
         keymap = { preset = 'default' },
         sources = {
           default = { 'lsp', 'path', 'snippets', 'buffer' },
-        },
-        completion = {
-          menu = { border = 'rounded' },
-          documentation = { window = { border = 'rounded' } },
         },
         signature = { enabled = false },
       },
@@ -228,6 +212,14 @@ require('lazy').setup({
           grep = {
             RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
           },
+          fzf_colors = true,
+          winopts = {
+            border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            preview = {
+              border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            },
+          },
+          hls = { preview_border = 'CursorLine', preview_normal = 'CursorLine' },
         })
 
         vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
