@@ -1,4 +1,5 @@
-# based on https://github.com/kovidgoyal/kitty-themes/blob/master/themes/everforest_dark_hard.conf
+# theme based on https://github.com/kovidgoyal/kitty-themes/blob/master/themes/everforest_dark_hard.conf
+# and https://github.com/sainnhe/everforest/blob/master/palette.md
 theme = everforest_dark_hard
 font-family = MonoLisa
 font-style-italic = Regular Italic
