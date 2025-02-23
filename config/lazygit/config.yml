@@ -2,12 +2,11 @@ git:
   paging:
     externalDiffCommand: difft --color=always --syntax-highlight=off
 
-# rosebones based theme
 gui:
   theme:
     inactiveBorderColor:
-      - '#3A3651'
+      - ''
     selectedLineBgColor:
-      - '#523A39'
+      - ''
   authorColors:
     '*': 'blue'
