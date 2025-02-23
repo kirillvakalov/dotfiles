@@ -1,11 +1,12 @@
-theme = rose-pine
+# based on https://github.com/kovidgoyal/kitty-themes/blob/master/themes/everforest_dark_hard.conf
+theme = everforest_dark_hard
 font-family = MonoLisa
 font-style-italic = Regular Italic
 font-feature = -calt
 font-feature = -liga
 window-width = 190
 window-height = 58
-background-opacity = 0.92
+background-opacity = 0.95
 background-blur-radius = 20
 confirm-close-surface = false
 macos-option-as-alt = true
