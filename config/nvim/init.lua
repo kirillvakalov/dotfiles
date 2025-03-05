@@ -4,7 +4,6 @@
 -- https://github.com/AstroNvim/AstroNvim
 -- https://github.com/LunarVim/LunarVim
 -- https://github.com/jesseleite/dotfiles/tree/master/nvim
-
 vim.g.mapleader = ' '
 
 -- https://neovim.io/doc/user/options.html
@@ -228,12 +227,14 @@ require('lazy').setup({
       end,
     },
     {
-      'echasnovski/mini.files',
-      version = '*',
+      'stevearc/oil.nvim',
+      lazy = false,
       config = function()
-        require('mini.files').setup()
-        -- https://github.com/LazyVim/LazyVim/blob/a1c3ec4cd43fe61e3b614237a46ac92771191c81/lua/lazyvim/plugins/extras/editor/mini-files.lua#L16-L22
-        vim.keymap.set('n', '<leader>fm', function() require('mini.files').open(vim.api.nvim_buf_get_name(0), true) end)
+        require('oil').setup({
+          view_options = { show_hidden = true },
+        })
+
+        vim.keymap.set('n', '-', '<cmd>Oil<cr>')
       end,
     },
     {
