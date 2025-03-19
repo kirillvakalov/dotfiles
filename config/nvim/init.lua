@@ -38,6 +38,9 @@ vim.opt.pumheight = 10 -- maximum number of items in a popup
 
 vim.opt.updatetime = 250 -- 🤷
 
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 vim.opt.swapfile = false
 vim.opt.undofile = true
 
