@@ -37,6 +37,7 @@ zle -N bracketed-paste bracketed-paste-url-magic
 # Shell history search with fzf. Previously I have used atuin and
 # switched because it has very bad fuzzy matching compared to fzf.
 # https://github.com/zimfw/environment/blob/master/init.zsh
+# https://gist.github.com/mattmc3/c490d01751d6eb80aa541711ab1d54b1
 # https://zsh.sourceforge.io/Doc/Release/Options.html
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
