@@ -34,8 +34,22 @@ source ~/.p10k.zsh
 autoload -Uz bracketed-paste-url-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 
-# Atuin shell history (https://docs.atuin.sh/guide/installation/#installing-the-shell-plugin)
-eval "$(atuin init zsh --disable-up-arrow)"
+# Shell history search with fzf. Previously I have used atuin and
+# switched because it has very bad fuzzy matching compared to fzf.
+# https://github.com/zimfw/environment/blob/master/init.zsh
+# https://zsh.sourceforge.io/Doc/Release/Options.html
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_REDUCE_BLANKS # 'cd ' and 'cd' will be saved as one command in history
+setopt INC_APPEND_HISTORY
+unsetopt SHARE_HISTORY # INC_APPEND_HISTORY and SHARE_HISTORY are mutually exclusive options
+
+# https://github.com/junegunn/fzf/issues/3007
+export FZF_CTRL_R_OPTS="--with-nth 2.."
+# TODO: Display relative time when command ran
+# https://tratt.net/laurie/blog/2025/better_shell_history_search.html
+# https://github.com/junegunn/fzf/issues/1049
+source <(fzf --zsh)
 
 # zoxide (https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 eval "$(zoxide init zsh)"

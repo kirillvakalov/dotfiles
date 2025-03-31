@@ -1,7 +1,6 @@
 tap "fluxcd/tap"
 tap "hashicorp/tap"
 
-brew "atuin"
 brew "bat"
 brew "btop"
 brew "difftastic"
