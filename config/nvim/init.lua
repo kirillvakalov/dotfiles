@@ -120,31 +120,36 @@ require('lazy').setup({
             client.server_capabilities.semanticTokensProvider = nil
 
             local opts = { buffer = event.buf }
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
             vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, opts)
           end,
         })
 
-        local capabilities = vim.tbl_deep_extend(
-          'force',
-          {},
-          vim.lsp.protocol.make_client_capabilities(),
-          require('blink.cmp').get_lsp_capabilities()
-        )
-
         require('mason').setup()
-
         require('mason-lspconfig').setup({
-          ensure_installed = { 'ts_ls', 'biome', 'eslint' },
-          handlers = {
-            function(server_name)
-              require('lspconfig')[server_name].setup({
-                capabilities = capabilities,
-              })
-            end,
-          },
+          ensure_installed = { 'vtsls', 'biome', 'eslint' },
+        })
+
+        local lspconfig = require('lspconfig')
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+        require('mason-lspconfig').setup_handlers({
+          function(server_name)
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+          ['vtsls'] = function()
+            lspconfig.vtsls.setup({
+              capabilities = capabilities,
+              settings = {
+                vtsls = {
+                  experimental = {
+                    completion = { enableServerSideFuzzyMatch = true, entriesLimit = 100 },
+                  },
+                },
+              },
+            })
+          end,
         })
       end,
     },
@@ -165,13 +170,12 @@ require('lazy').setup({
     },
     {
       'saghen/blink.cmp',
-      version = '*',
+      version = '1.*',
       opts = {
         keymap = { preset = 'default' },
         sources = {
           default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
-        signature = { enabled = false },
       },
     },
     {
@@ -272,6 +276,5 @@ require('lazy').setup({
         },
       },
     },
-    'ThePrimeagen/vim-be-good',
   },
 })
