@@ -138,6 +138,7 @@ require('lazy').setup({
               capabilities = capabilities,
             })
           end,
+          -- https://github.com/Saghen/blink.cmp/issues/1115#issuecomment-2646476212
           ['vtsls'] = function()
             lspconfig.vtsls.setup({
               capabilities = capabilities,
