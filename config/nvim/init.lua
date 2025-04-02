@@ -144,7 +144,7 @@ require('lazy').setup({
               settings = {
                 vtsls = {
                   experimental = {
-                    completion = { enableServerSideFuzzyMatch = true, entriesLimit = 100 },
+                    completion = { enableServerSideFuzzyMatch = true, entriesLimit = 1000 },
                   },
                 },
               },
