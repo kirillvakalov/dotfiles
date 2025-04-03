@@ -16,6 +16,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#initialization-mode
 ZVM_INIT_MODE=sourcing
 
