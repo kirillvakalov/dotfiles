@@ -250,10 +250,11 @@ require('lazy').setup({
       config = function()
         local smart_splits = require('smart-splits')
 
-        vim.keymap.set('n', '<A-h>', function() smart_splits.resize_left(8) end)
-        vim.keymap.set('n', '<A-j>', function() smart_splits.resize_down(5) end)
-        vim.keymap.set('n', '<A-k>', function() smart_splits.resize_up(5) end)
-        vim.keymap.set('n', '<A-l>', function() smart_splits.resize_right(8) end)
+        -- 🙅 Why Ctrl-Shift hjkl keybindings are interpreted like M-Arrow keys inside neovim?
+        vim.keymap.set('n', '<M-Left>', function() smart_splits.resize_left(5) end)
+        vim.keymap.set('n', '<M-Down>', function() smart_splits.resize_down(3) end)
+        vim.keymap.set('n', '<M-Up>', function() smart_splits.resize_up(3) end)
+        vim.keymap.set('n', '<M-Right>', function() smart_splits.resize_right(5) end)
 
         vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left)
         vim.keymap.set('n', '<C-j>', smart_splits.move_cursor_down)
