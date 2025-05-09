@@ -106,8 +106,8 @@ require('lazy').setup({
       'neovim/nvim-lspconfig',
       dependencies = {
         'saghen/blink.cmp',
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
+        { 'mason-org/mason.nvim', version = '^1.0.0' },
+        { 'mason-org/mason-lspconfig.nvim', version = '^1.0.0' },
       },
       config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -155,7 +155,8 @@ require('lazy').setup({
       end,
     },
     {
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
+      version = '^1.0.0',
       config = function()
         require('mason').setup()
         -- https://github.com/LazyVim/LazyVim/blob/a1c3ec4cd43fe61e3b614237a46ac92771191c81/lua/lazyvim/plugins/lsp/init.lua#L289-L296
@@ -181,7 +182,7 @@ require('lazy').setup({
     },
     {
       'nvimtools/none-ls.nvim',
-      dependencies = { 'williamboman/mason.nvim' },
+      dependencies = { { 'mason-org/mason.nvim', version = '^1.0.0' } },
       config = function()
         local null_ls = require('null-ls')
         null_ls.setup({
