@@ -1,7 +1,6 @@
 git:
   paging:
     externalDiffCommand: difft --color=always --syntax-highlight=off
-
 gui:
   theme:
     inactiveBorderColor:
