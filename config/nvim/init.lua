@@ -44,6 +44,9 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
 
+-- Recommended options by auto-session plugin
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
 vim.diagnostic.config({
   float = {
     source = 'always',
