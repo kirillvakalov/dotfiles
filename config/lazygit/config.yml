@@ -2,10 +2,8 @@ git:
   paging:
     externalDiffCommand: difft --color=always --syntax-highlight=off
 gui:
-  theme:
-    inactiveBorderColor:
-      - ''
-    selectedLineBgColor:
-      - ''
   authorColors:
     '*': 'blue'
+  theme:
+    selectedLineBgColor:
+      - '#49473e'
