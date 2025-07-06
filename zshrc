@@ -47,11 +47,7 @@ setopt HIST_REDUCE_BLANKS # 'cd ' and 'cd' will be saved as one command in histo
 setopt INC_APPEND_HISTORY
 unsetopt SHARE_HISTORY # INC_APPEND_HISTORY and SHARE_HISTORY are mutually exclusive options
 
-# https://github.com/junegunn/fzf/issues/3007
-export FZF_CTRL_R_OPTS="--with-nth 2.."
-# TODO: Display relative time when command ran
-# https://tratt.net/laurie/blog/2025/better_shell_history_search.html
-# https://github.com/junegunn/fzf/issues/1049
+# fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
 source <(fzf --zsh)
 
 # zoxide (https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
