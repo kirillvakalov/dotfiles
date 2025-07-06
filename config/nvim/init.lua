@@ -101,8 +101,8 @@ require('lazy').setup({
       'zenbones-theme/zenbones.nvim',
       dependencies = 'rktjmp/lush.nvim',
       config = function()
-        vim.g.forestbones_transparent_background = true
-        vim.cmd.colorscheme('forestbones')
+        vim.g.kanagawabones_transparent_background = true
+        vim.cmd.colorscheme('kanagawabones')
       end,
     },
     {
