@@ -159,7 +159,6 @@ require('lazy').setup({
     },
     {
       'mason-org/mason.nvim',
-      version = '^1.0.0',
       config = function()
         require('mason').setup()
         -- https://github.com/LazyVim/LazyVim/blob/a1c3ec4cd43fe61e3b614237a46ac92771191c81/lua/lazyvim/plugins/lsp/init.lua#L289-L296
@@ -185,7 +184,7 @@ require('lazy').setup({
     },
     {
       'nvimtools/none-ls.nvim',
-      dependencies = { { 'mason-org/mason.nvim', version = '^1.0.0' } },
+      dependencies = { { 'mason-org/mason.nvim' } },
       config = function()
         local null_ls = require('null-ls')
         null_ls.setup({
