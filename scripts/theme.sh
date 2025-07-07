@@ -11,8 +11,10 @@ read -r SELECTION_FOREGROUND SELECTION_BACKGROUND <<<$(
 )
 
 # Patch tmux config file
+tmux_style="fg='${SELECTION_FOREGROUND}',bg='${SELECTION_BACKGROUND}'"
 sed -E -i '' \
-  "s/^set -g mode-style.*/set -g mode-style fg='${SELECTION_FOREGROUND}',bg='${SELECTION_BACKGROUND}'/" \
+  -e "s/^set -g mode-style.*/set -g mode-style ${tmux_style}/" \
+  -e "s/^set -g message-style.*/set -g message-style ${tmux_style}/" \
   config/tmux/tmux.conf
 # Reload tmux config
 tmux source-file ~/.config/tmux/tmux.conf
