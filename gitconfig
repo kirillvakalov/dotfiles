@@ -16,6 +16,8 @@
         rebase = true
 [rebase]
         autoStash = true
+[rerere]
+        enabled = true
 [alias]
         l = log --oneline
         s = status
