@@ -83,3 +83,7 @@ vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left)
 vim.keymap.set('n', '<C-j>', smart_splits.move_cursor_down)
 vim.keymap.set('n', '<C-k>', smart_splits.move_cursor_up)
 vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
+
+add({ source = 'rmagatti/auto-session' })
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+require('auto-session').setup()
