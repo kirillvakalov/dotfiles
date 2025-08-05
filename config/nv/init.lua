@@ -43,3 +43,32 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.undofile = true
+
+-- plugins 🔌
+local add = MiniDeps.add
+
+add({
+  source = 'zenbones-theme/zenbones.nvim',
+  depends = { 'rktjmp/lush.nvim' },
+})
+vim.g.tokyobones_transparent_background = true
+vim.cmd.colorscheme('tokyobones')
+
+add({
+  source = 'nvim-treesitter/nvim-treesitter',
+  checkout = 'master',
+  monitor = 'main',
+  hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+})
+require('nvim-treesitter.configs').setup({
+  auto_install = true,
+  highlight = { enable = true },
+  indent = { enable = true },
+})
+
+add({ source = 'stevearc/oil.nvim' })
+require('oil').setup({
+  watch_for_changes = true,
+  view_options = { show_hidden = true },
+})
+vim.keymap.set('n', '-', '<cmd>Oil<cr>')
