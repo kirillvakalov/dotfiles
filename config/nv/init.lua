@@ -1,4 +1,4 @@
--- plugin manager 📦
+-- Plugin manager 📦
 -- https://github.com/echasnovski/mini.deps?tab=readme-ov-file#installation
 local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.deps'
@@ -15,7 +15,7 @@ end
 
 require('mini.deps').setup({ path = { package = path_package } })
 
--- general options 🪛
+-- General options 🪛
 -- https://neovim.io/doc/user/options.html
 vim.g.mapleader = ' '
 
@@ -48,7 +48,19 @@ vim.opt.splitright = true
 
 vim.opt.undofile = true
 
--- plugins 🔌
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function() vim.highlight.on_yank() end,
+})
+
+-- Center cursor on half-page up/down
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
+
+-- Plugins 🔌
 local add = MiniDeps.add
 
 add({
