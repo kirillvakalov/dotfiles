@@ -1,3 +1,4 @@
+-- plugin manager 📦
 -- https://github.com/echasnovski/mini.deps?tab=readme-ov-file#installation
 local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.deps'
@@ -14,7 +15,10 @@ end
 
 require('mini.deps').setup({ path = { package = path_package } })
 
+-- general options 🪛
 -- https://neovim.io/doc/user/options.html
+vim.g.mapleader = ' '
+
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = 'a'
 
@@ -101,3 +105,9 @@ vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
 add({ source = 'rmagatti/auto-session' })
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
+
+add({
+  source = 'ruifm/gitlinker.nvim',
+  depends = { 'nvim-lua/plenary.nvim' },
+})
+require("gitlinker").setup()
