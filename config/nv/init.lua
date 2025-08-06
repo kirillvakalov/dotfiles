@@ -56,14 +56,28 @@ vim.cmd.colorscheme('tokyobones')
 
 add({
   source = 'nvim-treesitter/nvim-treesitter',
-  checkout = 'master',
-  monitor = 'main',
+  checkout = 'main',
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 })
-require('nvim-treesitter.configs').setup({
-  auto_install = true,
-  highlight = { enable = true },
-  indent = { enable = true },
+require('nvim-treesitter').install({
+  'dockerfile',
+  'gitignore',
+  'javascript',
+  'markdown',
+  'typescript',
+})
+-- copied from https://erock-git-dotfiles.pgs.sh/tree/main/item/dot_config/nvim/init.lua.html#184
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    local filetype = args.match
+    local lang = vim.treesitter.language.get_lang(filetype)
+    if vim.treesitter.language.add(lang) then
+      if vim.treesitter.query.get(filetype, 'indents') then
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
+      vim.treesitter.start()
+    end
+  end,
 })
 
 add({ source = 'stevearc/oil.nvim' })
