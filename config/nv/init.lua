@@ -84,6 +84,27 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+add({ source = 'ibhagwan/fzf-lua' })
+require('fzf-lua').setup({
+  defaults = {
+    formatter = 'path.filename_first',
+  },
+  grep = {
+    RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
+  },
+  fzf_colors = true,
+  winopts = {
+    border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+    preview = {
+      border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+    },
+  },
+  hls = { preview_border = 'CursorLine', preview_normal = 'CursorLine' },
+})
+vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
+vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<cr>')
+vim.keymap.set('n', '<C-g>', '<cmd>FzfLua live_grep resume=true<cr>')
+
 add({ source = 'stevearc/oil.nvim' })
 require('oil').setup({
   watch_for_changes = true,
