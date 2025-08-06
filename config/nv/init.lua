@@ -96,6 +96,22 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+add({ source = 'neovim/nvim-lspconfig' })
+vim.lsp.config('vtsls', {
+  settings = {
+    vtsls = {
+      experimental = {
+        completion = { enableServerSideFuzzyMatch = true, entriesLimit = 1000 },
+      },
+    },
+  }
+})
+vim.lsp.enable({
+  'vtsls', -- npm i -g @vtsls/language-server
+  'eslint', -- npm i -g eslint
+  'biome', -- npm i -g @biomejs/biome
+})
+
 add({ source = 'ibhagwan/fzf-lua' })
 require('fzf-lua').setup({
   defaults = {
