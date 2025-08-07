@@ -9,4 +9,4 @@ gui:
     # 💡 Please run this script again after you change ghostty theme to update
     # colors to new values
     selectedLineBgColor:
-      - '#33467c'
+      - '#3e4a5b'

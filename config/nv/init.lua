@@ -67,8 +67,8 @@ add({
   source = 'zenbones-theme/zenbones.nvim',
   depends = { 'rktjmp/lush.nvim' },
 })
-vim.g.tokyobones_transparent_background = true
-vim.cmd.colorscheme('tokyobones')
+vim.g.nordbones_transparent_background = true
+vim.cmd.colorscheme('nordbones')
 
 add({
   source = 'nvim-treesitter/nvim-treesitter',
