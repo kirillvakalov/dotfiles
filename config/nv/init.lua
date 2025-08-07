@@ -112,6 +112,17 @@ vim.lsp.enable({
   'biome', -- npm i -g @biomejs/biome
 })
 
+add({
+  source = 'saghen/blink.cmp',
+  checkout = 'v1.6.0',
+})
+require('blink.cmp').setup({
+  keymap = { preset = 'default' },
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
+  },
+})
+
 add({ source = 'ibhagwan/fzf-lua' })
 require('fzf-lua').setup({
   defaults = {
