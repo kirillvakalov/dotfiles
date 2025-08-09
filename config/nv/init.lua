@@ -118,6 +118,13 @@ masonRegistry.refresh(function()
 end)
 
 add({ source = 'neovim/nvim-lspconfig' })
+-- Fix for warning from :checkhealth vim.lsp
+-- ⚠️ WARNING Found buffers attached to multiple clients with different position encodings.
+vim.lsp.config('biome', {
+  capabilities = {
+    general = { positionEncodings = { 'utf-16' } },
+  },
+})
 vim.lsp.config('vtsls', {
   settings = {
     vtsls = {
@@ -202,7 +209,7 @@ require('fzf-lua').setup({
 })
 require('fzf-lua-frecency').setup()
 vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
-vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true<cr>')
+vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true file_icons=false<cr>')
 vim.keymap.set('n', '<C-g>', '<cmd>FzfLua live_grep resume=true<cr>')
 
 add({ source = 'stevearc/oil.nvim' })
