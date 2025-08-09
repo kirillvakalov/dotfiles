@@ -168,8 +168,8 @@ require('conform').setup({
 })
 vim.keymap.set('n', '<leader>f', function() require('conform').format({ async = true }) end)
 
--- We need to use none-ls as sqlfluff is both formatter/linter and it works
--- best when both are running
+-- We have to use none-ls for sqlfluff because it fails to format with
+-- conform.nvim if SQL file has lint errors
 add({
   source = 'nvimtools/none-ls.nvim',
   depends = { 'nvim-lua/plenary.nvim' },
@@ -183,6 +183,7 @@ null_ls.setup({
 })
 
 add({ source = 'ibhagwan/fzf-lua' })
+add({ source = 'elanmed/fzf-lua-frecency.nvim' })
 require('fzf-lua').setup({
   defaults = {
     formatter = 'path.filename_first',
@@ -199,8 +200,9 @@ require('fzf-lua').setup({
   },
   hls = { preview_border = 'CursorLine', preview_normal = 'CursorLine' },
 })
+require('fzf-lua-frecency').setup()
 vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
-vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<cr>')
+vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true<cr>')
 vim.keymap.set('n', '<C-g>', '<cmd>FzfLua live_grep resume=true<cr>')
 
 add({ source = 'stevearc/oil.nvim' })
