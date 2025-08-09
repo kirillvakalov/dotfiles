@@ -118,13 +118,6 @@ masonRegistry.refresh(function()
 end)
 
 add({ source = 'neovim/nvim-lspconfig' })
--- Fix for warning from :checkhealth vim.lsp
--- ⚠️ WARNING Found buffers attached to multiple clients with different position encodings.
-vim.lsp.config('biome', {
-  capabilities = {
-    general = { positionEncodings = { 'utf-16' } },
-  },
-})
 vim.lsp.config('vtsls', {
   settings = {
     vtsls = {
@@ -132,6 +125,13 @@ vim.lsp.config('vtsls', {
         completion = { enableServerSideFuzzyMatch = true, entriesLimit = 1000 },
       },
     },
+  },
+})
+-- Fix for warning from :checkhealth vim.lsp
+-- ⚠️ WARNING Found buffers attached to multiple clients with different position encodings.
+vim.lsp.config('biome', {
+  capabilities = {
+    general = { positionEncodings = { 'utf-16' } },
   },
 })
 vim.lsp.enable({ 'vtsls', 'eslint', 'biome' })
