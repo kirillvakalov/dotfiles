@@ -142,9 +142,24 @@ require('blink.cmp').setup({
 
 add({ source = 'stevearc/conform.nvim' })
 require('conform').setup({
+  -- copied from https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/formatting/prettier.lua
   formatters_by_ft = {
+    css = { 'prettier' },
+    graphql = { 'prettier' },
+    handlebars = { 'prettier' },
+    html = { 'prettier' },
     javascript = { 'prettier' },
+    javascriptreact = { 'prettier' },
+    json = { 'prettier' },
+    jsonc = { 'prettier' },
+    less = { 'prettier' },
+    markdown = { 'prettier' },
+    ['markdown.mdx'] = { 'prettier' },
+    scss = { 'prettier' },
     typescript = { 'prettier' },
+    typescriptreact = { 'prettier' },
+    vue = { 'prettier' },
+    yaml = { 'prettier' },
     lua = { 'stylua' },
   },
   default_format_opts = {
