@@ -5,8 +5,11 @@ local mini_path = path_package .. 'pack/deps/start/mini.deps'
 if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installing `mini.deps`" | redraw')
   local clone_cmd = {
-    'git', 'clone', '--filter=blob:none',
-    'https://github.com/echasnovski/mini.deps', mini_path
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/echasnovski/mini.deps',
+    mini_path,
   }
   vim.fn.system(clone_cmd)
   vim.cmd('packadd mini.deps | helptags ALL')
@@ -96,6 +99,24 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+add({ source = 'mason-org/mason.nvim' })
+require('mason').setup()
+local masonRegistry = require('mason-registry')
+local tools = {
+  'vtsls',
+  'eslint-lsp',
+  'biome',
+  'prettier',
+  'sqlfluff',
+  'stylua',
+}
+masonRegistry.refresh(function()
+  for _, tool in ipairs(tools) do
+    local pkg = masonRegistry.get_package(tool)
+    if not pkg:is_installed() then pkg:install() end
+  end
+end)
+
 add({ source = 'neovim/nvim-lspconfig' })
 vim.lsp.config('vtsls', {
   settings = {
@@ -104,13 +125,9 @@ vim.lsp.config('vtsls', {
         completion = { enableServerSideFuzzyMatch = true, entriesLimit = 1000 },
       },
     },
-  }
+  },
 })
-vim.lsp.enable({
-  'vtsls', -- npm i -g @vtsls/language-server
-  'eslint', -- npm i -g eslint
-  'biome', -- npm i -g @biomejs/biome
-})
+vim.lsp.enable({ 'vtsls', 'eslint', 'biome' })
 
 add({
   source = 'saghen/blink.cmp',
@@ -167,6 +184,6 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 require('auto-session').setup()
 
 add({ source = 'linrongbin16/gitlinker.nvim' })
-require("gitlinker").setup()
+require('gitlinker').setup()
 vim.keymap.set({ 'n', 'v' }, '<leader>gy', '<cmd>GitLink<cr>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gY', '<cmd>GitLink!<cr>')
