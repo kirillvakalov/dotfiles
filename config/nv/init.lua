@@ -140,6 +140,18 @@ require('blink.cmp').setup({
   },
 })
 
+add({
+  source = 'nvimtools/none-ls.nvim',
+  depends = { 'nvim-lua/plenary.nvim' },
+})
+local null_ls = require('null-ls')
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.sqlfluff,
+    null_ls.builtins.diagnostics.sqlfluff,
+  },
+})
+
 add({ source = 'ibhagwan/fzf-lua' })
 require('fzf-lua').setup({
   defaults = {
