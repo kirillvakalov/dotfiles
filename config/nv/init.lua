@@ -140,6 +140,21 @@ require('blink.cmp').setup({
   },
 })
 
+add({ source = 'stevearc/conform.nvim' })
+require('conform').setup({
+  formatters_by_ft = {
+    javascript = { 'prettier' },
+    typescript = { 'prettier' },
+    lua = { 'stylua' },
+  },
+  default_format_opts = {
+    lsp_format = 'fallback',
+  },
+})
+vim.keymap.set('n', '<leader>f', function() require('conform').format({ async = true }) end)
+
+-- We need to use none-ls as sqlfluff is both formatter/linter and it works
+-- best when both are running
 add({
   source = 'nvimtools/none-ls.nvim',
   depends = { 'nvim-lua/plenary.nvim' },
