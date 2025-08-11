@@ -11,10 +11,10 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} 
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
-# Enable Powerlevel10k instant prompt.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# https://github.com/agkozak/agkozak-zsh-prompt?tab=readme-ov-file
+AGKOZAK_USER_HOST_DISPLAY=0
+AGKOZAK_COLORS_BRANCH_STATUS=242
+AGKOZAK_BLANK_LINES=1
 
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -28,9 +28,6 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
-
-# Powerlevel10k
-source ~/.p10k.zsh
 
 # Quote pasted URLs automatically (https://github.com/zsh-users/zsh/blob/master/Functions/Zle/bracketed-paste-url-magic)
 autoload -Uz bracketed-paste-url-magic

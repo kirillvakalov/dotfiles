@@ -1,4 +1,4 @@
-zmodule romkatv/powerlevel10k
+zmodule agkozak/agkozak-zsh-prompt
 zmodule jeffreytse/zsh-vi-mode
 zmodule environment
 zmodule zsh-users/zsh-completions --fpath src
