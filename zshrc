@@ -69,7 +69,6 @@ alias ls="eza"
 alias lf="lfcd"
 alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
-alias nv='NVIM_APPNAME="nv" nvim'
 
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
