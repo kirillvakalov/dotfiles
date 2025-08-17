@@ -83,12 +83,22 @@ add({
   checkout = 'main',
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 })
+-- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 require('nvim-treesitter').install({
+  'css',
   'dockerfile',
   'gitignore',
+  'html',
   'javascript',
+  'json',
+  'jsonc',
+  'jsx',
   'markdown',
+  'sql',
+  'terraform',
+  'tsx',
   'typescript',
+  'yaml',
 })
 -- copied from https://erock-git-dotfiles.pgs.sh/tree/main/item/dot_config/nvim/init.lua.html#184
 vim.api.nvim_create_autocmd('FileType', {
@@ -215,7 +225,7 @@ require('fzf-lua').setup({
 require('fzf-lua-frecency').setup()
 vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true file_icons=false<cr>')
-vim.keymap.set('n', '<C-g>', '<cmd>FzfLua live_grep resume=true<cr>')
+vim.keymap.set('n', '<leader>/', '<cmd>FzfLua live_grep resume=true<cr>')
 
 add({ source = 'stevearc/oil.nvim' })
 require('oil').setup({
