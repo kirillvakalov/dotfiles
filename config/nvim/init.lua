@@ -85,10 +85,8 @@ add({
 })
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 require('nvim-treesitter').install({
-  'css',
   'dockerfile',
   'gitignore',
-  'html',
   'javascript',
   'json',
   'jsonc',
