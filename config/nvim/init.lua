@@ -233,6 +233,14 @@ add({ source = 'stevearc/oil.nvim' })
 require('oil').setup({
   watch_for_changes = true,
   view_options = { show_hidden = true },
+  keymaps = {
+    -- We use these keymaps to navigate between windows with smart-splits
+    ['<C-h>'] = false,
+    ['<C-l>'] = false,
+    -- Same keymaps as <C-w> splits
+    ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
+    ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+  },
 })
 vim.keymap.set('n', '-', '<cmd>Oil<cr>')
 
