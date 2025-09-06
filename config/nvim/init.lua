@@ -159,6 +159,9 @@ require('blink.cmp').setup({
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
   },
+  completion = {
+    accept = { auto_brackets = { enabled = false } },
+  },
 })
 
 add({ source = 'stevearc/conform.nvim' })
