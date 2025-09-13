@@ -163,6 +163,15 @@ require('blink.cmp').setup({
     accept = { auto_brackets = { enabled = false } },
   },
 })
+-- Remove this once https://github.com/Saghen/blink.cmp/pull/487 is merged (in v2 version)
+-- and use ['<C-x><C-o>'] = { 'show', 'show_documentation', 'hide_documentation' }
+-- in blink keymap settings
+vim.keymap.set('i', '<C-x><C-o>', function()
+  local blink = require('blink.cmp')
+  blink.show()
+  blink.show_documentation()
+  blink.hide_documentation()
+end)
 
 add({ source = 'stevearc/conform.nvim' })
 require('conform').setup({
