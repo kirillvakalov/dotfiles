@@ -1,7 +1,6 @@
 brew "bat"
 brew "btop"
 brew "difftastic"
-brew "eza"
 brew "fd"
 brew "fzf"
 brew "gh"

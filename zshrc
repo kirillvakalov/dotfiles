@@ -62,7 +62,7 @@ lfcd () {
 
 # Aliases
 alias cat="bat --plain"
-alias ls="eza"
+alias ls="ls --color=auto"
 alias lf="lfcd"
 alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"

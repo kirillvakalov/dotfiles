@@ -1,5 +1,9 @@
 export XDG_CONFIG_HOME=$HOME/.config
 
+# GNU LS_COLORS from dircolors https://man.archlinux.org/man/dircolors.1.en
+# converted to BSD LSCOLORS with https://geoff.greer.fm/lscolors/
+export LSCOLORS="ExGxFxdaCxDaDahbadacec"
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 
