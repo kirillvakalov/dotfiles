@@ -1,4 +1,3 @@
-brew "bat"
 brew "btop"
 brew "difftastic"
 brew "fd"

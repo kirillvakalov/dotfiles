@@ -61,7 +61,6 @@ lfcd () {
 }
 
 # Aliases
-alias cat="bat --plain"
 alias ls="ls --color=auto"
 alias lf="lfcd"
 alias lz="lazygit"
