@@ -267,3 +267,8 @@ vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
 add({ source = 'rmagatti/auto-session' })
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
+
+add({ source = 'linrongbin16/gitlinker.nvim' })
+require('gitlinker').setup()
+vim.keymap.set({ 'n', 'v' }, '<leader>gy', '<cmd>GitLink<cr>')
+vim.keymap.set({ 'n', 'v' }, '<leader>gY', '<cmd>GitLink!<cr>')
