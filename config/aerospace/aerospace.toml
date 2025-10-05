@@ -166,5 +166,9 @@ automatically-unhide-macos-hidden-apps = false
     run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.Passwords'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-id = 'com.apple.clock'
     run = 'layout floating'
