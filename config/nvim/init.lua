@@ -253,6 +253,8 @@ require('oil').setup({
     -- We use these keymaps to navigate between windows with smart-splits
     ['<C-h>'] = false,
     ['<C-l>'] = false,
+    -- We use this keymap for fzf-lua frecency
+    ['<C-p>'] = false,
     -- Same keymaps as <C-w> splits
     ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
     ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
