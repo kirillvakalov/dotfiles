@@ -52,6 +52,10 @@ vim.opt.splitright = true
 
 vim.opt.undofile = true
 
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 10 -- Fold nothing by default
+vim.opt.foldnestmax = 10 -- Limit number of fold levels
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.highlight.on_yank() end,
@@ -105,9 +109,7 @@ vim.api.nvim_create_autocmd('FileType', {
     -- Do not enable slow treesitter highlights for files larger than 100KB
     local max_filesize = 100 * 1024
     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
-    if ok and stats and stats.size > max_filesize then
-      return
-    end
+    if ok and stats and stats.size > max_filesize then return end
 
     local filetype = args.match
     local lang = vim.treesitter.language.get_lang(filetype)
