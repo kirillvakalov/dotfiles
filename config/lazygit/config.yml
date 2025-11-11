@@ -1,4 +1,5 @@
 git:
+  overrideGpg: true
   paging:
     externalDiffCommand: difft --color=always --syntax-highlight=off
 gui:
