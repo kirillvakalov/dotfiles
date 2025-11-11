@@ -184,7 +184,8 @@ end)
 
 add({ source = 'stevearc/conform.nvim' })
 require('conform').setup({
-  -- copied from https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/formatting/prettier.lua
+  -- copied from
+  -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/formatting/prettier.lua
   formatters_by_ft = {
     css = { 'prettier' },
     graphql = { 'prettier' },
@@ -245,7 +246,8 @@ require('fzf-lua').setup({
 require('fzf-lua-frecency').setup()
 vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true file_icons=false<cr>')
-vim.keymap.set('n', '<leader>/', '<cmd>FzfLua live_grep resume=true<cr>')
+vim.keymap.set('n', '<leader>/', '<cmd>FzfLua live_grep<cr>')
+vim.keymap.set('n', "<leader>'", '<cmd>FzfLua resume<cr>')
 
 add({ source = 'stevearc/oil.nvim' })
 require('oil').setup({
