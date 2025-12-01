@@ -1,7 +1,8 @@
 git:
   overrideGpg: true
-  paging:
-    externalDiffCommand: difft --color=always --syntax-highlight=off
+  pagers:
+    - externalDiffCommand: difft --color=always --syntax-highlight=off
+    - pager: delta --dark --paging=never
 gui:
   authorColors:
     "*": "blue"
