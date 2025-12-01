@@ -42,7 +42,7 @@ vim.opt.ignorecase = true -- Ignore case in search
 vim.opt.smartcase = true -- Don't ignore case with uppercase chars
 
 vim.opt.list = true -- Show invisible chars (tabs, trailing spaces, etc...)
-vim.opt.listchars:append({ trail = '⋅', extends = '›' })
+vim.opt.listchars:append({ trail = '⋅', extends = '…' })
 vim.opt.wrap = false
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 6
@@ -76,12 +76,15 @@ vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.op
 -- Plugins 🔌
 local add = MiniDeps.add
 
+add({ source = 'thesimonho/kanagawa-paper.nvim' })
+vim.cmd.colorscheme('kanagawa-paper')
+
 add({
   source = 'zenbones-theme/zenbones.nvim',
   depends = { 'rktjmp/lush.nvim' },
 })
-vim.g.kanagawabones_transparent_background = true
-vim.cmd.colorscheme('kanagawabones')
+-- vim.g.kanagawabones_transparent_background = true
+-- vim.cmd.colorscheme('kanagawabones')
 
 add({
   source = 'nvim-treesitter/nvim-treesitter',
