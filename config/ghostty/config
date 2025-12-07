@@ -1,5 +1,3 @@
-# everforest_dark_hard theme based on https://github.com/kovidgoyal/kitty-themes/blob/master/themes/everforest_dark_hard.conf
-# and https://github.com/sainnhe/everforest/blob/master/palette.md
 # 💡 Please run ./scripts/theme.sh command after changing theme to
 # automatically patch tmux and lazygit themes with updated colors
 theme = Kanagawabones
