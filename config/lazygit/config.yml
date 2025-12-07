@@ -2,7 +2,7 @@ git:
   overrideGpg: true
   pagers:
     - externalDiffCommand: difft --color=always --syntax-highlight=off
-    - pager: delta --dark --paging=never
+    - pager: delta --light --paging=never
 gui:
   authorColors:
     "*": "blue"
