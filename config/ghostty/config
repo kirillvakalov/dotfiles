@@ -1,6 +1,6 @@
 # 💡 Please run ./scripts/theme.sh command after changing theme to
 # automatically patch tmux and lazygit themes with updated colors
-theme = Kanagawabones
+theme = Seoulbones Light
 font-family = MonoLisa
 font-style-italic = Regular Italic
 font-size = 12
