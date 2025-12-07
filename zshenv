@@ -7,7 +7,6 @@ export LSCOLORS="ExGxFxdaCxDaDahbadacec"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-
 # Ripgrep
 export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
 

@@ -11,15 +11,17 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} 
   source ${ZIM_HOME}/zimfw.zsh init
 fi
 
-# https://github.com/agkozak/agkozak-zsh-prompt?tab=readme-ov-file
-AGKOZAK_USER_HOST_DISPLAY=0
-AGKOZAK_COLORS_BRANCH_STATUS=242
-AGKOZAK_BLANK_LINES=1
-
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#system-clipboard
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#initialization-mode
 ZVM_INIT_MODE=sourcing
+
+# https://github.com/agkozak/agkozak-zsh-prompt?tab=readme-ov-file
+AGKOZAK_USER_HOST_DISPLAY=0
+AGKOZAK_COLORS_BRANCH_STATUS=242
+AGKOZAK_BLANK_LINES=1
 
 # Configure zsh-syntax-highlighting and zsh-autosuggestions
 ZSH_HIGHLIGHT_MAXLENGTH=512
@@ -35,14 +37,10 @@ zle -N bracketed-paste bracketed-paste-url-magic
 
 # Shell history search with fzf. Previously I have used atuin and
 # switched because it has very bad fuzzy matching compared to fzf.
-# https://github.com/zimfw/environment/blob/master/init.zsh
 # https://gist.github.com/mattmc3/c490d01751d6eb80aa541711ab1d54b1
-# https://zsh.sourceforge.io/Doc/Release/Options.html
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_REDUCE_BLANKS # 'cd ' and 'cd' will be saved as one command in history
-setopt INC_APPEND_HISTORY
-unsetopt SHARE_HISTORY # INC_APPEND_HISTORY and SHARE_HISTORY are mutually exclusive options
 
 # fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
 source <(fzf --zsh)

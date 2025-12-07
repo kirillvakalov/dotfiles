@@ -5,3 +5,7 @@ zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
+
+# Use `smite` to remove something from current session history (run `smite -a` to show all history)
+# https://github.com/zimfw/smite
+zmodule smite
