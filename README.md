@@ -2,9 +2,8 @@
 
 ## Setup
 
-1. Import SSH keys for git from _iCloud Drive/Backup/ssh key_ and add them to SSH agent
-
-ref: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
+1. Import SSH key for git from _iCloud Drive/Backup/ssh key_ and add it to
+   [ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
 
 ```sh
 eval "$(ssh-agent -s)"
@@ -21,7 +20,7 @@ ssh-add ~/.ssh/id_ed25519
 
 2. Copy [gitconfig](https://github.com/kirillvakalov/dotfiles/blob/main/gitconfig) to home directory as _.gitconfig_
 3. Install [Homebrew](https://brew.sh)
-4. Install **GnuPG** and import GPG keys from _iCloud Drive/Backup/gpg key_
+4. Install GnuPG and import GPG key from _iCloud Drive/Backup/gpg key_
    1. `brew install gnupg`
    2. `gpg --import public.gpg.asc`
    3. `gpg --import private.gpg.asc`
