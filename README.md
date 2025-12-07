@@ -2,7 +2,8 @@
 
 ## Setup
 
-1. Import SSH keys (https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
+1. Import SSH keys from iCloud Drive/Backup/ssh key
+   (https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
 
 ```sh
 eval "$(ssh-agent -s)"
@@ -19,14 +20,12 @@ ssh-add ~/.ssh/id_ed25519
 
 2. Copy gitconfig and gitignore.global to home directory as .gitconfig and .gitignore.global
 3. Install [Homebrew](https://brew.sh)
-4. Install **GnuPG** and import GPG keys
-
+4. Install **GnuPG** and import GPG keys from iCloud Drive/Backup/gpg key
    1. `brew install gnupg`
    2. `gpg --import public.gpg.asc`
    3. `gpg --import private.gpg.asc`
    4. `gpg --import-ownertrust ownertrust.txt`
-   5. Verify that key have **ultimate** trust level: 
-
+   5. Verify that key have **ultimate** trust level:
       `gpg --list-secret-keys --keyid-format=long`
 
 5. `brew install git gh`
