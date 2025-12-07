@@ -1,6 +1,6 @@
-zmodule agkozak/agkozak-zsh-prompt
-zmodule jeffreytse/zsh-vi-mode
 zmodule environment
+zmodule jeffreytse/zsh-vi-mode
+zmodule agkozak/agkozak-zsh-prompt
 zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 zmodule zsh-users/zsh-syntax-highlighting
