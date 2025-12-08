@@ -36,9 +36,21 @@ ssh-add ~/.ssh/id_ed25519
 9. `brew bundle`
 10. `rm ~/.gitconfig`
 11. `./install`
-12. Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using AeroSpace
 
-    `defaults write com.apple.dock expose-group-apps -bool true && killall Dock`
+### Tips
+
+Workaround for [mission control showing too small
+windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control)
+when using AeroSpace:
+
+```sh
+defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+```
+
+---
+
+To close Google Chrome instantly on pressing **⌘Q**:
+Select _Chrome_ in the menu bar and select to un-check _Warn before Quitting (⌘Q)_
 
 ### Setup Android emulator
 
