@@ -42,3 +42,8 @@ cask "google-chrome"
 cask "nikitabobko/tap/aerospace"
 cask "postico"
 cask "slack"
+
+cask "charles"
+cask "http-toolkit"
+brew "openjdk@21"
+cask "android-commandlinetools"

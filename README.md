@@ -34,3 +34,23 @@ ssh-add ~/.ssh/id_ed25519
 9. `brew bundle`
 10. `rm ~/.gitconfig`
 11. `./install`
+
+### Setup Android emulator
+
+```sh
+# For the system Java wrappers to find openjdk-21 JDK, symlink it with
+sudo ln -sfn $HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+
+# Install all required dependencies
+sdkmanager "platform-tools" "emulator"
+sdkmanager "platforms;android-34" "system-images;android-34;google_apis;arm64-v8a"
+
+# Create device
+avdmanager create avd --name "<name>" --package "system-images;android-34;google_apis;arm64-v8a" -d pixel_6 --force
+```
+
+### Run Android emulator
+
+```sh
+emulator -avd "<name>" -no-snapshot-load
+```
