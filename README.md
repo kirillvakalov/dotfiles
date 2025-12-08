@@ -26,7 +26,9 @@ ssh-add ~/.ssh/id_ed25519
    3. `gpg --import private.gpg.asc`
    4. `gpg --import-ownertrust ownertrust.txt`
    5. Verify that key have **ultimate** trust level:
+
       `gpg --list-secret-keys --keyid-format=long`
+
 5. `brew install git gh`
 6. `gh auth login` (select SSH for 'What is your preferred protocol for Git operations on this host?')
 7. `gh repo clone kirillvakalov/dotfiles`
@@ -35,6 +37,7 @@ ssh-add ~/.ssh/id_ed25519
 10. `rm ~/.gitconfig`
 11. `./install`
 12. Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using AeroSpace
+
     `defaults write com.apple.dock expose-group-apps -bool true && killall Dock`
 
 ### Setup Android emulator
