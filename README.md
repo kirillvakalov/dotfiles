@@ -45,7 +45,7 @@ sudo ln -sfn $HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/J
 sdkmanager "platform-tools" "emulator"
 sdkmanager "platforms;android-34" "system-images;android-34;google_apis;arm64-v8a"
 
-# Create device
+# Create Pixel 6 device
 avdmanager create avd --name "<name>" --package "system-images;android-34;google_apis;arm64-v8a" -d pixel_6 --force
 ```
 

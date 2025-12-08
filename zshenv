@@ -14,5 +14,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/rg/ripgreprc"
 export DOCKER_HOST=unix://${HOME}/.config/colima/default/docker.sock
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
+# Android SDK (for Android emulator)
 export ANDROID_SDK_ROOT="$HOMEBREW_PREFIX/share/android-commandlinetools"
 export ANDROID_USER_HOME="$HOME/.android"
