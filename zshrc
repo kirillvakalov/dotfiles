@@ -71,5 +71,6 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/cloud-sql-proxy:$PATH"
 # Android SDK (for Android emulator)
+export PATH="$HOMEBREW_PREFIX/share/android-commandlinetools/build-tools/34.0.0:$PATH"
 export PATH="$HOMEBREW_PREFIX/share/android-commandlinetools/emulator:$PATH"
 export PATH="$HOMEBREW_PREFIX/share/android-commandlinetools/platform-tools:$PATH"
