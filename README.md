@@ -38,8 +38,8 @@ ssh-add ~/.ssh/id_ed25519
 ### Setup Android emulator
 
 ```sh
-# For the system Java wrappers to find openjdk-21 JDK, symlink it with
-sudo ln -sfn $HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+# For the system Java wrappers to find this JDK, symlink it with
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 # Install all required dependencies
 sdkmanager "platform-tools" "emulator"

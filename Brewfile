@@ -45,5 +45,7 @@ cask "slack"
 
 cask "charles"
 cask "http-toolkit"
-brew "openjdk@21"
+brew "openjdk"
 cask "android-commandlinetools"
+brew "python@3.14"
+brew "jadx"
