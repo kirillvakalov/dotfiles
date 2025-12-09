@@ -51,7 +51,7 @@ Select _Chrome_ in the menu bar and select to un-check _Warn before Quitting (âŒ
 
 #### Show Emoji & Symbols on pressing _fn (globe) key_
 
-Go to System Settings -> Keyboard -> Press <globe> key to -> Show Emoji & Symbols
+Go to System Settings -> Keyboard -> Press _globe key_ to -> Show Emoji & Symbols
 
 ---
 
