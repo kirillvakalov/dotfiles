@@ -39,20 +39,25 @@ ssh-add ~/.ssh/id_ed25519
 
 ### Tips
 
-Workaround for [mission control showing too small
-windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control)
-when using AeroSpace:
+#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using AeroSpace
 
 ```sh
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock
 ```
 
----
+#### To close Google Chrome instantly on pressing _⌘Q_
 
-To close Google Chrome instantly on pressing **⌘Q**:
 Select _Chrome_ in the menu bar and select to un-check _Warn before Quitting (⌘Q)_
 
-### Setup Android emulator
+#### Show Emoji & Symbols on pressing _fn (globe) key_
+
+Go to System Settings -> Keyboard -> Press <globe> key to -> Show Emoji & Symbols
+
+---
+
+### MAS 📱🤖
+
+#### Setup Android emulator
 
 ```sh
 # For the system Java wrappers to find this JDK, symlink it with
@@ -66,7 +71,7 @@ sdkmanager "build-tools;34.0.0" "platforms;android-34" "system-images;android-34
 avdmanager create avd --name "<name>" --package "system-images;android-34;google_apis;arm64-v8a" -d pixel_6 --force
 ```
 
-### Run Android emulator
+#### Run Android emulator
 
 ```sh
 emulator -avd "<name>" -no-snapshot-load
