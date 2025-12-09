@@ -76,11 +76,8 @@ vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.op
 -- Plugins 🔌
 local add = MiniDeps.add
 
-add({
-  source = 'zenbones-theme/zenbones.nvim',
-  depends = { 'rktjmp/lush.nvim' },
-})
-vim.cmd.colorscheme('seoulbones')
+add({ source = 'EdenEast/nightfox.nvim' })
+vim.cmd.colorscheme('dayfox')
 
 add({
   source = 'nvim-treesitter/nvim-treesitter',
@@ -234,13 +231,7 @@ require('fzf-lua').setup({
     RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
   },
   fzf_colors = true,
-  winopts = {
-    border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
-    preview = {
-      border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
-    },
-  },
-  hls = { preview_border = 'CursorLine', preview_normal = 'CursorLine' },
+  hls = { header_bind = 'FzfLuaTitle', buf_nr = 'LineNr', path_linenr = 'CursorLineNr' },
 })
 require('fzf-lua-frecency').setup()
 vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
