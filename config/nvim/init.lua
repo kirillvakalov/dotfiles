@@ -275,3 +275,9 @@ add({ source = 'linrongbin16/gitlinker.nvim' })
 require('gitlinker').setup()
 vim.keymap.set({ 'n', 'v' }, '<leader>gy', '<cmd>GitLink<cr>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gY', '<cmd>GitLink!<cr>')
+
+add({ source = 'otavioschwanck/arrow.nvim' })
+require('arrow').setup({
+  show_icons = false,
+  leader_key = ';',
+})
