@@ -234,8 +234,8 @@ require('fzf-lua').setup({
   hls = { header_bind = 'FzfLuaTitle', buf_nr = 'LineNr', path_linenr = 'CursorLineNr' },
 })
 require('fzf-lua-frecency').setup()
-vim.keymap.set('n', '<C-\\>', '<cmd>FzfLua buffers<cr>')
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true file_icons=false<cr>')
+vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<cr>')
 vim.keymap.set('n', '<leader>/', '<cmd>FzfLua live_grep<cr>')
 vim.keymap.set('n', "<leader>'", '<cmd>FzfLua resume<cr>')
 
