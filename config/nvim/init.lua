@@ -90,7 +90,6 @@ require('nvim-treesitter').install({
   'gitignore',
   'javascript',
   'json',
-  'jsonc',
   'jsx',
   'markdown',
   'sql',
