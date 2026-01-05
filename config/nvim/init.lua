@@ -98,21 +98,31 @@ require('nvim-treesitter').install({
   'typescript',
   'yaml',
 })
--- copied from https://erock-git-dotfiles.pgs.sh/tree/main/item/dot_config/nvim/init.lua.html#184
 vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'dockerfile',
+    'gitignore',
+    'javascript',
+    'json',
+    'javascriptreact',
+    'markdown',
+    'sql',
+    'terraform',
+    'typescriptreact',
+    'typescript',
+    'yaml',
+  },
   callback = function(args)
     -- Do not enable slow treesitter highlights for files larger than 100KB
     local max_filesize = 100 * 1024
     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
     if ok and stats and stats.size > max_filesize then return end
 
-    local filetype = args.match
-    local lang = vim.treesitter.language.get_lang(filetype)
-    if vim.treesitter.language.add(lang) then
-      if vim.treesitter.query.get(filetype, 'indents') then
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      end
-      vim.treesitter.start()
+    -- Enable highlights
+    vim.treesitter.start()
+    -- Enable indentation
+    if vim.treesitter.query.get(args.match, 'indents') then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
   end,
 })
@@ -156,7 +166,7 @@ vim.lsp.enable({ 'vtsls', 'eslint', 'biome' })
 
 add({
   source = 'saghen/blink.cmp',
-  checkout = 'v1.6.0',
+  checkout = 'v1.8.0',
 })
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
