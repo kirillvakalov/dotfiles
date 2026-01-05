@@ -43,6 +43,7 @@ cask "mongodb-compass"
 cask "nikitabobko/tap/aerospace"
 cask "postico"
 cask "slack"
+cask "xquartz"
 
 cask "charles"
 cask "http-toolkit"
