@@ -1,5 +1,6 @@
 brew "btop"
 brew "difftastic"
+brew "diff-so-fancy"
 brew "fd"
 brew "fzf"
 brew "gh"
