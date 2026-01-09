@@ -18,8 +18,9 @@ brew "yq"
 brew "zoxide"
 
 brew "fnm"
-brew "node"
+brew "goose"
 brew "libpq"
+brew "node"
 
 brew "colima"
 brew "docker"
