@@ -2,7 +2,6 @@ git:
   overrideGpg: true
   pagers:
     - pager: diff-so-fancy
-    - pager: delta --light --paging=never
     - externalDiffCommand: difft --color=always --syntax-highlight=off
 gui:
   sidePanelWidth: 0.25
