@@ -76,8 +76,8 @@ vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.op
 -- Plugins 🔌
 local add = MiniDeps.add
 
-add({ source = 'EdenEast/nightfox.nvim' })
-vim.cmd.colorscheme('dayfox')
+add({ source = 'sainnhe/edge' })
+vim.cmd.colorscheme('edge')
 
 add({
   source = 'nvim-treesitter/nvim-treesitter',
