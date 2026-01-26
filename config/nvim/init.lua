@@ -230,23 +230,46 @@ null_ls.setup({
   },
 })
 
-add({ source = 'ibhagwan/fzf-lua' })
-add({ source = 'elanmed/fzf-lua-frecency.nvim' })
-require('fzf-lua').setup({
-  defaults = {
-    formatter = 'path.filename_first',
-  },
-  grep = {
-    RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
-  },
-  fzf_colors = true,
-  hls = { header_bind = 'FzfLuaTitle', buf_nr = 'LineNr', path_linenr = 'CursorLineNr' },
-})
-require('fzf-lua-frecency').setup()
-vim.keymap.set('n', '<C-p>', '<cmd>FzfLua frecency cwd_only=true file_icons=false<cr>')
-vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<cr>')
-vim.keymap.set('n', '<leader>/', '<cmd>FzfLua live_grep<cr>')
-vim.keymap.set('n', "<leader>'", '<cmd>FzfLua resume<cr>')
+add({ source = 'nvim-mini/mini.pick' })
+add({ source = 'wsdjeg/bufdel.nvim' })
+-- Disable file icons
+local pick = require('mini.pick')
+pick.setup({ source = { show = pick.default_show } })
+-- Buffers picker that shows modified buffers with `+` prefix
+-- and has <C-d> mapping to delete current buffer.
+-- Based on builtin buffers picker:
+-- https://github.com/nvim-mini/mini.nvim/blob/3ced440/lua/mini/pick.lua#L1511-L1528
+MiniPick.registry.buffers_custom = function()
+  local get_items = function()
+    local buffers_output = vim.api.nvim_exec('buffers', true)
+    local items = {}
+    for _, l in ipairs(vim.split(buffers_output, '\n')) do
+      local buf_str, name = l:match('^%s*%d+'), l:match('"(.*)"')
+      local buf_id = tonumber(buf_str)
+      local prefix = vim.bo[buf_id].modified and '+ ' or '  '
+      local item = { text = prefix .. name, bufnr = buf_id }
+      table.insert(items, item)
+    end
+    return items
+  end
+
+  -- Using bufdel dependency instead of nvim api to be able to delete current
+  -- (last) buffer easily, as it handles all cases correctly (e.g. creating
+  -- empty buffer and switching to it when deleting last buffer)
+  local buf_delete = function()
+    require('bufdel').delete(MiniPick.get_picker_matches().current.bufnr)
+    MiniPick.set_picker_items(get_items())
+  end
+
+  return MiniPick.start({
+    source = { items = get_items(), name = 'Buffers' },
+    mappings = { delete_buffer = { char = '<C-d>', func = buf_delete } },
+  })
+end
+vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
+vim.keymap.set('n', '<leader>b', MiniPick.registry.buffers_custom)
+vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
+vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
 add({ source = 'stevearc/oil.nvim' })
 require('oil').setup({
