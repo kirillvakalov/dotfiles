@@ -231,7 +231,7 @@ null_ls.setup({
 })
 
 add({ source = 'nvim-mini/mini.pick' })
-add({ source = 'wsdjeg/bufdel.nvim' })
+add({ source = 'nvim-mini/mini.bufremove' })
 -- Disable file icons
 local pick = require('mini.pick')
 pick.setup({ source = { show = pick.default_show } })
@@ -253,11 +253,11 @@ MiniPick.registry.buffers_custom = function()
     return items
   end
 
-  -- Using bufdel dependency instead of nvim api to be able to delete current
-  -- (last) buffer easily, as it handles all cases correctly (e.g. creating
-  -- empty buffer and switching to it when deleting last buffer)
+  -- Using bufremove instead of nvim api to be able to delete current (last)
+  -- buffer easily, as it handles all cases correctly (e.g. creating empty
+  -- buffer and switching to it when deleting last buffer)
   local buf_delete = function()
-    require('bufdel').delete(MiniPick.get_picker_matches().current.bufnr)
+    require('mini.bufremove').delete(MiniPick.get_picker_matches().current.bufnr)
     MiniPick.set_picker_items(get_items())
   end
 
