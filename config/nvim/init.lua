@@ -279,7 +279,7 @@ require('oil').setup({
     -- We use these keymaps to navigate between windows with smart-splits
     ['<C-h>'] = false,
     ['<C-l>'] = false,
-    -- We use this keymap for fzf-lua frecency
+    -- We use this keymap for MiniPick files
     ['<C-p>'] = false,
     -- Same keymaps as <C-w> splits
     ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
