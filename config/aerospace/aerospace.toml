@@ -176,3 +176,14 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-id = 'com.apple.Preview'
     run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    check-further-callbacks = true
+    run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    # Set custom window title for Google Chrome with: Window -> Name Window...
+    if.window-title-regex-substring = 'kirill.website'
+    run = 'move-node-to-workspace 6'
