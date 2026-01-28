@@ -241,8 +241,10 @@ pick.setup({ source = { show = pick.default_show } })
 -- https://github.com/nvim-mini/mini.nvim/blob/3ced440/lua/mini/pick.lua#L1511-L1528
 MiniPick.registry.buffers_custom = function()
   local get_items = function()
-    local buffers_output = vim.api.nvim_exec('buffers', true)
     local items = {}
+    local buffers_output = vim.api.nvim_exec('buffers', true)
+    if buffers_output == '' then return items end
+
     for _, l in ipairs(vim.split(buffers_output, '\n')) do
       local buf_str, name = l:match('^%s*%d+'), l:match('"(.*)"')
       local buf_id = tonumber(buf_str)
@@ -253,11 +255,13 @@ MiniPick.registry.buffers_custom = function()
     return items
   end
 
-  -- Using bufremove instead of nvim api to be able to delete current (last)
-  -- buffer easily, as it handles all cases correctly (e.g. creating empty
-  -- buffer and switching to it when deleting last buffer)
+  -- Using mini.bufremove instead of nvim api to be able to delete any buffer
+  -- easily, as it handles all cases correctly (e.g. creating empty buffer and
+  -- switching to it when deleting last buffer)
   local buf_delete = function()
-    require('mini.bufremove').delete(MiniPick.get_picker_matches().current.bufnr)
+    local matches = MiniPick.get_picker_matches()
+    if matches and matches.current then require('mini.bufremove').delete(matches.current.bufnr) end
+    -- We need to refresh displayed list to stop showing deleted buffer
     MiniPick.set_picker_items(get_items())
   end
 
