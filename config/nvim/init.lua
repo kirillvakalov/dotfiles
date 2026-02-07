@@ -148,6 +148,9 @@ end)
 add({ source = 'neovim/nvim-lspconfig' })
 vim.lsp.config('vtsls', {
   settings = {
+    typescript = {
+      preferences = { importModuleSpecifierEnding = '.js' },
+    },
     vtsls = {
       experimental = {
         completion = { enableServerSideFuzzyMatch = true, entriesLimit = 1000 },
