@@ -263,9 +263,18 @@ MiniPick.registry.buffers_custom = function()
   -- switching to it when deleting last buffer)
   local buf_delete = function()
     local matches = MiniPick.get_picker_matches()
-    if matches and matches.current then require('mini.bufremove').delete(matches.current.bufnr) end
-    -- We need to refresh displayed list to stop showing deleted buffer
-    MiniPick.set_picker_items(get_items())
+    if not matches or not matches.current then return end
+
+    require('mini.bufremove').delete(matches.current.bufnr)
+
+    -- Refresh list to stop showing deleted buffer and keep cursor at same
+    -- position. set_picker_items always resets cursor to 1, so we restore it
+    -- after via vim.schedule (set_picker_items processes items in a
+    -- coroutine).
+    local items = get_items()
+    local ind = math.min(matches.current_ind, #items)
+    MiniPick.set_picker_items(items)
+    vim.schedule(function() MiniPick.set_picker_match_inds({ ind }, 'current') end)
   end
 
   return MiniPick.start({
