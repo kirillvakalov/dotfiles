@@ -131,7 +131,7 @@ add({ source = 'mason-org/mason.nvim' })
 require('mason').setup()
 local masonRegistry = require('mason-registry')
 local tools = {
-  'vtsls',
+  'tsgo',
   'oxlint',
   'oxfmt',
   'sqlfluff',
@@ -145,19 +145,7 @@ masonRegistry.refresh(function()
 end)
 
 add({ source = 'neovim/nvim-lspconfig' })
-vim.lsp.config('vtsls', {
-  settings = {
-    typescript = {
-      preferences = { importModuleSpecifierEnding = '.js' },
-    },
-    vtsls = {
-      experimental = {
-        completion = { enableServerSideFuzzyMatch = true, entriesLimit = 1000 },
-      },
-    },
-  },
-})
-vim.lsp.enable({ 'vtsls', 'oxlint' })
+vim.lsp.enable({ 'tsgo', 'oxlint' })
 
 add({
   source = 'saghen/blink.cmp',
