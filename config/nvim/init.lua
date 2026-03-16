@@ -132,9 +132,8 @@ require('mason').setup()
 local masonRegistry = require('mason-registry')
 local tools = {
   'vtsls',
+  'oxlint',
   'oxfmt',
-  'eslint-lsp',
-  'biome',
   'sqlfluff',
   'stylua',
 }
@@ -158,14 +157,7 @@ vim.lsp.config('vtsls', {
     },
   },
 })
--- Fix for warning from :checkhealth vim.lsp
--- ⚠️ WARNING Found buffers attached to multiple clients with different position encodings.
-vim.lsp.config('biome', {
-  capabilities = {
-    general = { positionEncodings = { 'utf-16' } },
-  },
-})
-vim.lsp.enable({ 'vtsls', 'eslint', 'biome' })
+vim.lsp.enable({ 'vtsls', 'oxlint' })
 
 add({
   source = 'saghen/blink.cmp',
