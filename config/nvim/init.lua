@@ -132,9 +132,9 @@ require('mason').setup()
 local masonRegistry = require('mason-registry')
 local tools = {
   'vtsls',
+  'oxfmt',
   'eslint-lsp',
   'biome',
-  'prettier',
   'sqlfluff',
   'stylua',
 }
@@ -192,26 +192,24 @@ end)
 
 add({ source = 'stevearc/conform.nvim' })
 require('conform').setup({
-  -- copied from
-  -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/formatting/prettier.lua
   formatters_by_ft = {
-    css = { 'prettier' },
-    graphql = { 'prettier' },
-    handlebars = { 'prettier' },
-    html = { 'prettier' },
-    javascript = { 'prettier' },
-    javascriptreact = { 'prettier' },
-    json = { 'prettier' },
-    jsonc = { 'prettier' },
-    less = { 'prettier' },
-    markdown = { 'prettier' },
-    ['markdown.mdx'] = { 'prettier' },
-    scss = { 'prettier' },
-    typescript = { 'prettier' },
-    typescriptreact = { 'prettier' },
-    vue = { 'prettier' },
-    yaml = { 'prettier' },
     lua = { 'stylua' },
+    -- https://oxc.rs/docs/guide/usage/formatter.html#supported-languages
+    javascript = { 'oxfmt' },
+    javascriptreact = { 'oxfmt' },
+    typescript = { 'oxfmt' },
+    typescriptreact = { 'oxfmt' },
+    json = { 'oxfmt' },
+    jsonc = { 'oxfmt' },
+    json5 = { 'oxfmt' },
+    yaml = { 'oxfmt' },
+    toml = { 'oxfmt' },
+    html = { 'oxfmt' },
+    css = { 'oxfmt' },
+    markdown = { 'oxfmt' },
+    ['markdown.mdx'] = { 'oxfmt' },
+    graphql = { 'oxfmt' },
+    handlebars = { 'oxfmt' },
   },
   default_format_opts = {
     lsp_format = 'fallback',
