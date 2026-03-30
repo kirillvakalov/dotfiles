@@ -31,10 +31,6 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# Quote pasted URLs automatically (https://github.com/zsh-users/zsh/blob/master/Functions/Zle/bracketed-paste-url-magic)
-autoload -Uz bracketed-paste-url-magic
-zle -N bracketed-paste bracketed-paste-url-magic
-
 # Shell history search with fzf. Previously I have used atuin and
 # switched because it has very bad fuzzy matching compared to fzf.
 # https://gist.github.com/mattmc3/c490d01751d6eb80aa541711ab1d54b1
