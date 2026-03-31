@@ -68,11 +68,17 @@ sdkmanager "platform-tools" "emulator"
 sdkmanager "build-tools;34.0.0" "platforms;android-34" "system-images;android-34;google_apis;arm64-v8a"
 
 # Create Pixel 6 device
-avdmanager create avd --name "<name>" --package "system-images;android-34;google_apis;arm64-v8a" -d pixel_6 --force
+avdmanager create avd --name "work" --package "system-images;android-34;google_apis;arm64-v8a" -d pixel_6 --force
 ```
 
 #### Run Android emulator
 
 ```sh
-emulator -avd "<name>" -no-snapshot-load
+emulator -avd "work" -no-snapshot-load
+```
+
+#### Delete Android emulator device
+
+```sh
+avdmanager delete avd -n work
 ```
