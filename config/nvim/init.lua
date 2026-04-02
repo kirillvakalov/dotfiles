@@ -65,15 +65,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
--- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
-
 -- Toggle diagnostics
 vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
 -- Toggle relative numbers
 vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.opt.relativenumber:get() end)
 
 -- Plugins 🔌
+-- Clear highlights on search after 4 seconds of idle time, when pressing <Esc>
+-- in normal mode or entering Insert mode.
+vim.cmd('packadd nohlsearch')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
+
+vim.cmd('packadd nvim.undotree')
+vim.keymap.set('n', '<leader>u', require('undotree').open)
+
 local add = MiniDeps.add
 
 add({ source = 'sainnhe/edge' })
