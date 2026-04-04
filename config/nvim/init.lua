@@ -1,23 +1,3 @@
--- Plugin manager 📦
--- https://github.com/nvim-mini/mini.deps?tab=readme-ov-file#installation
-local path_package = vim.fn.stdpath('data') .. '/site/'
-local mini_path = path_package .. 'pack/deps/start/mini.deps'
-if not vim.loop.fs_stat(mini_path) then
-  vim.cmd('echo "Installing `mini.deps`" | redraw')
-  local clone_cmd = {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/nvim-mini/mini.deps',
-    mini_path,
-  }
-  vim.fn.system(clone_cmd)
-  vim.cmd('packadd mini.deps | helptags ALL')
-  vim.cmd('echo "Installed `mini.deps`" | redraw')
-end
-
-require('mini.deps').setup({ path = { package = path_package } })
-
 -- General options 🪛
 -- https://neovim.io/doc/user/options.html
 vim.g.mapleader = ' '
@@ -79,16 +59,36 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 vim.cmd('packadd nvim.undotree')
 vim.keymap.set('n', '<leader>u', require('undotree').open)
 
-local add = MiniDeps.add
+-- Update treesitter parsers when nvim-treesitter plugin is updated
+-- ref: https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html#hooks
+vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
+  local name, kind = ev.data.spec.name, ev.data.kind
+  if name == 'nvim-treesitter' and kind == 'update' then
+    if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
+    vim.cmd('TSUpdate')
+  end
+end })
 
-add({ source = 'sainnhe/edge' })
+vim.pack.add({
+  'https://github.com/sainnhe/edge',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/saghen/blink.cmp',
+  'https://github.com/stevearc/conform.nvim',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvimtools/none-ls.nvim',
+  'https://github.com/nvim-mini/mini.pick',
+  'https://github.com/nvim-mini/mini.bufremove',
+  'https://github.com/stevearc/oil.nvim',
+  'https://github.com/mrjones2014/smart-splits.nvim',
+  'https://github.com/rmagatti/auto-session',
+  'https://github.com/linrongbin16/gitlinker.nvim',
+  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' }
+})
+
 vim.cmd.colorscheme('edge')
 
-add({
-  source = 'nvim-treesitter/nvim-treesitter',
-  checkout = 'main',
-  hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
-})
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 require('nvim-treesitter').install({
   'dockerfile',
@@ -132,7 +132,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-add({ source = 'mason-org/mason.nvim' })
 require('mason').setup()
 local masonRegistry = require('mason-registry')
 local tools = {
@@ -149,13 +148,8 @@ masonRegistry.refresh(function()
   end
 end)
 
-add({ source = 'neovim/nvim-lspconfig' })
 vim.lsp.enable({ 'tsgo', 'oxlint' })
 
-add({
-  source = 'saghen/blink.cmp',
-  checkout = 'v1.9.1',
-})
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
   sources = {
@@ -175,7 +169,6 @@ vim.keymap.set('i', '<C-x><C-o>', function()
   blink.hide_documentation()
 end)
 
-add({ source = 'stevearc/conform.nvim' })
 require('conform').setup({
   formatters_by_ft = {
     lua = { 'stylua' },
@@ -204,10 +197,6 @@ vim.keymap.set('n', '<leader>f', function() require('conform').format({ async = 
 
 -- We have to use none-ls for sqlfluff because it fails to format with
 -- conform.nvim if SQL file has lint errors
-add({
-  source = 'nvimtools/none-ls.nvim',
-  depends = { 'nvim-lua/plenary.nvim' },
-})
 local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
@@ -216,8 +205,6 @@ null_ls.setup({
   },
 })
 
-add({ source = 'nvim-mini/mini.pick' })
-add({ source = 'nvim-mini/mini.bufremove' })
 -- Disable file icons
 local pick = require('mini.pick')
 pick.setup({ source = { show = pick.default_show } })
@@ -270,7 +257,6 @@ vim.keymap.set('n', '<leader>b', MiniPick.registry.buffers_custom)
 vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
 vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
-add({ source = 'stevearc/oil.nvim' })
 require('oil').setup({
   watch_for_changes = true,
   view_options = { show_hidden = true },
@@ -287,7 +273,6 @@ require('oil').setup({
 })
 vim.keymap.set('n', '-', '<cmd>Oil<cr>')
 
-add({ source = 'mrjones2014/smart-splits.nvim' })
 local smart_splits = require('smart-splits')
 vim.keymap.set('n', '<M-Left>', smart_splits.resize_left)
 vim.keymap.set('n', '<M-Down>', smart_splits.resize_down)
@@ -298,20 +283,13 @@ vim.keymap.set('n', '<C-j>', smart_splits.move_cursor_down)
 vim.keymap.set('n', '<C-k>', smart_splits.move_cursor_up)
 vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
 
-add({ source = 'rmagatti/auto-session' })
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
 
-add({ source = 'linrongbin16/gitlinker.nvim' })
 require('gitlinker').setup()
 vim.keymap.set({ 'n', 'v' }, '<leader>gy', '<cmd>GitLink<cr>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gY', '<cmd>GitLink!<cr>')
 
-add({
-  source = 'ThePrimeagen/harpoon',
-  checkout = 'harpoon2',
-  depends = { 'nvim-lua/plenary.nvim' },
-})
 local harpoon = require('harpoon')
 harpoon:setup()
 vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
