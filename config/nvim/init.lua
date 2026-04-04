@@ -61,6 +61,9 @@ vim.cmd('packadd nvim.undotree')
 vim.keymap.set('n', '<leader>u', require('undotree').open)
 
 -- Third-party plugins
+-- 💡 Hint: use `:lua vim.pack.update()` to update plugins and `:lua
+-- vim.pack.del()` to delete plugins.
+
 -- Update treesitter parsers when nvim-treesitter plugin is updated
 -- ref: https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html#hooks
 vim.api.nvim_create_autocmd('PackChanged', {
@@ -78,7 +81,7 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/saghen/blink.cmp',
+  { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.1' },
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvimtools/none-ls.nvim',
