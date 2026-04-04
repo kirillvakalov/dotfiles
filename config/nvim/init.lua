@@ -51,6 +51,7 @@ vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagn
 vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.opt.relativenumber:get() end)
 
 -- Plugins 🔌
+-- Built-in plugins
 -- Clear highlights on search after 4 seconds of idle time, when pressing <Esc>
 -- in normal mode or entering Insert mode.
 vim.cmd('packadd nohlsearch')
@@ -59,15 +60,18 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 vim.cmd('packadd nvim.undotree')
 vim.keymap.set('n', '<leader>u', require('undotree').open)
 
+-- Third-party plugins
 -- Update treesitter parsers when nvim-treesitter plugin is updated
 -- ref: https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html#hooks
-vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
-  local name, kind = ev.data.spec.name, ev.data.kind
-  if name == 'nvim-treesitter' and kind == 'update' then
-    if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
-    vim.cmd('TSUpdate')
-  end
-end })
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == 'nvim-treesitter' and kind == 'update' then
+      if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
+      vim.cmd('TSUpdate')
+    end
+  end,
+})
 
 vim.pack.add({
   'https://github.com/sainnhe/edge',
@@ -84,7 +88,7 @@ vim.pack.add({
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
   'https://github.com/linrongbin16/gitlinker.nvim',
-  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' }
+  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
 })
 
 vim.cmd.colorscheme('edge')
@@ -122,7 +126,6 @@ vim.api.nvim_create_autocmd('FileType', {
     local max_filesize = 100 * 1024
     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
     if ok and stats and stats.size > max_filesize then return end
-
     -- Enable highlights
     vim.treesitter.start()
     -- Enable indentation
@@ -205,11 +208,11 @@ null_ls.setup({
   },
 })
 
--- Disable file icons
 local pick = require('mini.pick')
+-- Disable file icons
 pick.setup({ source = { show = pick.default_show } })
--- Buffers picker that shows modified buffers with `+` prefix
--- and has <C-d> mapping to delete current buffer.
+-- Buffers picker that shows modified buffers with `+` prefix and has <C-d>
+-- mapping to delete current buffer.
 -- Based on builtin buffers picker:
 -- https://github.com/nvim-mini/mini.nvim/blob/3ced440/lua/mini/pick.lua#L1511-L1528
 MiniPick.registry.buffers_custom = function()
@@ -217,7 +220,6 @@ MiniPick.registry.buffers_custom = function()
     local items = {}
     local buffers_output = vim.api.nvim_exec('buffers', true)
     if buffers_output == '' then return items end
-
     for _, l in ipairs(vim.split(buffers_output, '\n')) do
       local buf_str, name = l:match('^%s*%d+'), l:match('"(.*)"')
       local buf_id = tonumber(buf_str)
@@ -227,16 +229,13 @@ MiniPick.registry.buffers_custom = function()
     end
     return items
   end
-
   -- Using mini.bufremove instead of nvim api to be able to delete any buffer
   -- easily, as it handles all cases correctly (e.g. creating empty buffer and
   -- switching to it when deleting last buffer)
   local buf_delete = function()
     local matches = MiniPick.get_picker_matches()
     if not matches or not matches.current then return end
-
     require('mini.bufremove').delete(matches.current.bufnr)
-
     -- Refresh list to stop showing deleted buffer and keep cursor at same
     -- position. set_picker_items always resets cursor to 1, so we restore it
     -- after via vim.schedule (set_picker_items processes items in a
@@ -246,7 +245,6 @@ MiniPick.registry.buffers_custom = function()
     MiniPick.set_picker_items(items)
     vim.schedule(function() MiniPick.set_picker_match_inds({ ind }, 'current') end)
   end
-
   return MiniPick.start({
     source = { items = get_items(), name = 'Buffers' },
     mappings = { delete_buffer = { char = '<C-d>', func = buf_delete } },
