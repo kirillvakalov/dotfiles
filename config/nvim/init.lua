@@ -212,8 +212,8 @@ null_ls.setup({
 })
 
 local pick = require('mini.pick')
--- Disable file icons
 pick.setup({
+  -- Disable file icons
   source = { show = pick.default_show },
   mappings = {
     refine = '<M-Space>',
