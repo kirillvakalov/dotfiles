@@ -81,7 +81,7 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
-  { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.1' },
+  { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' },
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvimtools/none-ls.nvim',
@@ -213,7 +213,13 @@ null_ls.setup({
 
 local pick = require('mini.pick')
 -- Disable file icons
-pick.setup({ source = { show = pick.default_show } })
+pick.setup({
+  source = { show = pick.default_show },
+  mappings = {
+    refine = '<M-Space>',
+    refine_marked = '<M-S-Space>',
+  },
+})
 -- Buffers picker that shows modified buffers with `+` prefix and has <C-d>
 -- mapping to delete current buffer.
 -- Based on builtin buffers picker:
