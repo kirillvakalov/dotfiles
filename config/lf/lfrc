@@ -1,6 +1,6 @@
 set hidden
 set info size
-set previewer ~/.config/lf/previewer.sh
+set nopreview
 
 # Use $EDITOR to open text files
 cmd open &{{
@@ -10,8 +10,9 @@ cmd open &{{
     esac
 }}
 
+map <esc> clear
+
 cmd trash %trash $fx
 map d trash
 
-map <esc> clear
 map c cut
