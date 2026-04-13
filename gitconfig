@@ -32,5 +32,5 @@
 [diff-so-fancy]
         markEmptyLines = false
 [color "diff-highlight"]
-	oldHighlight = 255 bold red
-	newHighlight = 255 bold green
+        oldHighlight = 255 bold red
+        newHighlight = 255 bold green
