@@ -92,6 +92,7 @@ vim.pack.add({
   'https://github.com/rmagatti/auto-session',
   'https://github.com/linrongbin16/gitlinker.nvim',
   { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
+  'https://github.com/yorickpeterse/nvim-jump',
 })
 
 vim.cmd.colorscheme('edge')
@@ -305,3 +306,6 @@ vim.keymap.set('n', '<leader>1', function() harpoon:list():select(1) end)
 vim.keymap.set('n', '<leader>2', function() harpoon:list():select(2) end)
 vim.keymap.set('n', '<leader>3', function() harpoon:list():select(3) end)
 vim.keymap.set('n', '<leader>4', function() harpoon:list():select(4) end)
+
+require('jump').setup({ label = 'Substitute' })
+vim.keymap.set({ 'n', 'x', 'o' }, 's', require('jump').start, {})
