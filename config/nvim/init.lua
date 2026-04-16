@@ -126,16 +126,13 @@ vim.api.nvim_create_autocmd('FileType', {
     'yaml',
   },
   callback = function(args)
-    -- Do not enable slow treesitter highlights for files larger than 100KB
+    -- Do not enable treesitter highlights for files larger than 100KB, as they
+    -- are quite slow
     local max_filesize = 100 * 1024
     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
     if ok and stats and stats.size > max_filesize then return end
-    -- Enable highlights
+
     vim.treesitter.start()
-    -- Enable indentation
-    if vim.treesitter.query.get(args.match, 'indents') then
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
   end,
 })
 
