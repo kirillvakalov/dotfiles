@@ -90,9 +90,7 @@ vim.pack.add({
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
-  'https://github.com/linrongbin16/gitlinker.nvim',
   { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
-  'https://github.com/yorickpeterse/nvim-jump',
 })
 
 vim.cmd.colorscheme('edge')
@@ -291,10 +289,6 @@ vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
 
-require('gitlinker').setup()
-vim.keymap.set({ 'n', 'v' }, '<leader>gy', '<cmd>GitLink<cr>')
-vim.keymap.set({ 'n', 'v' }, '<leader>gY', '<cmd>GitLink!<cr>')
-
 local harpoon = require('harpoon')
 harpoon:setup()
 vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
@@ -304,5 +298,3 @@ vim.keymap.set('n', '<leader>2', function() harpoon:list():select(2) end)
 vim.keymap.set('n', '<leader>3', function() harpoon:list():select(3) end)
 vim.keymap.set('n', '<leader>4', function() harpoon:list():select(4) end)
 
-require('jump').setup({ label = 'Substitute' })
-vim.keymap.set({ 'n', 'x', 'o' }, 's', require('jump').start, {})
