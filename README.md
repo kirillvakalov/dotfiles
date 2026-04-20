@@ -65,20 +65,20 @@ sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVir
 
 # Install all required dependencies
 sdkmanager "platform-tools" "emulator"
-sdkmanager "build-tools;34.0.0" "platforms;android-34" "system-images;android-34;google_apis;arm64-v8a"
+sdkmanager "build-tools;35.0.0" "platforms;android-35" "system-images;android-35;google_apis;arm64-v8a"
 
-# Create Pixel 6 device
-avdmanager create avd --name "work" --package "system-images;android-34;google_apis;arm64-v8a" -d pixel_6 --force
+# Create new device
+avdmanager create avd --name "pixel_9_pro_custom" --package "system-images;android-35;google_apis;arm64-v8a" -d pixel_9_pro --force
 ```
 
 #### Run Android emulator
 
 ```sh
-emulator -avd "work" -no-snapshot-load
+emulator -avd "pixel_9_pro_custom" -no-snapshot-load
 ```
 
 #### Delete Android emulator device
 
 ```sh
-avdmanager delete avd -n work
+avdmanager delete avd -n "pixel_9_pro_custom"
 ```
