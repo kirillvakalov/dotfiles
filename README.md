@@ -82,3 +82,14 @@ emulator -avd "pixel_9_pro_custom" -no-snapshot-load
 ```sh
 avdmanager delete avd -n "pixel_9_pro_custom"
 ```
+
+#### Setup Frida
+
+```sh
+wget https://github.com/frida/frida/releases/download/17.9.1/frida-server-17.9.1-android-arm64.xz &&
+unxz frida-server-17.9.1-android-arm64.xz && \
+mv frida-server-17.9.1-android-arm64 frida-server && \
+adb push frida-server /data/local/tmp/ && \
+adb shell "chmod 755 /data/local/tmp/frida-server" && \
+rm frida-server
+```
