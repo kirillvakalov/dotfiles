@@ -1,13 +1,9 @@
 #!/usr/bin/env zsh
 # Based on https://github.com/willhbr/dotfiles/blob/main/bin/show-tmux-popup.sh
 
-session="_popup"
-
-if ! tmux has -t "$session" 2> /dev/null; then
-  session_id="$(tmux new-session -c '#{pane_current_path}' -dP -s "$session" -F '#{session_id}')"
-  tmux set-option -s -t "$session_id" status off
-  tmux set-option -s -t "$session_id" prefix None
-  session="$session_id"
+if ! tmux has -t _popup 2> /dev/null; then
+  tmux new-session -d -s _popup -c '#{pane_current_path}'
+  tmux set -s -t _popup status off
+  tmux set -s -t _popup prefix None
 fi
-
-exec tmux attach -t "$session" > /dev/null
+exec tmux attach -t _popup > /dev/null
