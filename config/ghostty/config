@@ -14,4 +14,3 @@ confirm-close-surface = false
 quit-after-last-window-closed = true
 macos-option-as-alt = true
 initial-command = /bin/zsh -l -c "tmux new-session -A -s ghostty"
-keybind = global:cmd+backquote=toggle_quick_terminal
