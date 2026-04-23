@@ -214,6 +214,7 @@ null_ls.setup({
 })
 
 local pick = require('mini.pick')
+local ui_select_orig = vim.ui.select
 pick.setup({
   -- Disable file icons
   source = { show = pick.default_show },
@@ -222,6 +223,7 @@ pick.setup({
     refine_marked = '<M-S-Space>',
   },
 })
+vim.ui.select = ui_select_orig
 -- Buffers picker that shows modified buffers with `+` prefix and has <C-d>
 -- mapping to delete current buffer.
 -- Based on builtin buffers picker:
