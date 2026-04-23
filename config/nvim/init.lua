@@ -61,8 +61,11 @@ vim.cmd('packadd nvim.undotree')
 vim.keymap.set('n', '<leader>u', require('undotree').open)
 
 -- Third-party plugins
--- 💡 Hint: use `:lua vim.pack.update()` to update plugins and `:lua
--- vim.pack.del()` to delete plugins.
+-- 💡 vim.pack hints:
+--   Update all     :lua vim.pack.update()
+--   Delete plugin  :lua vim.pack.del({ 'plugin-name' })
+--   List installed
+--     :lua for _, p in ipairs(vim.pack.get()) do print(p.spec.name) end
 
 -- Update treesitter parsers when nvim-treesitter plugin is updated
 -- ref: https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html#hooks
