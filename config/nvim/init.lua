@@ -30,7 +30,10 @@ vim.opt.sidescrolloff = 6
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.swapfile = false
 vim.opt.undofile = true
+-- Reload buffers when files are modified externally (e.g., by opencode)
+vim.opt.autoread = true
 
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevel = 10 -- Fold nothing by default
