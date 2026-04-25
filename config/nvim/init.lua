@@ -92,11 +92,11 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvimtools/none-ls.nvim',
   'https://github.com/nvim-mini/mini.pick',
-  'https://github.com/nvim-mini/mini.bufremove',
+  'https://github.com/axkirillov/hbac.nvim',
+  'https://github.com/ahkohd/buffer-sticks.nvim',
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
-  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
 })
 
 vim.cmd.colorscheme('edge')
@@ -224,49 +224,17 @@ pick.setup({
   },
 })
 vim.ui.select = ui_select_orig
--- Buffers picker that shows modified buffers with `+` prefix and has <C-d>
--- mapping to delete current buffer.
--- Based on builtin buffers picker:
--- https://github.com/nvim-mini/mini.nvim/blob/3ced440/lua/mini/pick.lua#L1511-L1528
-MiniPick.registry.buffers_custom = function()
-  local get_items = function()
-    local items = {}
-    local buffers_output = vim.api.nvim_exec('buffers', true)
-    if buffers_output == '' then return items end
-    for _, l in ipairs(vim.split(buffers_output, '\n')) do
-      local buf_str, name = l:match('^%s*%d+'), l:match('"(.*)"')
-      local buf_id = tonumber(buf_str)
-      local prefix = vim.bo[buf_id].modified and '+ ' or '  '
-      local item = { text = prefix .. name, bufnr = buf_id }
-      table.insert(items, item)
-    end
-    return items
-  end
-  -- Using mini.bufremove instead of nvim api to be able to delete any buffer
-  -- easily, as it handles all cases correctly (e.g. creating empty buffer and
-  -- switching to it when deleting last buffer)
-  local buf_delete = function()
-    local matches = MiniPick.get_picker_matches()
-    if not matches or not matches.current then return end
-    require('mini.bufremove').delete(matches.current.bufnr)
-    -- Refresh list to stop showing deleted buffer and keep cursor at same
-    -- position. set_picker_items always resets cursor to 1, so we restore it
-    -- after via vim.schedule (set_picker_items processes items in a
-    -- coroutine).
-    local items = get_items()
-    local ind = math.min(matches.current_ind, #items)
-    MiniPick.set_picker_items(items)
-    vim.schedule(function() MiniPick.set_picker_match_inds({ ind }, 'current') end)
-  end
-  return MiniPick.start({
-    source = { items = get_items(), name = 'Buffers' },
-    mappings = { delete_buffer = { char = '<C-d>', func = buf_delete } },
-  })
-end
 vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
-vim.keymap.set('n', '<leader>b', MiniPick.registry.buffers_custom)
 vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
 vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
+
+require('hbac').setup()
+require('buffer-sticks').setup({
+  preview = { enabled = false },
+  highlights = { label = { link = 'Normal' } },
+})
+vim.keymap.set('n', '<leader>b', function() BufferSticks.jump() end)
+vim.keymap.set('n', '<leader>q', function() BufferSticks.close() end)
 
 require('oil').setup({
   watch_for_changes = true,
@@ -296,13 +264,3 @@ vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
 
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
-
-local harpoon = require('harpoon')
-harpoon:setup()
-vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
-vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set('n', '<leader>1', function() harpoon:list():select(1) end)
-vim.keymap.set('n', '<leader>2', function() harpoon:list():select(2) end)
-vim.keymap.set('n', '<leader>3', function() harpoon:list():select(3) end)
-vim.keymap.set('n', '<leader>4', function() harpoon:list():select(4) end)
-
