@@ -31,15 +31,19 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# Shell history search with fzf. Previously I have used atuin and
-# switched because it has very bad fuzzy matching compared to fzf.
+# Shell history search with fzf. Previously I have used atuin and switched
+# because it has very bad fuzzy matching compared to fzf.
 # https://gist.github.com/mattmc3/c490d01751d6eb80aa541711ab1d54b1
+# Update: I am trying to use atuin again, and I think these options might be
+# useful even without fzf.
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_REDUCE_BLANKS # 'cd ' and 'cd' will be saved as one command in history
 
-# fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
-source <(fzf --zsh)
+# https://docs.atuin.sh/cli/reference/hex/
+eval "$(atuin hex init zsh)"
+# https://docs.atuin.sh/cli/guide/installation/#installing-the-shell-plugin
+eval "$(atuin init zsh)"
 
 # zoxide (https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 eval "$(zoxide init zsh)"
