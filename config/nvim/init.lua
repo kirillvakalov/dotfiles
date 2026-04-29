@@ -60,9 +60,6 @@ vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.op
 vim.cmd('packadd nohlsearch')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 
-vim.cmd('packadd nvim.undotree')
-vim.keymap.set('n', '<leader>u', require('undotree').open)
-
 -- Third-party plugins
 -- 💡 vim.pack hints:
 --   Update all     :lua vim.pack.update()
