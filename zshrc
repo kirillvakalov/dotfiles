@@ -23,10 +23,8 @@ AGKOZAK_USER_HOST_DISPLAY=0
 AGKOZAK_COLORS_BRANCH_STATUS=242
 AGKOZAK_BLANK_LINES=1
 
-# Configure zsh-syntax-highlighting and zsh-autosuggestions
+# Configure zsh-syntax-highlighting 
 ZSH_HIGHLIGHT_MAXLENGTH=512
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
@@ -40,8 +38,6 @@ setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_REDUCE_BLANKS # 'cd ' and 'cd' will be saved as one command in history
 
-# https://docs.atuin.sh/cli/reference/hex/
-eval "$(atuin hex init zsh)"
 # https://docs.atuin.sh/cli/guide/installation/#installing-the-shell-plugin
 eval "$(atuin init zsh)"
 
