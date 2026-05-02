@@ -39,7 +39,7 @@ ssh-add ~/.ssh/id_ed25519
 
 ### Tips
 
-#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using AeroSpace
+#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using Rift
 
 ```sh
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock

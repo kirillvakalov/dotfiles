@@ -44,7 +44,6 @@ cask "firefox"
 cask "gcloud-cli"
 cask "ghostty"
 cask "google-chrome"
-cask "nikitabobko/tap/aerospace"
 cask "postico"
 cask "slack"
 
