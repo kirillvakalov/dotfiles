@@ -320,7 +320,15 @@ workspace_names = []
 #       ]
 #
 # By default there are no app rules; add or uncomment rules below as needed.
-app_rules = []
+app_rules = [
+  { app_id = "com.apple.clock", floating = true },
+  { app_id = "com.apple.FaceTime", floating = true },
+  { app_id = "com.mitchellh.ghostty", workspace = 0 },
+  { app_id = "com.tinyspeck.slackmacgap", workspace = 4 },
+  # Set custom window title for Google Chrome with: Window -> Name Window...
+  { app_id = "com.google.Chrome", title_regex = "work", workspace = 1 },
+  { app_id = "com.google.Chrome", title_regex = "kirill.website", workspace = 6 },
+]
 
 # Modifier combinations that can be reused in key bindings
 # Define common modifier combinations to avoid repetition.
