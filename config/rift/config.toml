@@ -161,17 +161,17 @@ vertical = 0
 # vertical = 8
 [settings.ui.menu_bar]
 # enable menu bar workspace indicators
-enabled = false
+enabled = true
 # if enabled, it will show all workspaces including empty ones. disabled because this
 # tends to take up too much room in the menubar and then is auto hidden by macos
 show_empty = false
 # choose between drawing every workspace or only the active workspace
-mode = "all"
+mode = "active"
 # when showing workspaces as labels ("index" or "name"), choose which label to render
 active_label = "index"
 # when displaying workspaces, choose whether to draw the layout preview or a set of labels
 # options are "layout" or "label"
-display_style = "layout"
+display_style = "label"
 
 [settings.ui.stack_line]
 # experimental stack line indicator (defaults to off)
@@ -231,7 +231,7 @@ drag_swap_fraction = 0.3
 #   that's already active, it will switch to the last workspace instead
 # - reapply_app_rules_on_title_change: if true, app rules are re-evaluated when a window's title changes
 enabled = true
-default_workspace_count = 4
+default_workspace_count = 7
 auto_assign_windows = true
 preserve_focus_per_workspace = true
 workspace_auto_back_and_forth = false
@@ -255,10 +255,7 @@ workspace_rules = []
 # Workspace names (indexed order). If fewer than default_workspace_count are provided,
 # remaining workspaces are named "Workspace X".
 # Do not provide more names than default_workspace_count.
-workspace_names = [
-	"first",
-	"second"
-]
+workspace_names = []
 
 # App rules (automatic assignment)
 # Define rules that match new windows and set properties (workspace, floating, etc).
@@ -387,15 +384,21 @@ comb1 = "Alt + Shift"
 "comb1 + K" = { move_node = "up" }
 "comb1 + L" = { move_node = "right" }
 
-"Alt + 0" = { switch_to_workspace = 0 }
-"Alt + 1" = { switch_to_workspace = 1 }
-"Alt + 2" = { switch_to_workspace = 2 }
-"Alt + 3" = { switch_to_workspace = 3 }
+"Alt + 1" = { switch_to_workspace = 0 }
+"Alt + 2" = { switch_to_workspace = 1 }
+"Alt + 3" = { switch_to_workspace = 2 }
+"Alt + 4" = { switch_to_workspace = 3 }
+"Alt + 5" = { switch_to_workspace = 4 }
+"Alt + 6" = { switch_to_workspace = 5 }
+"Alt + 7" = { switch_to_workspace = 6 }
 
-"comb1 + 0" = { move_window_to_workspace = 0 }
-"comb1 + 1" = { move_window_to_workspace = 1 }
-"comb1 + 2" = { move_window_to_workspace = 2 }
-"comb1 + 3" = { move_window_to_workspace = 3 }
+"comb1 + 1" = { move_window_to_workspace = 0 }
+"comb1 + 2" = { move_window_to_workspace = 1 }
+"comb1 + 3" = { move_window_to_workspace = 2 }
+"comb1 + 4" = { move_window_to_workspace = 3 }
+"comb1 + 5" = { move_window_to_workspace = 4 }
+"comb1 + 6" = { move_window_to_workspace = 5 }
+"comb1 + 7" = { move_window_to_workspace = 6 }
 
 "Alt + Tab" = "switch_to_last_workspace"
 
@@ -443,7 +446,7 @@ comb1 = "Alt + Shift"
 # this will show the mission control view shown in the readme
 # "Alt + Ctrl + M" = "show_mission_control_all"
 
-"Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
+# "Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
 
 "Alt + Shift + D" = "debug" # prints layout tree
 
