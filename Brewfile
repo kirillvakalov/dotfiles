@@ -38,6 +38,7 @@ brew "k3d"
 brew "k9s"
 brew "kubernetes-cli"
 
+brew "acsandmann/tap/rift"
 cask "cyberduck"
 cask "firefox"
 cask "gcloud-cli"
