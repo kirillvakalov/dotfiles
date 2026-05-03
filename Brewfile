@@ -38,7 +38,7 @@ brew "k3d"
 brew "k9s"
 brew "kubernetes-cli"
 
-brew "acsandmann/tap/rift"
+brew "acsandmann/tap/rift", restart_service: :changed
 cask "cyberduck"
 cask "firefox"
 cask "gcloud-cli"
