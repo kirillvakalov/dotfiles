@@ -225,7 +225,7 @@ vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
 vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
 vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
-require('hbac').setup()
+require('hbac').setup({ threshold = 7 })
 require('buffer-sticks').setup({
   preview = { enabled = false },
   highlights = { label = { link = 'Normal' } },
