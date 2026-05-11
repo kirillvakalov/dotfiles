@@ -44,10 +44,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.highlight.on_yank() end,
 })
 
--- Center cursor on half-page up/down
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-
 -- Toggle diagnostics
 vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
 -- Toggle relative numbers
@@ -94,6 +90,8 @@ vim.pack.add({
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
+  'https://github.com/ABDsheikho/focusline.nvim',
+  'https://github.com/azorng/vision.nvim',
 })
 
 vim.cmd.colorscheme('edge')
@@ -228,7 +226,11 @@ vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 require('hbac').setup({ threshold = 7 })
 require('buffer-sticks').setup({
   preview = { enabled = false },
-  highlights = { label = { link = 'Normal' } },
+  highlights = {
+    alternate = { link = 'ModeMsg' },
+    inactive = { link = 'ModeMsg' },
+    label = { link = 'Normal' },
+  },
 })
 vim.keymap.set('n', '<leader>b', function() BufferSticks.jump() end)
 vim.keymap.set('n', '<leader>q', function() BufferSticks.close() end)
@@ -254,10 +256,23 @@ vim.keymap.set('n', '<M-Left>', smart_splits.resize_left)
 vim.keymap.set('n', '<M-Down>', smart_splits.resize_down)
 vim.keymap.set('n', '<M-Up>', smart_splits.resize_up)
 vim.keymap.set('n', '<M-Right>', smart_splits.resize_right)
-vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left)
-vim.keymap.set('n', '<C-j>', smart_splits.move_cursor_down)
-vim.keymap.set('n', '<C-k>', smart_splits.move_cursor_up)
-vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
+vim.keymap.set({ 'n', 'v' }, '<C-h>', smart_splits.move_cursor_left)
+vim.keymap.set({ 'n', 'v' }, '<C-j>', smart_splits.move_cursor_down)
+vim.keymap.set({ 'n', 'v' }, '<C-k>', smart_splits.move_cursor_up)
+vim.keymap.set({ 'n', 'v' }, '<C-l>', smart_splits.move_cursor_right)
 
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
+
+require('focusline').setup({
+  -- focus_target can be a line number (e.g., 15), or a ratio (e.g., 0.25, 1 / 4, "25%").
+  focus_target = '30%', -- try it with 30%
+  -- which motion to associate focusline with.
+  with_motion = {
+    'zz',
+    '',
+    '',
+  },
+})
+
+require('vision').setup()
