@@ -76,7 +76,9 @@ vim.api.nvim_create_autocmd('PackChanged', {
 })
 
 vim.pack.add({
-  'https://github.com/sainnhe/edge',
+  -- 'https://github.com/sainnhe/edge',
+  'https://github.com/rktjmp/lush.nvim',
+  'https://github.com/zenbones-theme/zenbones.nvim',
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
@@ -94,7 +96,7 @@ vim.pack.add({
   'https://github.com/azorng/vision.nvim',
 })
 
-vim.cmd.colorscheme('edge')
+vim.cmd.colorscheme('zenburned')
 
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 require('nvim-treesitter').install({
