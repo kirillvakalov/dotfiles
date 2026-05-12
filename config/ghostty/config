@@ -9,6 +9,7 @@ theme = zenburned
 font-family = Cozette
 font-style-italic = Medium
 font-style-bold = Medium
+font-style-bold-italic = Medium
 font-size = 13
 confirm-close-surface = false
 quit-after-last-window-closed = true
