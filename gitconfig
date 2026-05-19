@@ -31,6 +31,3 @@
         helper = !/opt/homebrew/bin/gh auth git-credential
 [diff-so-fancy]
         markEmptyLines = false
-[color "diff-highlight"]
-        oldHighlight = 255 bold red
-        newHighlight = 255 bold green
