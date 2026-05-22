@@ -76,9 +76,6 @@ vim.api.nvim_create_autocmd('PackChanged', {
 })
 
 vim.pack.add({
-  -- 'https://github.com/sainnhe/edge',
-  -- 'https://github.com/rktjmp/lush.nvim',
-  -- 'https://github.com/zenbones-theme/zenbones.nvim',
   'https://github.com/jpwol/thorn.nvim',
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',

@@ -1,2 +1,4 @@
+search_mode = "fulltext"
 style = "full"
+# Tabs are barely visible with light themes
 show_tabs = false
