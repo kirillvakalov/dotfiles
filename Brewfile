@@ -1,4 +1,3 @@
-tap "anomalyco/tap"
 brew "anomalyco/tap/opencode"
 brew "btop"
 brew "diff-so-fancy"
@@ -29,8 +28,6 @@ brew "docker-buildx"
 brew "docker-compose"
 brew "qemu"
 
-tap "fluxcd/tap"
-tap "hashicorp/tap"
 brew "cloudflared"
 brew "fluxcd/tap/flux"
 brew "hashicorp/tap/terraform"
