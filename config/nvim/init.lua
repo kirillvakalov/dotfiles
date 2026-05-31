@@ -86,7 +86,7 @@ vim.pack.add({
   'https://github.com/nvimtools/none-ls.nvim',
   'https://github.com/nvim-mini/mini.pick',
   'https://github.com/axkirillov/hbac.nvim',
-  'https://github.com/ahkohd/buffer-sticks.nvim',
+  { src = 'https://github.com/serhez/bento.nvim', version = 'feat/v2' },
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -228,18 +228,23 @@ vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
 vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
 require('hbac').setup({ threshold = 7 })
-require('buffer-sticks').setup({
-  preview = { enabled = false },
-  highlights = {
-    active = { link = 'ModeMsg' },
-    list_selected = { link = 'SpecialKey' },
-    alternate = { link = 'ModeMsg' },
-    inactive = { link = 'ModeMsg' },
-    label = { link = 'Normal' },
-  },
+require('bento').setup({
+  highlights = { previous = 'DiagnosticVirtualTextHint' },
 })
-vim.keymap.set('n', '<leader>b', function() BufferSticks.jump() end)
-vim.keymap.set('n', '<leader>q', function() BufferSticks.close() end)
+local bento = require('bento.api')
+bento.register_expand_key('<leader>b')
+bento.register_collapse_key('<Esc>')
+bento.register_action('open', {
+  key = '<CR>',
+  action = bento.actions.open,
+  hl = 'DiagnosticVirtualTextHint',
+})
+bento.register_action('delete', {
+  key = '<BS>',
+  action = bento.actions.delete,
+  hl = 'DiagnosticVirtualTextError',
+})
+bento.set_default_action('open')
 
 require('oil').setup({
   watch_for_changes = true,
