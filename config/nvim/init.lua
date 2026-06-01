@@ -228,7 +228,15 @@ vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
 vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
 require('hbac').setup({ threshold = 7 })
+require('bento.utils').get_display_names = function(paths)
+  local display_names = {}
+  for _, p in ipairs(paths) do
+    display_names[p] = vim.fn.pathshorten(vim.fn.fnamemodify(p, ':~:.'), 2)
+  end
+  return display_names
+end
 require('bento').setup({
+  ordering_metric = 'directory',
   highlights = { previous = 'DiagnosticVirtualTextHint' },
 })
 local bento = require('bento.api')
