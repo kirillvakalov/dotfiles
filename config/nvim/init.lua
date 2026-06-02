@@ -231,7 +231,13 @@ require('hbac').setup({ threshold = 7 })
 require('bento.utils').get_display_names = function(paths)
   local display_names = {}
   for _, p in ipairs(paths) do
-    display_names[p] = vim.fn.pathshorten(vim.fn.fnamemodify(p, ':~:.'), 2)
+    local rel = vim.fn.fnamemodify(p, ':~:.')
+    local parts = vim.split(rel, '/', { plain = true, trimempty = true })
+    if #parts > 3 then
+      display_names[p] = table.concat({ parts[1], parts[2], '…', parts[#parts] }, '/')
+    else
+      display_names[p] = rel
+    end
   end
   return display_names
 end
