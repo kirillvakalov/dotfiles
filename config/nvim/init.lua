@@ -10,7 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
 
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = 'number'
+vim.opt.cursorlineopt = 'both'
 
 -- https://neovim.io/doc/user/usr_30.html#_tabs-and-spaces
 vim.opt.expandtab = true -- Use spaces instead of tabs
@@ -86,7 +86,7 @@ vim.pack.add({
   'https://github.com/nvimtools/none-ls.nvim',
   'https://github.com/nvim-mini/mini.pick',
   'https://github.com/axkirillov/hbac.nvim',
-  { src = 'https://github.com/serhez/bento.nvim', version = 'feat/v2' },
+  'https://github.com/j-morano/buffer_manager.nvim',
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -227,38 +227,12 @@ vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
 vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
 vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
-require('hbac').setup({ threshold = 7 })
-require('bento.utils').get_display_names = function(paths)
-  local display_names = {}
-  for _, p in ipairs(paths) do
-    local rel = vim.fn.fnamemodify(p, ':~:.')
-    local parts = vim.split(rel, '/', { plain = true, trimempty = true })
-    if #parts > 3 then
-      display_names[p] = table.concat({ parts[1], parts[2], '…', parts[#parts] }, '/')
-    else
-      display_names[p] = rel
-    end
-  end
-  return display_names
-end
-require('bento').setup({
-  ordering_metric = 'directory',
-  highlights = { previous = 'DiagnosticVirtualTextHint' },
+require('hbac').setup()
+require('buffer_manager').setup({
+  use_shortcuts = true,
 })
-local bento = require('bento.api')
-bento.register_expand_key('<leader>b')
-bento.register_collapse_key('<Esc>')
-bento.register_action('open', {
-  key = '<CR>',
-  action = bento.actions.open,
-  hl = 'DiagnosticVirtualTextHint',
-})
-bento.register_action('delete', {
-  key = '<BS>',
-  action = bento.actions.delete,
-  hl = 'DiagnosticVirtualTextError',
-})
-bento.set_default_action('open')
+vim.api.nvim_set_hl(0, 'BufferManagerShortcut', { link = 'DiagnosticVirtualTextHint' })
+vim.keymap.set('n', '<leader>b', function() require('buffer_manager.ui').toggle_quick_menu() end)
 
 require('oil').setup({
   watch_for_changes = true,
