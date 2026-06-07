@@ -84,14 +84,13 @@ vim.pack.add({
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvimtools/none-ls.nvim',
-  'https://github.com/nvim-mini/mini.pick',
   'https://github.com/axkirillov/hbac.nvim',
   'https://github.com/leath-dub/snipe.nvim',
+  'https://github.com/nvim-mini/mini.pick',
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
   'https://github.com/ABDsheikho/focusline.nvim',
-  'https://github.com/azorng/vision.nvim',
 })
 
 require('thorn').setup({
@@ -288,5 +287,3 @@ require('focusline').setup({
     '',
   },
 })
-
-require('vision').setup()
