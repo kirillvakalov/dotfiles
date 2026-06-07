@@ -86,7 +86,7 @@ vim.pack.add({
   'https://github.com/nvimtools/none-ls.nvim',
   'https://github.com/nvim-mini/mini.pick',
   'https://github.com/axkirillov/hbac.nvim',
-  'https://github.com/j-morano/buffer_manager.nvim',
+  'https://github.com/leath-dub/snipe.nvim',
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -212,6 +212,16 @@ null_ls.setup({
   },
 })
 
+require('hbac').setup()
+local snipe = require('snipe')
+snipe.setup({
+  ui = {
+    position = 'bottomleft',
+    open_win_override = { title = '' },
+  },
+})
+vim.keymap.set('n', '<leader>b', snipe.open_buffer_menu)
+
 local pick = require('mini.pick')
 local ui_select_orig = vim.ui.select
 pick.setup({
@@ -223,16 +233,21 @@ pick.setup({
   },
 })
 vim.ui.select = ui_select_orig
-vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
-vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
-vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
-
-require('hbac').setup()
-require('buffer_manager').setup({
-  use_shortcuts = true,
-})
-vim.api.nvim_set_hl(0, 'BufferManagerShortcut', { link = 'DiagnosticVirtualTextHint' })
-vim.keymap.set('n', '<leader>b', function() require('buffer_manager.ui').toggle_quick_menu() end)
+-- If we open minipick while snipe floating window is open we will get an error
+-- when we try to close minipick window. To avoid this close snipe before
+-- opening minipick.
+vim.keymap.set('n', '<C-p>', function()
+  snipe.global_menu:close()
+  MiniPick.builtin.files()
+end)
+vim.keymap.set('n', '<leader>/', function()
+  snipe.global_menu:close()
+  MiniPick.builtin.grep_live()
+end)
+vim.keymap.set('n', "<leader>'", function()
+  snipe.global_menu:close()
+  MiniPick.builtin.resume()
+end)
 
 require('oil').setup({
   watch_for_changes = true,
