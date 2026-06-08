@@ -11,3 +11,10 @@
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
 )
+
+# Upgrade krew and plugins
+# https://krew.sigs.k8s.io/docs/user-guide/upgrading-plugins/
+kubectl krew upgrade
+
+# https://github.com/ahmetb/kubectx
+kubectl krew install ctx
