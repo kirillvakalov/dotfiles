@@ -11,6 +11,11 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} 
   source ${ZIM_HOME}/zimfw.zsh init
 fi
 
+# https://github.com/jeffreytse/zsh-vi-mode/issues/348#issuecomment-4578022672
+# https://github.com/jeffreytse/zsh-vi-mode#highlight-behavior
+ZVM_VI_HIGHLIGHT_FOREGROUND=none
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
+ZVM_VI_HIGHLIGHT_BACKGROUND=none
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#system-clipboard
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
@@ -22,9 +27,6 @@ ZVM_INIT_MODE=sourcing
 AGKOZAK_USER_HOST_DISPLAY=0
 AGKOZAK_COLORS_BRANCH_STATUS=242
 AGKOZAK_BLANK_LINES=1
-
-# Configure zsh-syntax-highlighting 
-ZSH_HIGHLIGHT_MAXLENGTH=512
 
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
