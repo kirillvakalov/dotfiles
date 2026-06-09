@@ -218,6 +218,9 @@ snipe.setup({
     position = 'bottomleft',
     open_win_override = { title = '' },
   },
+  hints = {
+    dictionary = 'asdflewcmpghio',
+  },
 })
 vim.keymap.set('n', '<leader>b', snipe.open_buffer_menu)
 
