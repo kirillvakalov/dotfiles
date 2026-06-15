@@ -1,4 +1,3 @@
-brew "anomalyco/tap/opencode"
 brew "btop"
 brew "diff-so-fancy"
 brew "difftastic"
@@ -17,7 +16,6 @@ brew "yq"
 brew "zoxide"
 
 brew "fnm"
-brew "goose"
 brew "libpq"
 brew "node"
 
