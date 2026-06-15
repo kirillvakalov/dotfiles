@@ -220,6 +220,8 @@ snipe.setup({
   },
 })
 vim.keymap.set('n', '<leader>b', snipe.open_buffer_menu)
+vim.keymap.set('n', '<Tab>', '<Cmd>bp<CR>')
+vim.keymap.set('n', '<S-Tab>', '<Cmd>bn<CR>')
 
 local pick = require('mini.pick')
 local ui_select_orig = vim.ui.select
