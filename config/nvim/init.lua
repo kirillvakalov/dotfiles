@@ -221,21 +221,9 @@ pick.setup({
   },
 })
 vim.ui.select = ui_select_orig
--- If we open minipick while snipe floating window is open we will get an error
--- when we try to close minipick window. To avoid this close snipe before
--- opening minipick.
-vim.keymap.set('n', '<C-p>', function()
-  snipe.global_menu:close()
-  MiniPick.builtin.files()
-end)
-vim.keymap.set('n', '<leader>/', function()
-  snipe.global_menu:close()
-  MiniPick.builtin.grep_live()
-end)
-vim.keymap.set('n', "<leader>'", function()
-  snipe.global_menu:close()
-  MiniPick.builtin.resume()
-end)
+vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
+vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
+vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
 
 vim.keymap.set('n', '<Tab>', '<cmd>QuickBuf<CR>')
 
