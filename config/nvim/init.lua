@@ -84,9 +84,8 @@ vim.pack.add({
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvimtools/none-ls.nvim',
-  'https://github.com/axkirillov/hbac.nvim',
-  'https://github.com/leath-dub/snipe.nvim',
   'https://github.com/nvim-mini/mini.pick',
+  'https://github.com/tjgao/quickbuf.nvim',
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -211,18 +210,6 @@ null_ls.setup({
   },
 })
 
-require('hbac').setup()
-local snipe = require('snipe')
-snipe.setup({
-  ui = {
-    position = 'bottomleft',
-    open_win_override = { title = '' },
-  },
-})
-vim.keymap.set('n', '<leader>b', snipe.open_buffer_menu)
-vim.keymap.set('n', '<Tab>', '<Cmd>bn<CR>')
-vim.keymap.set('n', '<S-Tab>', '<Cmd>bp<CR>')
-
 local pick = require('mini.pick')
 local ui_select_orig = vim.ui.select
 pick.setup({
@@ -249,6 +236,8 @@ vim.keymap.set('n', "<leader>'", function()
   snipe.global_menu:close()
   MiniPick.builtin.resume()
 end)
+
+vim.keymap.set('n', '<Tab>', '<cmd>QuickBuf<CR>')
 
 require('oil').setup({
   watch_for_changes = true,
