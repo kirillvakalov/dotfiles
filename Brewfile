@@ -1,3 +1,4 @@
+brew "anomalyco/tap/opencode", trusted: true
 brew "btop"
 brew "diff-so-fancy"
 brew "difftastic"
@@ -26,13 +27,13 @@ brew "docker-compose"
 brew "qemu"
 
 brew "cloudflared"
-brew "fluxcd/tap/flux"
-brew "hashicorp/tap/terraform"
+brew "fluxcd/tap/flux", trusted: true
+brew "hashicorp/tap/terraform", trusted: true
 brew "k3d"
 brew "k9s"
 brew "kubernetes-cli"
 
-brew "acsandmann/tap/rift", restart_service: :changed
+brew "acsandmann/tap/rift", trusted: true, restart_service: :changed
 cask "cyberduck"
 cask "firefox"
 cask "gcloud-cli"
