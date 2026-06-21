@@ -61,7 +61,7 @@ alias ls="ls --color=auto"
 alias lf="lfcd"
 alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
-alias agent="cursor-agent"
+alias oc="opencode"
 
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
