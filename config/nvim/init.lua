@@ -3,14 +3,11 @@
 vim.g.mapleader = ' '
 
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.mouse = 'a'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
-
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = 'both'
 
 -- https://neovim.io/doc/user/usr_30.html#_tabs-and-spaces
 vim.opt.expandtab = true -- Use spaces instead of tabs
@@ -124,7 +121,7 @@ vim.api.nvim_create_autocmd('FileType', {
   },
   callback = function(args)
     -- Do not enable treesitter highlights for files larger than 100KB, as they
-    -- are quite slow
+    -- are super slow
     local max_filesize = 100 * 1024
     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
     if ok and stats and stats.size > max_filesize then return end
@@ -207,14 +204,11 @@ null_ls.setup({
 })
 
 local pick = require('mini.pick')
+-- Keep original vim.ui.select implementation, not the one from mini.pick
 local ui_select_orig = vim.ui.select
 pick.setup({
   -- Disable file icons
   source = { show = pick.default_show },
-  mappings = {
-    refine = '<M-Space>',
-    refine_marked = '<M-S-Space>',
-  },
 })
 vim.ui.select = ui_select_orig
 vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
@@ -232,9 +226,6 @@ require('oil').setup({
     ['<C-l>'] = false,
     -- We use this keymap for MiniPick files
     ['<C-p>'] = false,
-    -- Same keymaps as <C-w> splits
-    ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
-    ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
   },
 })
 vim.keymap.set('n', '-', '<cmd>Oil<cr>')
@@ -254,8 +245,7 @@ require('auto-session').setup()
 
 require('focusline').setup({
   -- focus_target can be a line number (e.g., 15), or a ratio (e.g., 0.25, 1 / 4, "25%").
-  focus_target = '30%', -- try it with 30%
-  -- which motion to associate focusline with.
+  focus_target = '30%',
   with_motion = {
     'zz',
     '',
