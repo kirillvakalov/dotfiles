@@ -87,6 +87,7 @@ vim.pack.add({
   'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
   'https://github.com/ABDsheikho/focusline.nvim',
+  'https://github.com/azorng/vision.nvim',
 })
 
 vim.cmd.colorscheme('kanagawa')
@@ -252,3 +253,6 @@ require('focusline').setup({
     '',
   },
 })
+
+-- Run `:VisionInstall opencode` to install hook for opencode
+require('vision').setup({})
