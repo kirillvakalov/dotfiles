@@ -28,7 +28,6 @@ brew "qemu"
 brew "cloudflared"
 brew "fluxcd/tap/flux", trusted: true
 brew "hashicorp/tap/terraform", trusted: true
-brew "k3d"
 brew "k9s"
 brew "kubernetes-cli"
 
