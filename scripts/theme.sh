@@ -20,6 +20,6 @@ sed -E -i '' \
 tmux source-file ~/.config/tmux/tmux.conf
 
 # Patch lazygit config file
-yq -i \
-  ".gui.theme.selectedLineBgColor = [\"${SELECTION_BACKGROUND}\"]" \
+sed -E -i '' \
+  "/^    selectedLineBgColor:/{n;s|^(      - ').*(')$|\1${SELECTION_BACKGROUND}\2|;}" \
   config/lazygit/config.yml

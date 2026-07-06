@@ -13,7 +13,6 @@ brew "neovim"
 brew "ripgrep"
 brew "tmux"
 brew "tree-sitter-cli"
-brew "yq"
 brew "zoxide"
 
 brew "fnm"
