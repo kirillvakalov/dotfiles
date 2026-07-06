@@ -321,6 +321,7 @@ workspace_names = []
 #
 # By default there are no app rules; add or uncomment rules below as needed.
 app_rules = [
+  { app_id = "com.apple.calculator", floating = true },
   { app_id = "com.apple.clock", floating = true },
   { app_id = "com.apple.FaceTime", floating = true },
   { app_id = "com.apple.systempreferences", floating = true },
