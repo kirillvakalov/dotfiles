@@ -11,11 +11,11 @@ brew "jq"
 brew "lazygit"
 brew "lf"
 brew "neovim"
+brew "neurosnap/tap/zmx", trusted: true
 brew "paneru"
 brew "ripgrep"
 brew "tree-sitter-cli"
 brew "zoxide"
-brew "neurosnap/tap/zmx"
 
 brew "fnm"
 brew "node"
