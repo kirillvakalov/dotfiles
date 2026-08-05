@@ -65,16 +65,8 @@ eval "$(zoxide init zsh)"
 # Node.js version manager
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --corepack-enabled --log-level=quiet --shell zsh)"
 
-# Change working dir in shell to last dir in lf on exit
-# https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
-lfcd () {
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    cd "$(command lf -print-last-dir "$@")"
-}
-
 # Aliases
 alias ls="ls --color=auto"
-alias lf="lfcd"
 alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias oc="opencode"
