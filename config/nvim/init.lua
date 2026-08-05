@@ -168,6 +168,20 @@ vim.keymap.set('i', '<C-x><C-o>', function()
 end)
 
 require('conform').setup({
+  formatters = {
+    stylua = {
+      prepend_args = {
+        '--indent-type',
+        'Spaces',
+        '--indent-width',
+        '2',
+        '--quote-style',
+        'AutoPreferSingle',
+        '--collapse-simple-statement',
+        'Always',
+      },
+    },
+  },
   formatters_by_ft = {
     lua = { 'stylua' },
     -- https://oxc.rs/docs/guide/usage/formatter.html#supported-languages
