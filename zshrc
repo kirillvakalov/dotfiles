@@ -78,6 +78,7 @@ alias lf="lfcd"
 alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias oc="opencode"
+alias codex="codex -c tui.vim_mode_default=true"
 
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
