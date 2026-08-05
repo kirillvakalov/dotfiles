@@ -31,6 +31,12 @@ AGKOZAK_BLANK_LINES=1
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
+# Show the current zmx session in the prompt.
+# TODO: Switch to simpler prompt from agkozak
+# if [[ -n ${ZMX_SESSION} ]]; then
+#   PROMPT="[${ZMX_SESSION}] ${PROMPT}"
+# fi
+
 # Shell history search with fzf. Previously I have used atuin and switched
 # because it has very bad fuzzy matching compared to fzf.
 # https://gist.github.com/mattmc3/c490d01751d6eb80aa541711ab1d54b1

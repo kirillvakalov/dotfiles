@@ -1,5 +1,5 @@
 # 💡 Please run ./scripts/theme.sh command after changing theme to
-# automatically patch tmux and lazygit themes with updated colors
+# automatically patch the lazygit theme with updated colors
 theme = Kanagawabones
 # font-family = MonoLisa
 # font-style-italic = Regular Italic
@@ -14,4 +14,8 @@ font-size = 13
 confirm-close-surface = false
 quit-after-last-window-closed = true
 macos-option-as-alt = true
-initial-command = /bin/zsh -l -c "tmux new-session -A -s ghostty"
+keybind = cmd+enter=unbind
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:down
+keybind = cmd+k=goto_split:up
+keybind = cmd+l=goto_split:right

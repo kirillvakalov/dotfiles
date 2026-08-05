@@ -84,7 +84,6 @@ vim.pack.add({
   'https://github.com/nvim-mini/mini.pick',
   'https://github.com/tjgao/quickbuf.nvim',
   'https://github.com/stevearc/oil.nvim',
-  'https://github.com/mrjones2014/smart-splits.nvim',
   'https://github.com/rmagatti/auto-session',
   'https://github.com/ABDsheikho/focusline.nvim',
   'https://github.com/azorng/vision.nvim',
@@ -222,24 +221,11 @@ require('oil').setup({
   watch_for_changes = true,
   view_options = { show_hidden = true },
   keymaps = {
-    -- We use these keymaps to navigate between windows with smart-splits
-    ['<C-h>'] = false,
-    ['<C-l>'] = false,
     -- We use this keymap for MiniPick files
     ['<C-p>'] = false,
   },
 })
 vim.keymap.set('n', '-', '<cmd>Oil<cr>')
-
-local smart_splits = require('smart-splits')
-vim.keymap.set('n', '<M-Left>', smart_splits.resize_left)
-vim.keymap.set('n', '<M-Down>', smart_splits.resize_down)
-vim.keymap.set('n', '<M-Up>', smart_splits.resize_up)
-vim.keymap.set('n', '<M-Right>', smart_splits.resize_right)
-vim.keymap.set({ 'n', 'v' }, '<C-h>', smart_splits.move_cursor_left)
-vim.keymap.set({ 'n', 'v' }, '<C-j>', smart_splits.move_cursor_down)
-vim.keymap.set({ 'n', 'v' }, '<C-k>', smart_splits.move_cursor_up)
-vim.keymap.set({ 'n', 'v' }, '<C-l>', smart_splits.move_cursor_right)
 
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 require('auto-session').setup()
