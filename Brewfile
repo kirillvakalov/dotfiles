@@ -33,6 +33,7 @@ brew "hashicorp/tap/terraform", trusted: true
 brew "k9s"
 brew "kubernetes-cli"
 
+cask "codex"
 cask "cyberduck"
 cask "gcloud-cli"
 cask "ghostty"
