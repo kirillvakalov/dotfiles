@@ -1,8 +1,9 @@
 git:
   overrideGpg: true
-  pagers:
-    - pager: diff-so-fancy
-    - externalDiffCommand: difft --color=always --syntax-highlight=off
+  diffRenderers:
+    - command: diff-so-fancy
+    - command: difft --color=always --syntax-highlight=off
+      type: extDiff
 gui:
   sidePanelWidth: 0.25
   authorColors:
