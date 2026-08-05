@@ -23,19 +23,29 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#initialization-mode
 ZVM_INIT_MODE=sourcing
 
-# https://github.com/agkozak/agkozak-zsh-prompt?tab=readme-ov-file
-AGKOZAK_USER_HOST_DISPLAY=0
-AGKOZAK_COLORS_BRANCH_STATUS=242
-AGKOZAK_BLANK_LINES=1
+# Minimal prompt with an abbreviated path, command failure status, and vi mode.
+setopt PROMPT_SUBST
+typeset -g PROMPT_CHAR='%#'
+
+zvm_after_select_vi_mode() {
+  if [[ ${ZVM_MODE} == ${ZVM_MODE_NORMAL} ]]; then
+    PROMPT_CHAR=':'
+  else
+    PROMPT_CHAR='%#'
+  fi
+  zle reset-prompt
+}
+
+PROMPT=$'\n%(?..%B%F{red}(%?%)%f%b )%B%F{blue}%2~%f%b\n${PROMPT_CHAR} '
+RPROMPT=''
+
+# Show the current zmx session in the prompt.
+if [[ -n ${ZMX_SESSION} ]]; then
+  PROMPT="[${ZMX_SESSION}] ${PROMPT}"
+fi
 
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
-
-# Show the current zmx session in the prompt.
-# TODO: Switch to simpler prompt from agkozak
-# if [[ -n ${ZMX_SESSION} ]]; then
-#   PROMPT="[${ZMX_SESSION}] ${PROMPT}"
-# fi
 
 # Shell history search with fzf. Previously I have used atuin and switched
 # because it has very bad fuzzy matching compared to fzf.
