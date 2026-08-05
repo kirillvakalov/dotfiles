@@ -10,6 +10,7 @@ brew "jq"
 brew "lazygit"
 brew "lf"
 brew "neovim"
+brew "paneru"
 brew "ripgrep"
 brew "tmux"
 brew "tree-sitter-cli"
@@ -31,7 +32,6 @@ brew "hashicorp/tap/terraform", trusted: true
 brew "k9s"
 brew "kubernetes-cli"
 
-brew "acsandmann/tap/rift", trusted: true, restart_service: :changed
 cask "cyberduck"
 cask "gcloud-cli"
 cask "ghostty"

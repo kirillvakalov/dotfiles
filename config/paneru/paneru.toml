@@ -1,0 +1,30 @@
+[options]
+focus_follows_mouse = true
+mouse_follows_focus = true
+animation_speed = 9999
+
+[bindings]
+window_focus_west = "alt - h"
+window_swap_west = "alt + shift - h"
+window_focus_east = "alt - l"
+window_swap_east = "alt + shift - l"
+window_resize = "alt - r"
+window_manage = "alt - f" # toggle floating mode
+window_fullwidth = "alt - z"
+window_virtualnum_1 = "alt - 1"
+window_virtualnum_2 = "alt - 2"
+window_virtualnum_3 = "alt - 3"
+
+[swipe.gesture]
+fingers_count = 0
+vertical = false
+
+[decorations]
+workspace_popup_status = false
+
+[windows.pip]
+# Title RegExp pattern is required.
+title = ".*"
+bundle_id = "com.apple.clock"
+# Do not manage this window, e.g. it will be floating.
+floating = true
