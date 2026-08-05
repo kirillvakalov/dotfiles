@@ -36,13 +36,13 @@ zvm_after_select_vi_mode() {
   zle reset-prompt
 }
 
-PROMPT=$'\n%(?..%B%F{red}(%?%)%f%b )%B%F{blue}%2~%f%b\n${PROMPT_CHAR} '
-RPROMPT=''
-
-# Show the current zmx session in the prompt.
+typeset -g ZMX_PROMPT=''
 if [[ -n ${ZMX_SESSION} ]]; then
-  PROMPT="[${ZMX_SESSION}] ${PROMPT}"
+  ZMX_PROMPT="%B%F{green}${ZMX_SESSION}%f%b "
 fi
+
+PROMPT=$'\n${ZMX_PROMPT}%(?..%B%F{red}(%?%)%f%b )%B%F{blue}%2~%f%b\n${PROMPT_CHAR} '
+RPROMPT=''
 
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
