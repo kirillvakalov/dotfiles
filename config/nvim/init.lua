@@ -245,7 +245,6 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 require('auto-session').setup()
 
 require('focusline').setup({
-  -- focus_target can be a line number (e.g., 15), or a ratio (e.g., 0.25, 1 / 4, "25%").
   focus_target = '30%',
   with_motion = {
     'zz',
@@ -254,5 +253,5 @@ require('focusline').setup({
   },
 })
 
--- Run `:VisionInstall opencode` to install hook for opencode
-require('vision').setup({})
+-- Run `:VisionInstall <agent>` to install hooks for AI agents
+require('vision').setup()
