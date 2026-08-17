@@ -133,7 +133,7 @@ vim.api.nvim_create_autocmd('FileType', {
 require('mason').setup()
 local masonRegistry = require('mason-registry')
 local tools = {
-  'tsgo',
+  'tsc',
   'oxlint',
   'oxfmt',
   'sqlfluff',
@@ -146,7 +146,7 @@ masonRegistry.refresh(function()
   end
 end)
 
-vim.lsp.enable({ 'tsgo', 'oxlint' })
+vim.lsp.enable({ 'tsc', 'oxlint' })
 
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
