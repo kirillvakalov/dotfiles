@@ -30,4 +30,3 @@
     - [paneru install, Installing Paneru WM service]
     - [./scripts/cloud-sql-proxy.sh, Installing GCP Cloud SQL Auth Proxy]
     - [./scripts/krew.sh, Installing Krew kubectl plugin manager]
-    - [./scripts/theme.sh, Patching lazygit theme 🎨]

@@ -1,5 +1,3 @@
-# 💡 Please run ./scripts/theme.sh command after changing theme to
-# automatically patch the lazygit theme with updated colors
 theme = Kanagawabones
 # font-family = MonoLisa
 # font-style-italic = Regular Italic

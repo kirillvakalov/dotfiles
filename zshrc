@@ -67,7 +67,6 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines 
 
 # Aliases
 alias ls="ls --color=auto"
-alias lz="lazygit"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias oc="opencode"
 alias codex="codex -c tui.vim_mode_default=true"
