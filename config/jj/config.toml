@@ -7,3 +7,4 @@ email = "102545999+kirillvakalov@users.noreply.github.com"
 [ui]
 default-command = "log"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+diff-editor = ["nvim", "--cmd", "let g:auto_session_enabled = v:false", "-c", "DiffEditor $left $right $output"]
