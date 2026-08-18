@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 })
 
 vim.pack.add({
-  'https://github.com/rebelot/kanagawa.nvim',
+  'https://github.com/jpwol/thorn.nvim',
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
@@ -91,7 +91,11 @@ vim.pack.add({
   'https://github.com/julienvincent/hunk.nvim',
 })
 
-vim.cmd.colorscheme('kanagawa')
+require('thorn').setup({
+  styles = { diagnostic = { error = { highlight = false } } },
+  on_highlights = function(hl, palette) hl.MatchParen.fg = palette.yellow end,
+})
+vim.cmd.colorscheme('thorn')
 
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 require('nvim-treesitter').install({
