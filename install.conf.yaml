@@ -10,7 +10,6 @@
 
 - link:
     ~/.gitconfig:
-    ~/.gitignore.global:
     ~/.hushlogin:
     ~/.zprofile:
       force: true

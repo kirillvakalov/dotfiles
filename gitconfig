@@ -2,8 +2,6 @@
         name = Kirill Vakalov
         email = 102545999+kirillvakalov@users.noreply.github.com
         signingkey = B1C28846BBAF8146
-[core]
-        excludesfile = ~/.gitignore.global
 [init]
         defaultBranch = main
 [commit]
