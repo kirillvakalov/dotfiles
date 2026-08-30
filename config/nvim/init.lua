@@ -79,8 +79,6 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' },
   'https://github.com/stevearc/conform.nvim',
-  'https://github.com/nvim-lua/plenary.nvim',
-  'https://github.com/nvimtools/none-ls.nvim',
   'https://github.com/nvim-mini/mini.pick',
   'https://github.com/tjgao/quickbuf.nvim',
   'https://github.com/stevearc/oil.nvim',
@@ -142,7 +140,7 @@ local tools = {
   'tsc',
   'oxlint',
   'oxfmt',
-  'sqlfluff',
+  'sqruff',
   'stylua',
 }
 masonRegistry.refresh(function()
@@ -152,7 +150,7 @@ masonRegistry.refresh(function()
   end
 end)
 
-vim.lsp.enable({ 'tsc', 'oxlint' })
+vim.lsp.enable({ 'tsc', 'oxlint', 'sqruff' })
 
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
@@ -190,6 +188,7 @@ require('conform').setup({
   },
   formatters_by_ft = {
     lua = { 'stylua' },
+    sql = { 'sqruff' },
     -- https://oxc.rs/docs/guide/usage/formatter.html#supported-languages
     javascript = { 'oxfmt' },
     javascriptreact = { 'oxfmt' },
@@ -212,16 +211,6 @@ require('conform').setup({
   },
 })
 vim.keymap.set('n', '<leader>f', function() require('conform').format({ async = true }) end)
-
--- We have to use none-ls for sqlfluff because it fails to format with
--- conform.nvim if SQL file has lint errors
-local null_ls = require('null-ls')
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.sqlfluff,
-    null_ls.builtins.diagnostics.sqlfluff,
-  },
-})
 
 local pick = require('mini.pick')
 -- Keep original vim.ui.select implementation, not the one from mini.pick
