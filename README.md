@@ -20,12 +20,16 @@ ssh-add ~/.ssh/id_ed25519
 
 2. Copy [gitconfig](https://github.com/kirillvakalov/dotfiles/blob/main/gitconfig) to home directory as _.gitconfig_
 3. Install [Homebrew](https://brew.sh)
-4. `brew install git`
-5. `git clone https://github.com/kirillvakalov/dotfiles.git`
-6. `cd dotfiles`
-7. `brew bundle`
-8. `rm ~/.gitconfig`
-9. `./install`
+4. Run:
+
+```sh
+brew install git
+git clone https://github.com/kirillvakalov/dotfiles.git
+cd dotfiles
+brew bundle
+rm ~/.gitconfig
+./install
+```
 
 ### Tips
 
