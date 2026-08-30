@@ -20,22 +20,12 @@ ssh-add ~/.ssh/id_ed25519
 
 2. Copy [gitconfig](https://github.com/kirillvakalov/dotfiles/blob/main/gitconfig) to home directory as _.gitconfig_
 3. Install [Homebrew](https://brew.sh)
-4. Install GnuPG and import GPG key from _iCloud Drive/Backup/gpg key_
-   1. `brew install gnupg`
-   2. `gpg --import public.gpg.asc`
-   3. `gpg --import private.gpg.asc`
-   4. `gpg --import-ownertrust ownertrust.txt`
-   5. Verify that key have **ultimate** trust level:
-
-      `gpg --list-secret-keys --keyid-format=long`
-
-5. `brew install git gh`
-6. `gh auth login` (select SSH for 'What is your preferred protocol for Git operations on this host?')
-7. `gh repo clone kirillvakalov/dotfiles`
-8. `cd dotfiles`
-9. `brew bundle`
-10. `rm ~/.gitconfig`
-11. `./install`
+4. `brew install git`
+5. `git clone https://github.com/kirillvakalov/dotfiles.git`
+6. `cd dotfiles`
+7. `brew bundle`
+8. `rm ~/.gitconfig`
+9. `./install`
 
 ### Tips
 

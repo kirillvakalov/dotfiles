@@ -1,31 +1,14 @@
 [user]
         name = Kirill Vakalov
         email = 102545999+kirillvakalov@users.noreply.github.com
-        signingkey = B1C28846BBAF8146
 [init]
         defaultBranch = main
-[commit]
-        gpgsign = true
 [push]
         autoSetupRemote = true
-        # https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-if-includes
-        useForceIfIncludes = true
 [pull]
         rebase = true
-[rebase]
-        autoStash = true
-[rerere]
-        enabled = true
 [alias]
         l = log --oneline
         s = status
 [url "git@github.com:"]
         insteadOf = https://github.com/
-[credential "https://github.com"]
-        helper = 
-        helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-        helper = 
-        helper = !/opt/homebrew/bin/gh auth git-credential
-[diff-so-fancy]
-        markEmptyLines = false
