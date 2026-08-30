@@ -33,8 +33,8 @@ vim.opt.undofile = true
 vim.opt.autoread = true
 
 vim.opt.foldmethod = 'indent'
-vim.opt.foldlevel = 10 -- Fold nothing by default
-vim.opt.foldnestmax = 10 -- Limit number of fold levels
+-- Start editing with all folds open
+vim.opt.foldlevel = 99
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
