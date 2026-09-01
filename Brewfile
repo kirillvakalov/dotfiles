@@ -18,6 +18,7 @@ brew "zoxide"
 brew "fnm"
 brew "node"
 brew "libpq"
+brew "cloud-sql-proxy"
 
 brew "colima"
 brew "docker"

@@ -76,7 +76,6 @@ alias codex="codex -c tui.vim_mode_default=true"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="$HOME/cloud-sql-proxy:$PATH"
 # Android SDK (for Android emulator)
 export ANDROID_SDK_ROOT="$HOMEBREW_PREFIX/share/android-commandlinetools"
 export ANDROID_USER_HOME="$HOME/.android"
