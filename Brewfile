@@ -30,6 +30,7 @@ brew "cloudflared"
 brew "fluxcd/tap/flux", trusted: true
 brew "hashicorp/tap/terraform", trusted: true
 brew "k9s"
+brew "krew"
 brew "kubernetes-cli"
 
 cask "codex"

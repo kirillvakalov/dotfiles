@@ -27,4 +27,3 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [paneru install, Installing Paneru WM service]
-    - [./scripts/krew.sh, Installing Krew kubectl plugin manager]

@@ -27,6 +27,7 @@ brew install git
 git clone https://github.com/kirillvakalov/dotfiles.git
 cd dotfiles
 brew bundle
+kubectl krew upgrade && kubectl krew install ctx
 rm ~/.gitconfig
 ./install
 ```
