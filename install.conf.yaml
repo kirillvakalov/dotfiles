@@ -7,6 +7,8 @@
     ~/:
     ~/.config:
       recursive: true
+    ~/.agents/skills:
+      recursive: true
 
 - link:
     ~/.gitconfig:
@@ -23,6 +25,10 @@
       glob: true
       force: true
       path: config/**
+    ~/.agents/skills/:
+      glob: true
+      force: true
+      path: skills/*
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
