@@ -11,9 +11,10 @@ window_swap_east = "alt + shift - l"
 window_resize = "alt - r"
 window_manage = "alt - f" # toggle floating mode
 window_fullwidth = "alt - z"
-window_virtualnum_1 = "alt - 1"
-window_virtualnum_2 = "alt - 2"
-window_virtualnum_3 = "alt - 3"
+window_virtualnum_1 = "alt - 1" # terminal
+window_virtualnum_2 = "alt - 2" # db
+window_virtualnum_3 = "alt - 3" # chrome
+window_virtualnum_4 = "alt - 4" # slack
 
 [swipe.gesture]
 fingers_count = 0
