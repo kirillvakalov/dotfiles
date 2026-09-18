@@ -9,12 +9,12 @@ window_swap_west = "alt + shift - h"
 window_focus_east = "alt - l"
 window_swap_east = "alt + shift - l"
 window_resize = "alt - r"
-window_manage = "alt - f" # toggle floating mode
+window_manage = "alt - f" # Toggle floating mode
 window_fullwidth = "alt - z"
-window_virtualnum_1 = "alt - 1" # terminal
-window_virtualnum_2 = "alt - 2" # db
-window_virtualnum_3 = "alt - 3" # chrome
-window_virtualnum_4 = "alt - 4" # slack
+window_virtualnum_1 = "alt - 1"
+window_virtualnum_2 = "alt - 2"
+window_virtualnum_3 = "alt - 3"
+window_virtualnum_4 = "alt - 4"
 
 [swipe.gesture]
 fingers_count = 0
@@ -23,9 +23,14 @@ vertical = false
 [decorations]
 workspace_popup_status = false
 
-[windows.pip]
+[windows.clock]
 # Title RegExp pattern is required.
 title = ".*"
 bundle_id = "com.apple.clock"
 # Do not manage this window, e.g. it will be floating.
+floating = true
+
+[windows.system_settings]
+title = ".*"
+bundle_id = "com.apple.systempreferences"
 floating = true
