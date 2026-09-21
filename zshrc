@@ -60,9 +60,8 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines 
 alias ls="ls --color=auto"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias oc="opencode"
-alias codex="codex -c tui.vim_mode_default=true"
-alias jjd='jj --config ui.diff-formatter=:color-words'
-alias jjuid='JJ_CONFIG==(jjd config list) jjui'
+alias jui='jjui'
+alias juf='JJ_FANCY=1 jjui'
 
 # PATH
 # This one is needed so 'gke-gcloud-auth-plugin' can be found
