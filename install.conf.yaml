@@ -18,6 +18,9 @@
     ~/.zshenv:
     ~/.zshrc:
     ~/.zimrc:
+    ~/.codex/config.toml:
+      force: true
+      path: codex/config.toml
     ~/.docker/config.json:
       force: true
       path: docker/config.json

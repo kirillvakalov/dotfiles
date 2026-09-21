@@ -1,0 +1,43 @@
+approvals_reviewer = "user"
+model = "gpt-6-astra"
+model_reasoning_effort = "high"
+plan_mode_reasoning_effort = "high"
+
+[projects."/Users/kirillvakalov/Developer/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/kirillvakalov/Developer/data-acquisition"]
+trust_level = "trusted"
+
+[projects."/Users/kirillvakalov/Developer/realadvisor-scrapers"]
+trust_level = "trusted"
+
+[projects."/Users/kirillvakalov/Developer/realadvisor"]
+trust_level = "trusted"
+
+[projects."/Users/kirillvakalov/Developer/mako-workspace"]
+trust_level = "trusted"
+
+[projects."/Users/kirillvakalov/Downloads"]
+trust_level = "trusted"
+
+[hooks.state]
+
+[hooks.state."/Users/kirillvakalov/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:90e3d9907424f40a0a8e392b29e878ad497dcb7bd04d5798353b9cfa9321e786"
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest"]
+
+[mcp_servers.mako]
+url = "https://app.mako.ai/api/mcp"
+
+[tui]
+vim_mode_default = true
+screen_reader_detection_done = true
+status_line = ["model-with-reasoning", "current-dir"]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+gpt-6-astra = 4
