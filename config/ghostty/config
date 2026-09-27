@@ -13,9 +13,12 @@ confirm-close-surface = false
 quit-after-last-window-closed = true
 macos-option-as-alt = true
 shell-integration-features = ssh-env,ssh-terminfo
+# I never use fullscreen mode, and I often hit this keybind by mistake when
+# switching panes with cmd+]
 keybind = cmd+enter=unbind
 # native macOS tabs are giving way too much problems with window managers
 keybind = cmd+t=unbind
+# to switch between windows in paneru I am using alt+hjkl keybinds
 keybind = cmd+h=goto_split:left
 keybind = cmd+j=goto_split:down
 keybind = cmd+k=goto_split:up

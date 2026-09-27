@@ -11,11 +11,12 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} 
   source ${ZIM_HOME}/zimfw.zsh init
 fi
 
+# zsh vi mode
+# disable highlighting
 # https://github.com/jeffreytse/zsh-vi-mode/issues/348#issuecomment-4578022672
-# https://github.com/jeffreytse/zsh-vi-mode#highlight-behavior
 ZVM_VI_HIGHLIGHT_FOREGROUND=none
-ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
 ZVM_VI_HIGHLIGHT_BACKGROUND=none
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#system-clipboard
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
