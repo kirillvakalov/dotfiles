@@ -7,7 +7,6 @@ brew "git"
 brew "jj"
 brew "jjui"
 brew "jq"
-brew "lf"
 brew "neovim"
 brew "neurosnap/tap/zmx", trusted: true
 brew "paneru"
