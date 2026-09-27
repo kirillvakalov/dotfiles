@@ -29,8 +29,20 @@ vim.opt.splitright = true
 
 vim.opt.swapfile = false
 vim.opt.undofile = true
--- Reload buffers when files are modified externally (e.g., by opencode)
-vim.opt.autoread = true
+
+-- Neovim checks for external file changes in open buffers only on events like
+-- gaining focus. Changes made by another process (e.g. Codex) will remain
+-- invisible while Neovim pane is not focused, for example when we run Neovim
+-- and Codex side-by-side and Codex pane has focus. Check visible unmodified
+-- buffers every second to show edits without the need to focus Neovim pane.
+vim.fn.timer_start(1000, function()
+  local mode = vim.api.nvim_get_mode()
+  if mode.mode ~= 'n' or mode.blocking or vim.fn.getcmdwintype() ~= '' then return end
+
+  for _, buf in ipairs(vim.fn.getbufinfo({ bufloaded = 1 })) do
+    if #buf.windows > 0 and not vim.bo[buf.bufnr].modified then vim.cmd.checktime(buf.bufnr) end
+  end
+end, { ['repeat'] = -1 })
 
 vim.opt.foldmethod = 'indent'
 -- Start editing with all folds open
