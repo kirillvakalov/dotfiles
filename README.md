@@ -28,6 +28,9 @@ git clone https://github.com/kirillvakalov/dotfiles.git
 cd dotfiles
 brew bundle
 kubectl krew upgrade && kubectl krew install ctx cnpg
+# Setup JADX AI MCP (https://github.com/zinja-coder/jadx-ai-mcp)
+jadx plugins --install "github:zinja-coder:jadx-ai-mcp"
+uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
 rm ~/.gitconfig
 ./install
 ```

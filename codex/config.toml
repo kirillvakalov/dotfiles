@@ -1,5 +1,5 @@
 approvals_reviewer = "user"
-model = "gpt-6-astra"
+model = "gpt-6.1-sol"
 model_reasoning_effort = "high"
 plan_mode_reasoning_effort = "high"
 
@@ -13,6 +13,9 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/kirillvakalov/Developer/realadvisor"]
+trust_level = "trusted"
+
+[projects."/Users/kirillvakalov/Developer/curl-impersonate"]
 trust_level = "trusted"
 
 [projects."/Users/kirillvakalov/Developer/mako-workspace"]
@@ -29,9 +32,13 @@ trusted_hash = "sha256:90e3d9907424f40a0a8e392b29e878ad497dcb7bd04d5798353b9cfa9
 [mcp_servers.chrome-devtools]
 command = "npx"
 args = ["-y", "chrome-devtools-mcp@latest"]
+default_tools_approval_mode = "approve"
 
 [mcp_servers.mako]
 url = "https://app.mako.ai/api/mcp"
+
+[mcp_servers.jadx-mcp-server]
+command = "/Users/kirillvakalov/.local/bin/jadx_mcp_server"
 
 [tui]
 vim_mode_default = true
@@ -41,3 +48,4 @@ status_line_use_colors = true
 
 [tui.model_availability_nux]
 gpt-6-astra = 4
+"gpt-6.1-sol" = 4
