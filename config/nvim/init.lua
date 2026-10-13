@@ -98,8 +98,6 @@ vim.pack.add({
   'https://github.com/rmagatti/auto-session',
   'https://github.com/ABDsheikho/focusline.nvim',
   'https://github.com/azorng/vision.nvim',
-  'https://github.com/MunifTanjim/nui.nvim',
-  'https://github.com/julienvincent/hunk.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
 })
 
@@ -260,8 +258,6 @@ require('focusline').setup({
 
 -- Run `:VisionInstall <agent>` to install hooks for AI agents
 require('vision').setup()
-
-require('hunk').setup()
 
 require('gitsigns').setup({
   -- Do not show signs by default, use <leader>tg to toggle it on.
