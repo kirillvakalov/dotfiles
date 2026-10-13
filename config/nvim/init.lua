@@ -30,11 +30,10 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
 
--- Neovim checks for external file changes in open buffers only on events like
--- gaining focus. Changes made by another process (e.g. Codex) will remain
--- invisible while Neovim pane is not focused, for example when we run Neovim
--- and Codex side-by-side and Codex pane has focus. Check visible unmodified
--- buffers every second to show edits without the need to focus Neovim pane.
+-- By default Neovim checks for external file changes on events such as gaining
+-- focus, so edits made by Codex or other app will remain invisible until
+-- Neovim window is focused. Check visible unmodified buffers every second to
+-- show edits without the need to focus Neovim window.
 vim.fn.timer_start(1000, function()
   local mode = vim.api.nvim_get_mode()
   if mode.mode ~= 'n' or mode.blocking or vim.fn.getcmdwintype() ~= '' then return end
