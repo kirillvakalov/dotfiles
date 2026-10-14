@@ -18,12 +18,11 @@ EOF
 ssh-add ~/.ssh/id_ed25519
 ```
 
-2. Install [Homebrew](https://brew.sh)
+2. Install [Homebrew](https://brew.sh). Add brew to your **PATH** in current terminal: `eval "$(/opt/homebrew/bin/brew shellenv zsh)"`
 3. Run:
 
 ```sh
 mkdir Developer && cd Developer
-brew install git
 git clone https://github.com/kirillvakalov/dotfiles.git
 cd dotfiles
 brew bundle
