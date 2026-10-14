@@ -18,18 +18,18 @@ EOF
 ssh-add ~/.ssh/id_ed25519
 ```
 
-2. Copy [gitconfig](https://github.com/kirillvakalov/dotfiles/blob/main/gitconfig) to home directory as _.gitconfig_
-3. Install [Homebrew](https://brew.sh)
-4. Run:
+2. Install [Homebrew](https://brew.sh)
+3. Run:
 
 ```sh
+mkdir Developer && cd Developer
 brew install git
 git clone https://github.com/kirillvakalov/dotfiles.git
 cd dotfiles
 brew bundle
 ```
 
-5. Run to install Krew kubectl plugins and JADX AI MCP (https://github.com/zinja-coder/jadx-ai-mcp):
+4. Run to install Krew kubectl plugins and JADX AI MCP (https://github.com/zinja-coder/jadx-ai-mcp):
 
 ```sh
 kubectl krew upgrade && kubectl krew install ctx cnpg
@@ -37,7 +37,7 @@ jadx plugins --install "github:zinja-coder:jadx-ai-mcp"
 uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
 ```
 
-6. Install dotfiles:
+5. Install dotfiles:
 
 ```sh
 ./install
