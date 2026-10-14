@@ -18,7 +18,9 @@ EOF
 ssh-add ~/.ssh/id_ed25519
 ```
 
-2. Install [Homebrew](https://brew.sh). Add brew to your **PATH** in current terminal: `eval "$(/opt/homebrew/bin/brew shellenv zsh)"`
+2. Install [Homebrew](https://brew.sh). Add brew to your **PATH** in current
+   zsh session: `eval "$(/opt/homebrew/bin/brew shellenv zsh)"`
+
 3. Run:
 
 ```sh
@@ -28,7 +30,8 @@ cd dotfiles
 brew bundle
 ```
 
-4. Run to install Krew kubectl plugins and JADX AI MCP (https://github.com/zinja-coder/jadx-ai-mcp):
+4. Run to install Krew kubectl plugins and JADX AI MCP
+   (https://github.com/zinja-coder/jadx-ai-mcp):
 
 ```sh
 kubectl krew upgrade && kubectl krew install ctx cnpg
@@ -42,9 +45,13 @@ uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
 ./install
 ```
 
+6. Install NoMachine app manually (brew cask is not working) from
+   https://download.nomachine.com/download/?id=117&platform=mac for connecting
+   to remote desktop VMs.
+
 ### Tips
 
-#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using window manager like Rift
+#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using window managers like Rift
 
 ```sh
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock

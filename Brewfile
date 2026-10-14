@@ -1,4 +1,5 @@
 brew "anomalyco/tap/opencode", trusted: true
+brew "atuin"
 brew "btop"
 brew "diff-so-fancy"
 brew "difftastic"
@@ -46,5 +47,4 @@ brew "uv"
 cask "android-commandlinetools"
 cask "charles"
 cask "mitmproxy"
-cask "nomachine"
 cask "xquartz"
