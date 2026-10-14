@@ -27,17 +27,25 @@ brew install git
 git clone https://github.com/kirillvakalov/dotfiles.git
 cd dotfiles
 brew bundle
+```
+
+5. Run to install Krew kubectl plugins and JADX AI MCP (https://github.com/zinja-coder/jadx-ai-mcp):
+
+```sh
 kubectl krew upgrade && kubectl krew install ctx cnpg
-# Setup JADX AI MCP (https://github.com/zinja-coder/jadx-ai-mcp)
 jadx plugins --install "github:zinja-coder:jadx-ai-mcp"
 uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
-rm ~/.gitconfig
+```
+
+6. Install dotfiles:
+
+```sh
 ./install
 ```
 
 ### Tips
 
-#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using Rift
+#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using window manager like Rift
 
 ```sh
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock
@@ -50,9 +58,3 @@ Select _Chrome_ in the menu bar and select to un-check _Warn before Quitting (âŒ
 #### Show Emoji & Symbols on pressing _fn (globe) key_
 
 Go to System Settings -> Keyboard -> Press _globe key_ to -> Show Emoji & Symbols
-
-#### Persistent terminal sessions with zmx
-
-- Run `zmx list` to list active sessions or `zmx attach <name>` to attach directly.
-- Press _Ctrl+\\_ to detach from the current session.
-- Run `zmx kill <name>` to stop a session.
