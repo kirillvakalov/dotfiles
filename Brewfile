@@ -18,7 +18,7 @@ brew "node"
 brew "libpq"
 brew "cloud-sql-proxy"
 
-brew "colima"
+brew "colima", restart_service: true
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
