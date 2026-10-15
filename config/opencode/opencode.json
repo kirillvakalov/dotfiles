@@ -1,15 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "chrome-devtools": {
-      "type": "local",
-      "enabled": true,
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"]
-    },
-    "jadx-mcp-server": {
-      "type": "local",
-      "enabled": true,
-      "command": ["{env:HOME}/.local/bin/jadx_mcp_server"]
+    "servers": {
+      "chrome-devtools": {
+        "type": "local",
+        "disabled": false,
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"]
+      },
+      "jadx-mcp-server": {
+        "type": "local",
+        "disabled": false,
+        "command": ["{env:HOME}/.local/bin/jadx_mcp_server"]
+      }
     }
   }
 }
