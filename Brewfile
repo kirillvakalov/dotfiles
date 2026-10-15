@@ -1,4 +1,4 @@
-brew "anomalyco/tap/opencode", trusted: true
+brew "anomalyco/tap/opencode-v2", trusted: true
 brew "atuin"
 brew "btop"
 brew "diff-so-fancy"
@@ -34,6 +34,7 @@ brew "kubernetes-cli"
 
 cask "codex"
 cask "cyberduck"
+cask "firefox"
 cask "gcloud-cli"
 cask "ghostty"
 cask "google-chrome"
