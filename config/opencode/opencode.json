@@ -7,10 +7,9 @@
         "disabled": false,
         "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"]
       },
-      "jadx-mcp-server": {
+      "rea": {
         "type": "local",
-        "disabled": false,
-        "command": ["{env:HOME}/.local/bin/jadx_mcp_server"]
+        "command": ["npx", "-y", "rea-agents@latest", "mcp"]
       }
     }
   }

@@ -36,6 +36,11 @@ brew bundle
 ```sh
 kubectl krew upgrade && kubectl krew install ctx cnpg
 jadx plugins --install "github:zinja-coder:jadx-ai-mcp"
+# NOTE: jadx-mcp-server is broken upstream right now. Its published tool only 
+# packages jadx_mcp_server.py, not the code in src/ that published file imports,
+# so the installed command dies on startup with:
+#     ModuleNotFoundError: No module named 'src'
+# TODO: revisit and reinstall jadx-mcp-server once upstream packaging is fixed.
 uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
 ```
 

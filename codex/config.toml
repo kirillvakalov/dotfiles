@@ -34,11 +34,13 @@ command = "npx"
 args = ["-y", "chrome-devtools-mcp@latest"]
 default_tools_approval_mode = "approve"
 
+[mcp_servers.rea]
+command = "npx"
+args = [ "-y", "rea-agents@latest", "mcp" ]
+startup_timeout_sec = 30
+
 [mcp_servers.mako]
 url = "https://app.mako.ai/api/mcp"
-
-[mcp_servers.jadx-mcp-server]
-command = "/Users/kirillvakalov/.local/bin/jadx_mcp_server"
 
 [tui]
 vim_mode_default = true
