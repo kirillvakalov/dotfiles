@@ -1,15 +1,30 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+  "providers": {
+    "openrouter": {
+      "models": {
+        "deepseek/deepseek-v4.1-flash-1017": {
+          "body": {
+            "provider": {
+              "only": ["baseten", "together", "deepseek"],
+              "sort": "throughput"
+            }
+          }
+        }
+      }
+    }
+  },
   "mcp": {
     "servers": {
       "chrome-devtools": {
         "type": "local",
         "disabled": false,
-        "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"]
+        "command": ["npx", "-y", "chrome-devtools-mcp@1.11.0", "--autoConnect"]
       },
       "rea": {
         "type": "local",
-        "command": ["npx", "-y", "rea-agents@latest", "mcp"]
+        "command": ["npx", "-y", "rea-agents@6.7.0", "mcp"]
       }
     }
   }

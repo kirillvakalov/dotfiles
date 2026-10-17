@@ -31,12 +31,12 @@ trusted_hash = "sha256:90e3d9907424f40a0a8e392b29e878ad497dcb7bd04d5798353b9cfa9
 
 [mcp_servers.chrome-devtools]
 command = "npx"
-args = ["-y", "chrome-devtools-mcp@latest"]
+args = ["-y", "chrome-devtools-mcp@1.11.0"]
 default_tools_approval_mode = "approve"
 
 [mcp_servers.rea]
 command = "npx"
-args = [ "-y", "rea-agents@latest", "mcp" ]
+args = [ "-y", "rea-agents@6.7.0", "mcp" ]
 startup_timeout_sec = 30
 
 [mcp_servers.mako]
