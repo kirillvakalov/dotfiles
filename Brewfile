@@ -41,6 +41,7 @@ cask "google-chrome"
 cask "slack"
 cask "tableplus"
 
+brew "ghidra"
 brew "jadx"
 brew "openjdk"
 brew "python@3.14"

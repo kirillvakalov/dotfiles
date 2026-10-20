@@ -56,6 +56,13 @@ uv tool install git+https://github.com/zinja-coder/jadx-mcp-server
 
 ### Tips
 
+#### Open new Finder windows in Downloads instead of Recents
+
+```sh
+defaults write com.apple.finder NewWindowTarget -string PfLo
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/Downloads/"
+```
+
 #### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using window managers like Rift
 
 ```sh
