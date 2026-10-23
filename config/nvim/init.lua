@@ -86,6 +86,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 })
 
 vim.pack.add({
+  'https://github.com/lucasadelino/conifer.nvim',
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',
@@ -101,7 +102,7 @@ vim.pack.add({
   'https://github.com/lewis6991/gitsigns.nvim',
 })
 
-vim.cmd.colorscheme('catppuccin-nvim')
+vim.cmd.colorscheme('conifer')
 
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 require('nvim-treesitter').install({
