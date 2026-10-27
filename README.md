@@ -36,7 +36,7 @@ brew bundle
 ```sh
 kubectl krew upgrade && kubectl krew install ctx cnpg
 jadx plugins --install "github:zinja-coder:jadx-ai-mcp"
-# NOTE: jadx-mcp-server is broken upstream right now. Its published tool only 
+# NOTE: jadx-mcp-server is broken upstream right now. Its published tool only
 # packages jadx_mcp_server.py, not the code in src/ that published file imports,
 # so the installed command dies on startup with:
 #     ModuleNotFoundError: No module named 'src'
@@ -76,3 +76,10 @@ Select _Chrome_ in the menu bar and select to un-check _Warn before Quitting (�
 #### Show Emoji & Symbols on pressing _fn (globe) key_
 
 Go to System Settings -> Keyboard -> Press _globe key_ to -> Show Emoji & Symbols
+
+#### Open Spotlight in Applications mode with _⌘Space_
+
+Go to _System Settings → Keyboard → Keyboard Shortcuts → Spotlight_, un-check
+_Show Spotlight search_, check _Show Apps_ and set it to _⌘Space_.
+Note: Press _Esc_ in Applications mode to switch back to default Spotlight
+search mode.
