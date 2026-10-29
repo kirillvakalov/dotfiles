@@ -63,10 +63,16 @@ defaults write com.apple.finder NewWindowTarget -string PfLo
 defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/Downloads/"
 ```
 
-#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using window managers like Rift
+#### Workaround for [mission control showing too small windows](https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control) when using tiling window managers
 
 ```sh
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+```
+
+#### Remove Slack from macOS menu bar
+
+```sh
+defaults write com.tinyspeck.slackmacgap "NSStatusItem Visible Item-0" -bool false
 ```
 
 #### To close Google Chrome instantly on pressing _⌘Q_
