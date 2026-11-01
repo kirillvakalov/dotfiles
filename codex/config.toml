@@ -29,6 +29,9 @@ trust_level = "trusted"
 [hooks.state."/Users/kirillvakalov/.codex/hooks.json:user_prompt_submit:0:0"]
 trusted_hash = "sha256:90e3d9907424f40a0a8e392b29e878ad497dcb7bd04d5798353b9cfa9321e786"
 
+[hooks.state."/Users/kirillvakalov/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:3da181f6a6d78fa2e4446bb51881bea0b4d69562eb909961fa616df84970d643"
+
 [mcp_servers.chrome-devtools]
 command = "npx"
 args = ["-y", "chrome-devtools-mcp@1.11.0"]
@@ -41,6 +44,7 @@ startup_timeout_sec = 30
 
 [mcp_servers.mako]
 url = "https://app.mako.ai/api/mcp"
+enabled = false
 
 [tui]
 vim_mode_default = true

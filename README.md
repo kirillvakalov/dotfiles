@@ -89,3 +89,11 @@ Go to _System Settings → Keyboard → Keyboard Shortcuts → Spotlight_, un-ch
 _Show Spotlight search_, check _Show Apps_ and set it to _⌘Space_.
 Note: Press _Esc_ in Applications mode to switch back to default Spotlight
 search mode.
+
+#### Install custom themes in Rex
+
+Rex keeps its theme in app preferences instead of init.lua config, to install
+custom theme do this:
+
+Rex → _Settings…_ (_⌘,_) → _Themes_ → _Import Theme_ → _Import a Ghostty or
+iTerm theme file_ → Select one of the themes from `config/ghostty/themes`.
