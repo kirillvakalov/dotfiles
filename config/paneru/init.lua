@@ -32,6 +32,7 @@ local tiled_apps = {
   'com.mitchellh.ghostty',
   'com.google.Chrome',
   'com.tinyspeck.slackmacgap',
+  'com.superlogical.rex',
 }
 
 paneru.on('window_spawned', function(event, ws)
