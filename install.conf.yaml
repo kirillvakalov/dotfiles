@@ -20,10 +20,13 @@
     ~/.zshenv:
     ~/.zshrc:
     ~/.zimrc:
-    ~/.codex/:
+    ~/.codex/config.toml:
+      force: true
+      path: codex/config.toml
+    ~/.codex/skills/:
       glob: true
       force: true
-      path: codex/**
+      path: codex/skills/*
     ~/.docker/config.json:
       force: true
       path: docker/config.json
