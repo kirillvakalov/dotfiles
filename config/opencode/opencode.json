@@ -20,7 +20,17 @@
       "chrome-devtools": {
         "type": "local",
         "disabled": false,
-        "command": ["npx", "-y", "chrome-devtools-mcp@1.11.0", "--autoConnect"]
+        "command": ["npx", "-y", "chrome-devtools-mcp@1.11.0"]
+      },
+      "jadx": {
+        "type": "local",
+        "command": [
+          "uv",
+          "run",
+          "--directory",
+          "/Users/kirillvakalov/.local/share/jadx-mcp-server",
+          "jadx_mcp_server.py"
+        ]
       },
       "rea": {
         "type": "local",

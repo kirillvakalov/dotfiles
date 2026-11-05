@@ -3,6 +3,9 @@
   "session": {
     "sidebar": "hide"
   },
+  "tabs": {
+    "mode": "off"
+  },
   "theme": {
     "name": "system"
   }
