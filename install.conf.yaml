@@ -9,6 +9,8 @@
       recursive: true
     ~/.agents/skills:
       recursive: true
+    ~/.codex/skills:
+      recursive: true
 
 - link:
     ~/.gitconfig:
@@ -18,9 +20,10 @@
     ~/.zshenv:
     ~/.zshrc:
     ~/.zimrc:
-    ~/.codex/config.toml:
+    ~/.codex/:
+      glob: true
       force: true
-      path: codex/config.toml
+      path: codex/**
     ~/.docker/config.json:
       force: true
       path: docker/config.json
