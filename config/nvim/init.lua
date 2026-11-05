@@ -56,8 +56,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
 -- Toggle relative numbers
 vim.keymap.set('n', '<leader>tr', function() vim.opt.relativenumber = not vim.opt.relativenumber:get() end)
--- Toggle git signs
-vim.keymap.set('n', '<leader>tg', function() require('gitsigns').toggle_signs() end)
 
 -- Plugins 🔌
 -- Built-in plugins
@@ -99,7 +97,6 @@ vim.pack.add({
   'https://github.com/rmagatti/auto-session',
   'https://github.com/ABDsheikho/focusline.nvim',
   'https://github.com/azorng/vision.nvim',
-  'https://github.com/lewis6991/gitsigns.nvim',
 })
 
 vim.cmd.colorscheme('conifer')
@@ -259,17 +256,3 @@ require('focusline').setup({
 
 -- Run `:VisionInstall <agent>` to install hooks for AI agents
 require('vision').setup()
-
-require('gitsigns').setup({
-  -- Do not show signs by default, use <leader>tg to toggle it on.
-  signcolumn = false,
-  signs = {
-    add = { text = '┃' },
-    change = { text = '┃' },
-    delete = { text = '' },
-    topdelete = { text = '' },
-    changedelete = { text = '' },
-    untracked = { text = '' },
-  },
-})
-vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'GitSignsChange' })
