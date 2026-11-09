@@ -7,7 +7,7 @@
         "deepseek/deepseek-v4.1-flash-1017": {
           "body": {
             "provider": {
-              "only": ["baseten", "together", "deepseek"],
+              "only": ["baseten/fast", "together"],
               "sort": "throughput"
             }
           }
@@ -20,7 +20,7 @@
       "chrome-devtools": {
         "type": "local",
         "disabled": false,
-        "command": ["npx", "-y", "chrome-devtools-mcp@1.11.0"]
+        "command": ["npx", "-y", "chrome-devtools-mcp@1.12.0"]
       },
       "jadx": {
         "type": "local",
@@ -34,7 +34,7 @@
       },
       "rea": {
         "type": "local",
-        "command": ["npx", "-y", "rea-agents@6.7.0", "mcp"]
+        "command": ["npx", "-y", "rea-agents@6.8.0", "mcp"]
       }
     }
   }
