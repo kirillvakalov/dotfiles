@@ -8,7 +8,6 @@ brew "jj"
 brew "jjui"
 brew "jq"
 brew "neovim"
-brew "neurosnap/tap/zmx", trusted: true
 brew "paneru"
 brew "ripgrep"
 brew "tree-sitter-cli"

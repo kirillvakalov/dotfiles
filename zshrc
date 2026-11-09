@@ -37,12 +37,7 @@ zvm_after_select_vi_mode() {
   zle reset-prompt
 }
 
-typeset -g ZMX_PROMPT=''
-if [[ -n ${ZMX_SESSION} ]]; then
-  ZMX_PROMPT="%B%F{green}${ZMX_SESSION}%f%b "
-fi
-
-PROMPT=$'\n${ZMX_PROMPT}%(?..%B%F{red}(%?%)%f%b )%B%F{blue}%2~%f%b\n${PROMPT_CHAR} '
+PROMPT=$'\n%(?..%B%F{red}(%?%)%f%b )%B%F{blue}%2~%f%b\n${PROMPT_CHAR} '
 RPROMPT=''
 
 # Initialize modules.
