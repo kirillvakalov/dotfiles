@@ -7,7 +7,7 @@
         "deepseek/deepseek-v4.1-flash-1017": {
           "body": {
             "provider": {
-              "only": ["baseten/fast", "together"],
+              "only": ["together"],
               "sort": "throughput"
             }
           }

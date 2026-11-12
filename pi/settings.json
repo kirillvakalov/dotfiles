@@ -1,0 +1,5 @@
+{
+  "$schema": "https://pi.dev/schemas/settings.schema.json",
+  "defaultThinkingLevel": "low",
+  "lastChangelogVersion": "1.5.2"
+}
