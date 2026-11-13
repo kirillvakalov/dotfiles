@@ -6,4 +6,4 @@ rex.bind('cmd+k', 'pane.focus.up')
 rex.bind('cmd+l', 'pane.focus.right')
 
 -- Default is cmd+k, which we use to switch to top pane
-rex.bind('shift+cmd+k', 'session.switch')
+rex.bind('cmd+i', 'session.switch')
