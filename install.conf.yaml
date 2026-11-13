@@ -27,9 +27,10 @@
       glob: true
       force: true
       path: codex/skills/*
-    ~/.pi/agent/settings.json:
+    ~/.pi/agent/:
+      glob: true
       force: true
-      path: pi/settings.json
+      path: pi/*
     ~/.docker/config.json:
       force: true
       path: docker/config.json

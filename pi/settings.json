@@ -1,5 +1,10 @@
 {
   "$schema": "https://pi.dev/schemas/settings.schema.json",
   "defaultThinkingLevel": "low",
+  "enabledModels": [
+    "openai/gpt-6.1-sol:low",
+    "openrouter/deepseek/deepseek-v4.1-flash-1017:high",
+    "kimi-coding/k3.1-pro:high"
+  ],
   "lastChangelogVersion": "1.5.2"
 }

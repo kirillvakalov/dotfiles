@@ -1,4 +1,7 @@
 brew "anomalyco/tap/opencode-v2", trusted: true
+brew "pi-coding-agent"
+cask "codex"
+
 brew "atuin"
 brew "btop"
 brew "diff-so-fancy"
@@ -31,7 +34,6 @@ brew "k9s"
 brew "krew"
 brew "kubernetes-cli"
 
-cask "codex"
 cask "cyberduck"
 cask "firefox"
 cask "gcloud-cli"
