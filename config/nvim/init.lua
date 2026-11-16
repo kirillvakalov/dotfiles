@@ -71,7 +71,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<cr>')
 --   List installed
 --     :lua for _, p in ipairs(vim.pack.get()) do print(p.spec.name) end
 
--- Update treesitter parsers when nvim-treesitter plugin is updated
+-- Plugin hooks: update treesitter parsers, download fff binary
 -- ref: https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html#hooks
 vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(ev)
@@ -79,6 +79,9 @@ vim.api.nvim_create_autocmd('PackChanged', {
     if name == 'nvim-treesitter' and kind == 'update' then
       if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
       vim.cmd('TSUpdate')
+    elseif name == 'fff' and (kind == 'install' or kind == 'update') then
+      if not ev.data.active then vim.cmd.packadd('fff') end
+      require('fff.download').download_or_build_binary()
     end
   end,
 })
@@ -90,7 +93,7 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' },
   'https://github.com/stevearc/conform.nvim',
-  'https://github.com/nvim-mini/mini.pick',
+  'https://github.com/dmtrKovalenko/fff',
   'https://github.com/tjgao/quickbuf.nvim',
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -218,27 +221,15 @@ require('conform').setup({
 })
 vim.keymap.set('n', '<leader>f', function() require('conform').format({ async = true }) end)
 
-local pick = require('mini.pick')
--- Keep original vim.ui.select implementation, not the one from mini.pick
-local ui_select_orig = vim.ui.select
-pick.setup({
-  -- Disable file icons
-  source = { show = pick.default_show },
-})
-vim.ui.select = ui_select_orig
-vim.keymap.set('n', '<C-p>', MiniPick.builtin.files)
-vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
-vim.keymap.set('n', "<leader>'", MiniPick.builtin.resume)
+vim.keymap.set('n', '<leader><space>', function() require('fff').find_files() end)
+vim.keymap.set('n', '<leader>/', function() require('fff').live_grep() end)
+vim.keymap.set('n', "<leader>'", function() require('fff').resume() end)
 
 vim.keymap.set('n', '<Tab>', '<cmd>QuickBuf<CR>')
 
 require('oil').setup({
   watch_for_changes = true,
   view_options = { show_hidden = true },
-  keymaps = {
-    -- We use this keymap for MiniPick files
-    ['<C-p>'] = false,
-  },
 })
 vim.keymap.set('n', '-', '<cmd>Oil<cr>')
 
