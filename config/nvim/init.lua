@@ -15,6 +15,13 @@ vim.opt.shiftwidth = 2 -- Indent size
 vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function(args)
+    vim.bo[args.buf].tabstop = 4
+  end,
+})
+
 vim.opt.ignorecase = true -- Ignore case in search
 vim.opt.smartcase = true -- Don't ignore case with uppercase chars
 
@@ -151,6 +158,7 @@ local tools = {
   'oxfmt',
   'sqruff',
   'stylua',
+  'gopls',
 }
 masonRegistry.refresh(function()
   for _, tool in ipairs(tools) do
@@ -159,7 +167,7 @@ masonRegistry.refresh(function()
   end
 end)
 
-vim.lsp.enable({ 'tsc', 'oxlint', 'sqruff' })
+vim.lsp.enable({ 'tsc', 'oxlint', 'sqruff', 'gopls' })
 
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
@@ -214,6 +222,7 @@ require('conform').setup({
     ['markdown.mdx'] = { 'oxfmt' },
     graphql = { 'oxfmt' },
     handlebars = { 'oxfmt' },
+    go = { 'gofmt' },
   },
   default_format_opts = {
     lsp_format = 'fallback',
