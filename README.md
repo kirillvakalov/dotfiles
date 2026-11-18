@@ -89,7 +89,7 @@ Select _Chrome_ in the menu bar and select to un-check _Warn before Quitting (�
 
 #### Show Emoji & Symbols on pressing _fn (globe) key_
 
-Go to System Settings -> Keyboard -> Press _globe key_ to -> Show Emoji & Symbols
+Go to System Settings → Keyboard → Press _globe key_ to → Show Emoji & Symbols
 
 #### Open Spotlight in Applications mode with _⌘Space_
 
@@ -97,6 +97,11 @@ Go to _System Settings → Keyboard → Keyboard Shortcuts → Spotlight_, un-ch
 _Show Spotlight search_, check _Show Apps_ and set it to _⌘Space_.
 Note: Press _Esc_ in Applications mode to switch back to default Spotlight
 search mode.
+
+#### Add shortcut to macOS menu bar
+
+Go to _System Settings → Menu Bar → Add Controls → Shortcuts_, click _Run
+Shortcut_, choose _Add to Menu Bar_, then select your shortcut.
 
 #### Install custom themes in Rex
 
